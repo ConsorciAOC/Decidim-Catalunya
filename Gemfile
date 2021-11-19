@@ -30,3 +30,12 @@ group :development do
   gem "web-console", "~> 4.0"
   gem "puma", ">= 5.0.0"
 end
+
+group :production, :staging do
+  gem 'sidekiq'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+end
