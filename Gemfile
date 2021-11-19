@@ -6,11 +6,11 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = "0.25.1"
 
 gem "decidim", DECIDIM_VERSION
-# gem "decidim-conferences", DECIDIM_VERSION
-# gem "decidim-consultations", DECIDIM_VERSION
-# gem "decidim-elections", DECIDIM_VERSION
-# gem "decidim-initiatives", DECIDIM_VERSION
-# gem "decidim-templates", DECIDIM_VERSION
+gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-consultations", DECIDIM_VERSION
+gem "decidim-elections", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-templates", DECIDIM_VERSION
 
 gem "bootsnap", "~> 1.3"
 gem "faker", "~> 2.14"
