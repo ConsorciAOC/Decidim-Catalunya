@@ -13,11 +13,7 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-templates", DECIDIM_VERSION
 
 gem "bootsnap", "~> 1.3"
-
-gem "puma", ">= 5.0.0"
-
 gem "faker", "~> 2.14"
-
 gem "wicked_pdf", "~> 2.1"
 
 group :development, :test do
@@ -32,4 +28,5 @@ group :development do
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 4.0"
+  gem "puma", ">= 5.0.0"
 end
