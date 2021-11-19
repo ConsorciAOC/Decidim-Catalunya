@@ -11,6 +11,8 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-elections", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
+gem "decidim-idcat_mobil", path: "vendor/decidim-idcat_mobil"
+gem "omniauth-idcat_mobil", path: "vendor/omniauth-idcat_mobil"
 
 gem "bootsnap", "~> 1.3"
 gem "faker", "~> 2.14"
