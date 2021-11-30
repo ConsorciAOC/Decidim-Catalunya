@@ -11,4 +11,5 @@ microsoft:
   storage_account_name: <%= Rails.application.secrets.azure_storage_account_name %>
   storage_access_key: <%= Rails.application.secrets.azure_storage_access_key %>
   container: <%= Rails.application.secrets.azure_container %>
-  public: true
+  storage_blob_host: <%= Rails.application.secrets.azure_storage_blob_host %>
+
