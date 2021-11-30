@@ -16,9 +16,6 @@ gem "bootsnap", "~> 1.3"
 gem "faker", "~> 2.14"
 gem "wicked_pdf", "~> 2.1"
 
-# Blob storage in the cloud
-gem "azure-storage-blob", require: false
-
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
