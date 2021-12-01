@@ -34,6 +34,10 @@ group :development do
   gem "puma", ">= 5.0.0"
 end
 
+group :staging do
+  gem "letter_opener_web", "~> 1.3"
+end
+
 group :production, :staging do
   gem 'sidekiq'
 end
