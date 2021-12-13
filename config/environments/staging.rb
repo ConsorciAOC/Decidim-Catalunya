@@ -87,12 +87,21 @@ Rails.application.configure do
   ## }
 
   ## Mailing
-  config.action_mailer.delivery_method = :letter_opener_web
-  config.action_mailer.smtp_settings = {
-    address: Rails.application.secrets.smtp_address,
-    port:    Rails.application.secrets.smtp_port,
-    domain:  Rails.application.secrets.smtp_domain
-  }
+  if ENV["DELIVERY_METHOD_LETTER_OPENER"].present?
+    config.action_mailer.delivery_method = :letter_opener_web
+  else
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address        => Rails.application.secrets.smtp_address,
+      :port           => Rails.application.secrets.smtp_port,
+      :authentication => Rails.application.secrets.smtp_authentication,
+      :user_name      => Rails.application.secrets.smtp_username,
+      :password       => Rails.application.secrets.smtp_password,
+      :domain         => Rails.application.secrets.smtp_domain,
+      :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
+      :openssl_verify_mode => 'none'
+    }
+  end
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
