@@ -18,6 +18,9 @@ gem "bootsnap", "~> 1.3"
 gem "faker", "~> 2.14"
 gem "wicked_pdf", "~> 2.1"
 
+# Blob storage in the cloud
+gem "azure-storage-blob", require: false
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
@@ -31,6 +34,10 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 4.0"
   gem "puma", ">= 5.0.0"
+end
+
+group :staging do
+  gem "letter_opener_web", "~> 1.3"
 end
 
 group :production, :staging do
