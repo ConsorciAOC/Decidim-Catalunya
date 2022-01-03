@@ -89,7 +89,7 @@ module OmniAuth
       # That's what we do in this callback.
       def callback_phase
         log(:debug, "In `callback_phase` with request params: #{request.params}")
-        log(:debug, "Both should be equal otherwise a 'CSRF detected' error is raised: params state[#{request.params["state"]}] =? [#{session.delete("omniauth.state")}] session state.")
+        log(:debug, "Both should be equal otherwise a 'CSRF detected' error is raised: params state[#{request.params["state"]}] =? [#{session.dig("omniauth.state")}] session state.")
         super
       end
 
