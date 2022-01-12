@@ -29,8 +29,20 @@ Decidim.configure do |config|
     static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
   }
 
-  config.enable_html_header_snippets = false
-
+  # Custom HTML Header snippets
+  #
+  # The most common use is to integrate third-party services that require some
+  # extra JavaScript or CSS. Also, you can use it to add extra meta tags to the
+  # HTML. Note that this will only be rendered in public pages, not in the admin
+  # section.
+  #
+  # Before enabling this you should ensure that any tracking that might be done
+  # is in accordance with the rules and regulations that apply to your
+  # environment and usage scenarios. This feature also comes with the risk
+  # that an organization's administrator injects malicious scripts to spy on or
+  # take over user accounts.
+  #
+  config.enable_html_header_snippets = true
 
   # Machine Translation Configuration
   #
