@@ -218,10 +218,6 @@ GEM
       decidim-meetings (= 0.25.1)
       wicked_pdf (~> 2.1)
       wkhtmltopdf-binary (~> 0.12)
-    decidim-consultations (0.25.1)
-      decidim-admin (= 0.25.1)
-      decidim-comments (= 0.25.1)
-      decidim-core (= 0.25.1)
     decidim-core (0.25.1)
       active_link_to (~> 1.0)
       acts_as_list (~> 0.9)
@@ -857,7 +853,6 @@ DEPENDENCIES
   database_cleaner
   decidim (= 0.25.1)
   decidim-conferences (= 0.25.1)
-  decidim-consultations (= 0.25.1)
   decidim-dev (= 0.25.1)
   decidim-elections (= 0.25.1)
   decidim-initiatives (= 0.25.1)
