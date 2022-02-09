@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/Platoniq/decidim-module-decidim_awesome
+  revision: 1b1332bf4ea2713034ec2b9da873466038488bca
+  branch: upgrade_025
+  specs:
+    decidim-decidim_awesome (0.8.0)
+      decidim-admin (>= 0.25.0, < 0.26)
+      decidim-core (>= 0.25.0, < 0.26)
+      sassc (~> 2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -720,6 +730,8 @@ GEM
       nokogiri (>= 1.10.8)
       rubyzip (>= 1.3.0)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     searchlight (4.1.0)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
@@ -828,6 +840,7 @@ DEPENDENCIES
   database_cleaner
   decidim (= 0.25.2)
   decidim-conferences (= 0.25.2)
+  decidim-decidim_awesome!
   decidim-dev (= 0.25.2)
   decidim-initiatives (= 0.25.2)
   decidim-templates (= 0.25.2)
