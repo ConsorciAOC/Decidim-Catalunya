@@ -3,14 +3,14 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = "0.25.1"
+DECIDIM_VERSION = "0.25.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-elections", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
+
+gem "decidim-decidim_awesome", git: "https://github.com/Platoniq/decidim-module-decidim_awesome", branch: "fix_zeitwerk_issues"
 
 gem "bootsnap", "~> 1.3"
 gem "faker", "~> 2.14"
