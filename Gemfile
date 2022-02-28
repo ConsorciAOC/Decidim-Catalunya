@@ -10,7 +10,7 @@ gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-gem "decidim-decidim_awesome", git: "https://github.com/Platoniq/decidim-module-decidim_awesome", branch: "fix_zeitwerk_issues"
+gem "decidim-decidim_awesome", "~> 0.8"
 
 gem "bootsnap", "~> 1.3"
 gem "faker", "~> 2.14"
