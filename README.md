@@ -20,3 +20,14 @@ user.save!
 6. Fill the rest of the form and submit it.
 
 You're good to go!
+
+## Development
+
+```bash
+bundle install
+nvm use 16.9.1
+npm install
+bin/rails db:create db:schema:load
+bin/rails db:seed
+bin/rails s
+```
