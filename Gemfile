@@ -9,11 +9,11 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
+gem "decidim-file_authorization_handler", "~> #{DECIDIM_VERSION}", git: "git@github.com:CodiTramuntana/decidim-file_authorization_handler.git"
 
 gem "decidim-decidim_awesome", "~> 0.8"
 
 gem "bootsnap", "~> 1.3"
-gem "faker", "~> 2.14"
 gem "wicked_pdf", "~> 2.1"
 
 # Blob storage in the cloud
@@ -22,6 +22,7 @@ gem "azure-storage-blob", require: false
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
+  gem "faker"
   gem "decidim-dev", DECIDIM_VERSION
 end
 
