@@ -9,7 +9,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
-gem "decidim-file_authorization_handler", "~> #{DECIDIM_VERSION}", git: "git@github.com:CodiTramuntana/decidim-file_authorization_handler.git"
+gem "decidim-file_authorization_handler", "~> #{DECIDIM_VERSION}", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git"
 
 gem "decidim-decidim_awesome", "~> 0.8"
 
