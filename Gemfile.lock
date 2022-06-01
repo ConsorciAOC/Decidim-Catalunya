@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:CodiTramuntana/decidim-file_authorization_handler.git
+  remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
   revision: bbefc2b6edf73bb15011f2fbc36bd4213a71d274
   specs:
     decidim-file_authorization_handler (0.25.2)
