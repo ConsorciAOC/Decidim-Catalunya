@@ -308,6 +308,10 @@ GEM
       wkhtmltopdf-binary (~> 0.12)
     decidim-generators (0.25.2)
       decidim-core (= 0.25.2)
+    decidim-idcat_mobil (0.2.1)
+      decidim (>= 0.25.2)
+      decidim-core (>= 0.25.2)
+      omniauth-idcat_mobil (~> 0.4.0)
     decidim-initiatives (0.25.2)
       decidim-admin (= 0.25.2)
       decidim-comments (= 0.25.2)
@@ -836,6 +840,8 @@ DEPENDENCIES
   decidim-conferences (= 0.25.2)
   decidim-decidim_awesome (~> 0.8)
   decidim-dev (= 0.25.2)
+  decidim-file_authorization_handler (~> 0.25.2)!
+  decidim-idcat_mobil (~> 0.2.1)
   decidim-initiatives (= 0.25.2)
   decidim-templates (= 0.25.2)
   faker
