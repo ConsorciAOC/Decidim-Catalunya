@@ -11,10 +11,6 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", "~> 0.8"
-gem "decidim-idcat_mobil", "~> 0.2.0"
-# Although `omniauth-rails_csrf_protection` is already a Decidim dependency, it is not working unless declared here.
-# In meta.decidim.org, which is at Decidim v0.26, this declaration is not required. Try to remove it after upgrading to Decidim v0.26
-gem "omniauth-rails_csrf_protection"
 
 gem "decidim-idcat_mobil", "~> 0.2.1"
 # Although `omniauth-rails_csrf_protection` is already a Decidim dependency, it is not working unless declared here.
