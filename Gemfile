@@ -16,6 +16,11 @@ gem "decidim-idcat_mobil", "~> 0.2.0"
 # In meta.decidim.org, which is at Decidim v0.26, this declaration is not required. Try to remove it after upgrading to Decidim v0.26
 gem "omniauth-rails_csrf_protection"
 
+gem "decidim-idcat_mobil", "~> 0.2.1"
+# Although `omniauth-rails_csrf_protection` is already a Decidim dependency, it is not working unless declared here.
+# In meta.decidim.org, which is at Decidim v0.26, this declaration is not required. Try to remove it after upgrading to Decidim v0.26
+gem "omniauth-rails_csrf_protection"
+
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.1"
 
