@@ -1,0 +1,27 @@
+ca:
+  activemodel:
+    attributes:
+      via_oberta_authorization_handler:
+        document_type: Tipus de document
+        id_document: Número de document
+  decidim:
+    authorization_handlers:
+      via_oberta_authorization_handler:
+        name: Via Oberta
+        explanation: Autoritza el teu compte d'usuari contra Via Oberta
+        document_types:
+          nif: NIF
+          nie: NIE
+          residence_card: Permís residència
+          passport: Passaport
+    census:
+      errors:
+        messages:
+          invalid_credentials: Les credencials no coincideixen.
+          not_censed: No hem pogut trobar el teu document d'identitat amb aquesta data de naixement al Via Oberta. Si les dades són correctes i el problema persisteix, siusplau, posa't en contacte amb un administrador.
+  via_oberta_authorization:
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Any
