@@ -1,0 +1,26 @@
+default: &default
+  # Database configuration
+  DB_PORT: "5432"
+  DB_POOL: <%= ENV.fetch("RAILS_MAX_THREADS") { "5" } %>
+  DB_HOST: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+  DB_DATABASE: "decidim_aoc_app"
+  DB_USERNAME: "laurajaime"
+  DB_PASSWORD: "password"
+  SECRET_KEY_BASE: "secret_key_base"
+  VIA_OBERTA_URL:  "https://serveis3-pre.iop.aoc.cat/siri-proxy/services/Asincron?wsdl"
+
+development:
+  <<: *default
+
+integration:
+  <<: *default
+  # secrets
+  SECRET_KEY_BASE: <%= ENV['SECRET_KEY_BASE'] %>
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+  # secrets
+  SECRET_KEY_BASE: <%= ENV['SECRET_KEY_BASE'] %>

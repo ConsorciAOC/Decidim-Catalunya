@@ -1,0 +1,53 @@
+ca:
+  activerecord:
+    attributes:
+      decidim/organization:
+        via_oberta_authorizaton_ine: INE
+        via_oberta_authorizaton_username: Usuario
+        via_oberta_authorizaton_password: Contraseña
+  activemodel:
+    attributes:
+      via_oberta_authorization_handler:
+        document_type: Tipo de documento
+        id_document: Número de documento
+        birthdate: Fecha de nacimiento
+  decidim:
+    authorization_handlers:
+      via_oberta_authorization_handler:
+        name: Via Oberta
+        explanation: Autoriza tu cuenta de usuario contra Via Oberta
+        type: API
+        fields:
+          birthdate: Fecha de nacimiento
+        document_types:
+          nif: NIF
+          nie: NIE
+          residence_card: Permís residència
+          passport: Pasaporte
+    census:
+      errors:
+        messages:
+          invalid_credentials: Les credencials no coincideixen.
+          not_censed: No hem pogut trobar el teu document d'identitat amb aquesta data de naixement al Via Oberta. Si les dades són correctes i el problema persisteix, siusplau, posa't en contacte amb un administrador.
+    via_oberta_authorization:
+      admin:
+        menu: Configurar API censo
+        api_configs:
+          show:
+            title: Configuración de API de Censo para %{name}
+            edit: Modificar configuración
+          edit:
+            title: Editar la configuración del API de Censo
+            submit: Guardar configuración
+            cancel: Volver atrás
+          instructions:
+            title: Debes activar este módulo para continuar
+            body: Para ello debes entrar en administración del sistema y añadir la autorización de API o la combinada en la organización
+          update:
+            success: Configuración guardada
+  via_oberta_authorization:
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Año

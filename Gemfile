@@ -11,6 +11,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", "~> 0.8"
+gem "decidim-via_oberta_authorization", path: "decidim-via_oberta_authorization"
 
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.1"
