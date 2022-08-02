@@ -46,7 +46,7 @@ class ViaObertaAuthorizationHandler < Decidim::AuthorizationHandler
     return @census_for_user if defined? @census_for_user
     return unless organization
 
-    @service = ViaObertaAuthorization.new(ViaObertaAuthorizationConfig.api_config(organization))
+    @service = ViaObertaAuthorization.new(organization)
     @census_for_user = @service.call(
       document_type: ::ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type],
       id_document: id_document

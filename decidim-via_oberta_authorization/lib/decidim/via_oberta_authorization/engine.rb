@@ -17,6 +17,13 @@ module Decidim
           auth.form = "ViaObertaAuthorizationHandler"
         end
       end
+
+      config.to_prepare do
+        decorators = "#{Decidim::ViaObertaAuthorization::Engine.root}/app/decorators"
+        Dir.glob("#{decorators}/**/*_decorator.rb").each do |decorator|
+          require_dependency(decorator)
+        end
+      end
     end
   end
 end

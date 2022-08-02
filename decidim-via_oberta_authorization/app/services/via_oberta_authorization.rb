@@ -3,22 +3,22 @@
 class ViaObertaAuthorization
   ViaObertaData = Struct.new(:document_type, :id_document)
 
-  def initialize(ine)
-    @ine = ine
+  def initialize(organization)
+    @organization = organization
   end
 
   def call(document_type:, id_document:)
     request = build_request
     raw_response = request.send_rq(document_type: document_type, id_document: id_document)
     response = ViaObertaAuthorizationRs.new(raw_response)
-    return unless response.birth_date.present? && response.active?
+    return unless response.active?
 
-    ViaObertaData.new(document_type, id_document, response.birth_date)
+    ViaObertaData.new(document_type, id_document)
   end
 
   private
 
   def build_request
-    ViaObertaAuthorizationRq.new(@ine)
+    ViaObertaAuthorizationRq.new(@organization)
   end
 end

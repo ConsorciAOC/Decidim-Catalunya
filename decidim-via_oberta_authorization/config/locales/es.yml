@@ -19,9 +19,11 @@ es:
         messages:
           invalid_credentials: Las credenciales no coinciden.
           not_censed: No hemos podido encontrar tu documento de identidad con esta fecha de nacimiento en Via Oberta. Si tus datos son correctos y el problema persiste, por favor, ponte en contacto con un administrador.
-  via_oberta_authorization:
-    form:
-      date_select:
-        day: Dia
-        month: Mes
-        year: Año
+    system:
+      models:
+        organization:
+          fields:
+            ine: INE
+            municipal_code: Código de municipio
+            province_code: Código de provincia
+            via_oberta_settings: Configuración de Via Oberta

@@ -17,7 +17,7 @@ namespace :via_oberta do
     EOMSG
 
     puts "\nRESPONSE:"
-    service= ViaObertaAuthorizationRq.new(ViaObertaAuthorizationConfig.api_config(organization))
+    service= ViaObertaAuthorizationRq.new(organization)
     rs= service.send_rq(
       document_type: ::ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type],
       id_document: id_document

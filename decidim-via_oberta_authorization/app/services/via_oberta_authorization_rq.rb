@@ -14,8 +14,10 @@ require "base64"
 class ViaObertaAuthorizationRq
   URL = ViaObertaAuthorizationConfig.url
 
-  def initialize(ine)
-    @ine = ine
+  def initialize(organization)
+    @ine = organization.via_oberta_settings['ine']
+    @municipal_code = organization.via_oberta_settings['municipal_code']
+    @province_code = organization.via_oberta_settings['province_code']
   end
 
   def send_rq(document_type:, id_document:)
@@ -30,59 +32,66 @@ class ViaObertaAuthorizationRq
     Faraday.post URL do |http_request|
       http_request.headers["Content-Type"] = "text/xml"
       http_request.headers["SOAPAction"] = "servicio"
+
+      document = request_body(request)
+      signer = DocumentSigner.new(ViaObertaAuthorizationConfig.signer_settings.merge({:document => document}))
+      body = signer.sign_document
+
       http_request.body = request_body(request)
     end
   end
 
   def request_body(request)
-    timestamp = Time.now.to_i
+    timestamp = Time.now.strftime("%Y-%m-%dT%H:%M:%SZ")
     <<~XML
-      <ns4:Peticion xmlns:ns4="http://gencat.net/scsp/esquemes/peticion">
-        <ns4:Atributos>
-            <ns4:IdPeticion>DECIDIM-PAD-824010007-#{timestamp}</ns4:IdPeticion>
-            <ns4:NumElementos>1</ns4:NumElementos>
-            <ns4:TimeStamp>#{timestamp}</ns4:TimeStamp>
-            <ns4:CodigoCertificado>TITULAR_PROPI</ns4:CodigoCertificado>
-            <ns4:CodigoProducto>PADRO</ns4:CodigoProducto>
-            <ns4:DatosAutorizacion>
-                <ns4:IdentificadorSolicitante>824010007</ns4:IdentificadorSolicitante>
-                <ns4:NombreSolicitante>Ajuntament de Sant Sadurni</ns4:NombreSolicitante>
-                <ns4:Finalidad>PROVES</ns4:Finalidad>
-            </ns4:DatosAutorizacion>
-            <ns4:Emisor>
-                <ns4:NifEmisor>Q0801175A</ns4:NifEmisor>
-                <ns4:NombreEmisor>CAOC</ns4:NombreEmisor>
-            </ns4:Emisor>
-        </ns4:Atributos>
-        <ns4:Solicitudes>
-            <ns4:SolicitudTransmision>
-                <ns4:DatosGenericos>
-                    <ns4:Emisor>
-                        <ns4:NifEmisor>Q0801175A</ns4:NifEmisor>
-                        <ns4:NombreEmisor>CAOC</ns4:NombreEmisor>
-                    </ns4:Emisor>
-                    <ns4:Solicitante>
-                        <ns4:IdentificadorSolicitante>824010007</ns4:IdentificadorSolicitante>
-                        <ns4:NombreSolicitante>Ajuntament de Sant Sadurni</ns4:NombreSolicitante>
-                        <ns4:Finalidad>PROVES</ns4:Finalidad>
-                        <ns4:Consentimiento>Si</ns4:Consentimiento>
-                    </ns4:Solicitante>
-                    <ns4:Transmision>
-                        <ns4:CodigoCertificado>TITULAR_PROPI</ns4:CodigoCertificado>
-                        <ns4:IdSolicitud>DECIDIM-PAD-220427151828.98226</ns4:IdSolicitud>
-                    </ns4:Transmision>
-                </ns4:DatosGenericos>
-                <ns4:DatosEspecificos>
-                    <ns7:peticioDatosTitular>
-                        <ns7:numExpediente>#{request.id_document}<ns7:numExpediente/>
-                        <ns7:tipoDocumentacion>#{request.document_type}</ns7:tipoDocumentacion>
-                        <ns7:documentacion>#{request.id_document}</ns7:documentacion>                 
-                        <ns7:idescat>0</ns7:idescat>
-                    </ns7:peticioDatosTitular>
-                </ns4:DatosEspecificos>
-            </ns4:SolicitudTransmision>
-        </ns4:Solicitudes>
-      </ns4:Peticion>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Peticion xmlns="http://gencat.net/scsp/esquemes/peticion">
+      <Atributos>
+        <IdPeticion>DECIDIM-PAD-#{@ine}-#{timestamp}</IdPeticion>
+        <NumElementos>1</NumElementos>
+        <TimeStamp>#{timestamp}</TimeStamp>
+        <CodigoCertificado>TITULAR</CodigoCertificado>
+        <CodigoProducto>PADRO</CodigoProducto>
+        <DatosAutorizacion>
+          <IdentificadorSolicitante>#{@ine}</IdentificadorSolicitante>
+          <NombreSolicitante>Ajuntament de Tarragona</NombreSolicitante>
+          <Finalidad>#{ViaObertaAuthorizationConfig.purpose}</Finalidad>
+        </DatosAutorizacion>
+        <Emisor>
+          <NifEmisor>Q0801175A</NifEmisor>
+          <NombreEmisor>CAOC</NombreEmisor>
+        </Emisor>
+      </Atributos>
+      <Solicitudes>
+        <SolicitudTransmision>
+          <DatosGenericos>
+            <Emisor>
+              <NifEmisor>Q0801175A</NifEmisor>
+              <NombreEmisor>CAOC</NombreEmisor>
+            </Emisor>
+            <Solicitante>
+              <IdentificadorSolicitante>#{@ine}</IdentificadorSolicitante>
+              <NombreSolicitante>CAOC</NombreSolicitante>
+              <Finalidad>Ajuntament de Tarragona</Finalidad>
+              <Consentimiento>Si</Consentimiento>
+            </Solicitante>
+            <Transmision>
+              <CodigoCertificado>TITULAR</CodigoCertificado>
+              <IdSolicitud>AOC00000000100373</IdSolicitud>
+            </Transmision>
+          </DatosGenericos>
+          <DatosEspecificos>
+            <ns1:peticionResidente xmlns:ns1="http://www.aocat.net/padro">
+              <ns1:numExpediente>#{request.id_document}</ns1:numExpediente>
+              <ns1:tipoDocumentacion>#{request.document_type}</ns1:tipoDocumentacion>
+              <ns1:documentacion>#{request.id_document}</ns1:documentacion>
+              <ns1:codigoMunicipio>#{@municipal_code}</ns1:codigoMunicipio> 
+							<ns1:codigoProvincia>#{@province_code}</ns1:codigoProvincia>
+            </ns1:peticionResidente>
+          </DatosEspecificos>
+        </SolicitudTransmision>
+      </Solicitudes>
+    </Peticion>
     XML
   end
 

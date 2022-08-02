@@ -25,6 +25,9 @@ gem "wicked_pdf", "~> 2.1"
 # Blob storage in the cloud
 gem "azure-storage-blob", require: false
 
+gem "deface"
+gem "signer"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 

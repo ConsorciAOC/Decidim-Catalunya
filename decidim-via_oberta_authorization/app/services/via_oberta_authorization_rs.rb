@@ -15,16 +15,6 @@ class ViaObertaAuthorizationRs
     @rs_inside_soap||= parse_response(@raw)
   end
 
-  # Returns the decoded birth date returned if the request was successful.
-  # Otherwise returns nil.
-  def birth_date
-    @birth_date ||= begin
-      extracted= extract_encoded_birth_date
-      decode_date(extracted) if extracted.present?
-    end
-  end
-
-
   def active?
     Base64.decode64(rs_inside_soap.xpath("//codigoResultado").text) == 1
   end
@@ -35,10 +25,6 @@ class ViaObertaAuthorizationRs
     # The *real* response data is encoded as a xml string inside a xml node.
     parsed = Nokogiri::XML(response.body).remove_namespaces!
     Nokogiri::XML(parsed.xpath("//servicioResponse")[0])
-  end
-
-  def extract_encoded_birth_date
-    rs_inside_soap.xpath("//fechaNacimiento").text
   end
 
   # Decode a date from an API timestamp format
