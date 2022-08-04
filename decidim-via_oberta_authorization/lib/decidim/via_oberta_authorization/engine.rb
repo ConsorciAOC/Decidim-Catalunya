@@ -20,8 +20,9 @@ module Decidim
 
       config.to_prepare do
         decorators = "#{Decidim::ViaObertaAuthorization::Engine.root}/app/decorators"
+        Rails.autoloaders.main.ignore(decorators)
         Dir.glob("#{decorators}/**/*_decorator.rb").each do |decorator|
-          require_dependency(decorator)
+          load decorator
         end
       end
     end
