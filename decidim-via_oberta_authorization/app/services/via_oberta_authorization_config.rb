@@ -20,13 +20,5 @@ class ViaObertaAuthorizationConfig
         "PROVES"
       end
     end
-
-    def signer_settings
-      {
-        certificate: Rails.application.secrets.via_oberta['certificat'],
-        private_key_cert: Rails.application.secrets.via_oberta['private_key_cert'],
-        private_key_pass: Rails.application.secrets.via_oberta['private_key_pass']
-      }
-    end
   end
 end

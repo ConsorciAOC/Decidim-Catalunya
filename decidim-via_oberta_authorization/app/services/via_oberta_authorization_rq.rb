@@ -32,11 +32,6 @@ class ViaObertaAuthorizationRq
     Faraday.post URL do |http_request|
       http_request.headers["Content-Type"] = "text/xml"
       http_request.headers["SOAPAction"] = "servicio"
-
-      document = request_body(request)
-      signer = DocumentSigner.new(ViaObertaAuthorizationConfig.signer_settings.merge({:document => document}))
-      body = signer.sign_document
-
       http_request.body = request_body(request)
     end
   end
@@ -50,7 +45,7 @@ class ViaObertaAuthorizationRq
         <IdPeticion>DECIDIM-PAD-#{@ine}-#{timestamp}</IdPeticion>
         <NumElementos>1</NumElementos>
         <TimeStamp>#{timestamp}</TimeStamp>
-        <CodigoCertificado>TITULAR</CodigoCertificado>
+        <CodigoCertificado>RESIDENT_MUNICIPI</CodigoCertificado>
         <CodigoProducto>PADRO</CodigoProducto>
         <DatosAutorizacion>
           <IdentificadorSolicitante>#{@ine}</IdentificadorSolicitante>
@@ -76,7 +71,7 @@ class ViaObertaAuthorizationRq
               <Consentimiento>Si</Consentimiento>
             </Solicitante>
             <Transmision>
-              <CodigoCertificado>TITULAR</CodigoCertificado>
+              <CodigoCertificado>RESIDENT_MUNICIPI</CodigoCertificado>
               <IdSolicitud>AOC00000000100373</IdSolicitud>
             </Transmision>
           </DatosGenericos>
@@ -87,6 +82,7 @@ class ViaObertaAuthorizationRq
               <ns1:documentacion>#{request.id_document}</ns1:documentacion>
               <ns1:codigoMunicipio>#{@municipal_code}</ns1:codigoMunicipio> 
 							<ns1:codigoProvincia>#{@province_code}</ns1:codigoProvincia>
+              <ns1:idescat>1</ns1:idescat>
             </ns1:peticionResidente>
           </DatosEspecificos>
         </SolicitudTransmision>
