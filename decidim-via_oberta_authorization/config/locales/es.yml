@@ -18,7 +18,7 @@ es:
       errors:
         messages:
           invalid_credentials: Las credenciales no coinciden.
-          not_censed: No hemos podido encontrar tu documento de identidad con esta fecha de nacimiento en Via Oberta. Si tus datos son correctos y el problema persiste, por favor, ponte en contacto con un administrador.
+          not_censed: No hemos podido encontrar tu documento de identidad en Via Oberta. Si tus datos son correctos y el problema persiste, por favor, ponte en contacto con un administrador.
     system:
       models:
         organization:
