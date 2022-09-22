@@ -26,7 +26,6 @@ gem "wicked_pdf", "~> 2.1"
 gem "azure-storage-blob", require: false
 
 gem "deface"
-gem "signer"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri

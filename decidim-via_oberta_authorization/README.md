@@ -24,9 +24,6 @@ bin/rails db:migrate
 Once installed, the following env variables can be configured:
 
 - **VIA_OBERTA_URL**: URL to the Via Oberta census web service
-- **VIA_OBERTA_CERT**: Certificate to sign the Via Oberta request
-- **VIA_OBERTA_PRIVATE_KEY_CERT**: Private key certificate to sign the Via Oberta request
-- **VIA_OBERTA_PRIVATE_KEY_PASS**: Password for certificate to the Via Oberta request
 
 ## License
 
