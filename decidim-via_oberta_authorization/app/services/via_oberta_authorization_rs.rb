@@ -16,7 +16,7 @@ class ViaObertaAuthorizationRs
   end
 
   def active?
-    Base64.decode64(rs_inside_soap.xpath("//codigoResultado").text) == 1
+    rs_inside_soap.xpath("//codigoResultado").text == "1"
   end
 
   private
@@ -24,7 +24,7 @@ class ViaObertaAuthorizationRs
   def parse_response(response)
     # The *real* response data is encoded as a xml string inside a xml node.
     parsed = Nokogiri::XML(response.body).remove_namespaces!
-    Nokogiri::XML(parsed.xpath("//procesaResponse")[0])
+    parsed.xpath("//respuestaResidenteMunicipio")[0]
   end
 
   # Decode a date from an API timestamp format

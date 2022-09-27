@@ -32,9 +32,8 @@ class ViaObertaAuthorizationRq
   def send_soap_request(request)
     Faraday.post URL do |http_request|
       http_request.headers["Content-Type"] = "text/xml"
-      http_request.headers["SOAPAction"] = "servicio"
+      http_request.headers["SOAPAction"] = "procesa"
       http_request.body = request_body(request)
-      puts http_request.body
     end
   end
 

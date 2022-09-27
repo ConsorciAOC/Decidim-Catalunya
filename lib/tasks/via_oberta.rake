@@ -30,7 +30,7 @@ namespace :via_oberta do
   def parse_response(response)
     # The *real* response data is encoded as a xml string inside a xml node.
     parsed = Nokogiri::XML(response.body).remove_namespaces!
-    Nokogiri::XML(parsed.xpath("//servicioResponse")[0])
+    Nokogiri::XML(parsed.xpath("//procesaResponse")[0])
   end
 
   desc "Returns the ViaObertaAuthorizationHandler encoded version of the document argument"
