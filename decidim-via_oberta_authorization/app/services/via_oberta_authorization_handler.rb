@@ -48,7 +48,7 @@ class ViaObertaAuthorizationHandler < Decidim::AuthorizationHandler
 
     @service = ViaObertaAuthorization.new(organization)
     @census_for_user = @service.call(
-      document_type: ::ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type],
+      document_type: ::ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type.to_s],
       id_document: id_document
     )
   end
