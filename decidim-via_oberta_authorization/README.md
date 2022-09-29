@@ -1,7 +1,6 @@
 # Decidim::ViaObertaAuthorization
 
-A decidim package to provice user authorizations agains Via Oberta WS
-
+A Decidim module to provide user authorizations against Via Oberta WS.
 
 ## Installation
 
