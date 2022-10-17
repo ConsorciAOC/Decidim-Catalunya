@@ -16,6 +16,7 @@ class ViaObertaAuthorizationRq
 
   def initialize(organization)
     @organization = organization
+    @nif = organization.via_oberta_settings['nif']
     @ine = organization.via_oberta_settings['ine']
     @municipal_code = organization.via_oberta_settings['municipal_code']
     @province_code = organization.via_oberta_settings['province_code']
@@ -63,7 +64,7 @@ class ViaObertaAuthorizationRq
                   <ns1:Finalidad>#{ViaObertaAuthorizationConfig.purpose}</ns1:Finalidad>
                 </ns1:DatosAutorizacion>
                 <ns1:Emisor>
-                  <ns1:NifEmisor>#{ViaObertaAuthorizationConfig.nif}</ns1:NifEmisor>
+                  <ns1:NifEmisor>#{@nif}</ns1:NifEmisor>
                   <ns1:NombreEmisor>#{@organization.name}</ns1:NombreEmisor>
                 </ns1:Emisor>
                 <ns1:IdSolicitanteOriginal>MAP</ns1:IdSolicitanteOriginal>
@@ -73,7 +74,7 @@ class ViaObertaAuthorizationRq
                 <ns1:SolicitudTransmision>
                   <ns1:DatosGenericos>
                     <ns1:Emisor>
-                      <ns1:NifEmisor>#{ViaObertaAuthorizationConfig.nif}</ns1:NifEmisor>
+                      <ns1:NifEmisor>#{@nif}</ns1:NifEmisor>
                       <ns1:NombreEmisor>#{@organization.name}</ns1:NombreEmisor>
                     </ns1:Emisor>
                     <ns1:Solicitante>

@@ -20,10 +20,5 @@ class ViaObertaAuthorizationConfig
         "PROVES"
       end
     end
-
-    # TODO: add to /system
-    def nif
-      "P4315000B"
-    end
   end
 end

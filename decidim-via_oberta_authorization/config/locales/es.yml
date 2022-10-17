@@ -24,6 +24,7 @@ es:
         organization:
           fields:
             ine: INE
+            nif: NIF
             municipal_code: Código de municipio
             province_code: Código de provincia
             via_oberta_settings: Configuración de Via Oberta

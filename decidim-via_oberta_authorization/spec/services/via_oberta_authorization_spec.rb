@@ -4,7 +4,7 @@ require "spec_helper"
 
 # rubocop:disable RSpec/MultipleMemoizedHelpers
 RSpec.describe ViaObertaAuthorization do
-  let(:organization) { create(:organization, name: "Decidim Test", via_oberta_settings: { ine: 123, municipal_code: 345, province_code: 678 }) }
+  let(:organization) { create(:organization, name: "Decidim Test", via_oberta_settings: { nif: 12345678, ine: 123, municipal_code: 345, province_code: 678 }) }
   let(:subject) do
     allow(Rails.application.secrets).to receive(:via_oberta).and_return(JSON.parse({
       url: "https://example.net/siri-proxy/services/Sincron"
