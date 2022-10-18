@@ -1,0 +1,30 @@
+es:
+  activemodel:
+    attributes:
+      via_oberta_authorization_handler:
+        document_type: Tipo de documento
+        id_document: Número de documento
+  decidim:
+    authorization_handlers:
+      via_oberta_authorization_handler:
+        name: Via Oberta
+        explanation: Autoriza tu cuenta de usuario contra Via Oberta
+        document_types:
+          nif: NIF
+          nie: NIE
+          residence_card: Tarjeta de Residencia
+          passport: Pasaporte
+    census:
+      errors:
+        messages:
+          invalid_credentials: Las credenciales no coinciden.
+          not_censed: No hemos podido encontrar tu documento de identidad en Via Oberta. Si tus datos son correctos y el problema persiste, por favor, ponte en contacto con un administrador.
+    system:
+      models:
+        organization:
+          fields:
+            ine: INE
+            nif: NIF
+            municipal_code: Código de municipio
+            province_code: Código de provincia
+            via_oberta_settings: Configuración de Via Oberta

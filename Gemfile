@@ -12,6 +12,7 @@ gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-file_authorization_handler", "~> #{DECIDIM_VERSION}", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git"
 
 gem "decidim-decidim_awesome", "~> 0.8"
+gem "decidim-via_oberta_authorization", path: "decidim-via_oberta_authorization"
 
 gem "decidim-idcat_mobil", "~> 0.2.1"
 # Although `omniauth-rails_csrf_protection` is already a Decidim dependency, it is not working unless declared here.
@@ -23,6 +24,8 @@ gem "wicked_pdf", "~> 2.1"
 
 # Blob storage in the cloud
 gem "azure-storage-blob", require: false
+
+gem "deface"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
