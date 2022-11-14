@@ -14,7 +14,7 @@ class ViaObertaAuthorizationConfig
     end
 
     def purpose
-      if Rails.env == "production"
+      if Rails.env.production?
         "GESTTRIB"
       else
         "PROVES"
