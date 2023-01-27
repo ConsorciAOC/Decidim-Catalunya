@@ -10,6 +10,9 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::ViaObertaAuthorization
 
+      paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
+
       initializer "decidim_via_oberta_authorization.add_authorization_handlers" do |_app|
         Decidim::Verifications.register_workflow(
           :via_oberta_authorization_handler
