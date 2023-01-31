@@ -56,3 +56,6 @@ public/uploads
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+decidim-via_oberta_authorization/spec/decidim_dummy_app/
+spec/decidim_dummy_app/
