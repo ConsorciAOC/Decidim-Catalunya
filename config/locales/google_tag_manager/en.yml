@@ -1,0 +1,7 @@
+en:
+  decidim:
+    system:
+      models:
+        organization:
+          fields:
+            google_tag_manager_settings: Google Tag Manager Settings

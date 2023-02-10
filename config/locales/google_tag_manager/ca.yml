@@ -1,0 +1,12 @@
+ca:
+  activemodel:
+    attributes:
+      organization:
+        entity_code: Codi d'ens
+        entity_name: Nom de l'ens
+  decidim:
+    system:
+      models:
+        organization:
+          fields:
+            google_tag_manager_settings: Configuració del Google Tag Manager

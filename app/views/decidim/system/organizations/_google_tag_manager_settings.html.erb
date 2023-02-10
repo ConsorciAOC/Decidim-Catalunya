@@ -1,0 +1,11 @@
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.google_tag_manager_settings") %></h4>
+  <%= f.fields_for :google_tag_manager_settings do %>
+    <div class="field">
+      <%= f.text_field :entity_code, disabled: true %>
+    </div>
+    <div class="field">
+      <%= f.text_field :entity_name %>
+    </div>
+  <% end %>
+</div>

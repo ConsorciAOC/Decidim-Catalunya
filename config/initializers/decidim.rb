@@ -17,7 +17,7 @@ Decidim.configure do |config|
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = :ca
+  config.default_locale = Rails.env.test? ? :en : :ca
 
   # Whether SSL should be enabled or not.
   config.force_ssl = true
