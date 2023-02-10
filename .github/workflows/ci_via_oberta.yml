@@ -66,11 +66,12 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - run: |
-        cd decidim-via_oberta_authorization
-        bin/rails decidim:generate_external_test_app
-        cd spec/decidim_dummy_app/
-        bundle exec rails decidim_via_oberta_authorization:install:migrations
-        RAILS_ENV=test bundle exec rails db:migrate
+      - name: Build module
+        run: |
+          cd decidim-via_oberta_authorization
+          bundle exec rake decidim:generate_external_test_app
+          cd spec/decidim_dummy_app/
+          bundle exec rake decidim_via_oberta_authorization:install:migrations
+          RAILS_ENV=test bundle exec rails db:migrate
       - name: Run specs
-        run: bundle exec rspec
+        run: cd decidim-via_oberta_authorization && bundle exec rspec
