@@ -1,0 +1,12 @@
+es:
+  activemodel:
+    attributes:
+      organization:
+        entity_code: Código de entidad
+        entity_name: Nombre de entidad
+  decidim:
+    system:
+      models:
+        organization:
+          fields:
+            google_tag_manager_settings: Configuración de Google Tag Manager
