@@ -1,4 +1,6 @@
-require_relative 'boot'
+# frozen_string_literal: true
+
+require_relative "boot"
 
 require "decidim/rails"
 
@@ -26,7 +28,7 @@ module DecidimCatalunya
 
     # Make decorators available
     config.to_prepare do
-      Dir.glob(Rails.root + "app/decorators/**/*_decorator*.rb").each do |c|
+      Dir.glob(Rails.root.join("app", "decorators", "**", "*_decorator*.rb")).each do |c|
         require_dependency(c)
       end
     end

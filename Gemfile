@@ -7,9 +7,9 @@ DECIDIM_VERSION = "0.25.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-file_authorization_handler", "~> #{DECIDIM_VERSION}", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
-gem "decidim-file_authorization_handler", "~> #{DECIDIM_VERSION}", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git"
 
 gem "decidim-decidim_awesome", "~> 0.8"
 gem "decidim-via_oberta_authorization", path: "decidim-via_oberta_authorization"
@@ -30,28 +30,28 @@ gem "deface"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "faker"
   gem "decidim-dev", DECIDIM_VERSION
+  gem "faker"
 end
 
 group :development do
-  gem "letter_opener_web", "~> 1.3"
   gem "listen", "~> 3.1"
+  gem "puma", ">= 5.0.0"
+  gem "rubocop-rails"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 4.0"
-  gem "puma", ">= 5.0.0"
 end
 
-group :staging do
+group :development, :staging do
   gem "letter_opener_web", "~> 1.3"
 end
 
 group :production, :staging do
-  gem 'sidekiq'
+  gem "sidekiq"
 end
 
 group :test do
-  gem 'database_cleaner'
-  gem 'rspec-rails'
+  gem "database_cleaner"
+  gem "rspec-rails"
 end

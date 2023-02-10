@@ -8,11 +8,11 @@ require "base64"
 class ViaObertaAuthorizationRs
   # raw_response: The response as a String
   def initialize(raw_response)
-    @raw= raw_response
+    @raw = raw_response
   end
 
   def rs_inside_soap
-    @rs_inside_soap||= parse_response(@raw)
+    @rs_inside_soap ||= parse_response(@raw)
   end
 
   def active?

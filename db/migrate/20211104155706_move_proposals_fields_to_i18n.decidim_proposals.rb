@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_proposals (originally 20200708091228)
 
 class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
@@ -76,12 +77,12 @@ class MoveProposalsFieldsToI18n < ActiveRecord::Migration[5.2]
   end
 
   def remove_indexs
-    remove_index :decidim_proposals_proposals, name: "decidim_proposals_proposal_title_search"
-    remove_index :decidim_proposals_proposals, name: "decidim_proposals_proposal_body_search"
+    remove_index :decidim_proposals_proposals, name: 'decidim_proposals_proposal_title_search'
+    remove_index :decidim_proposals_proposals, name: 'decidim_proposals_proposal_body_search'
   end
 
   def create_indexs
-    execute "CREATE INDEX decidim_proposals_proposal_title_search ON decidim_proposals_proposals(md5(title::text))"
-    execute "CREATE INDEX decidim_proposals_proposal_body_search ON decidim_proposals_proposals(md5(body::text))"
+    execute 'CREATE INDEX decidim_proposals_proposal_title_search ON decidim_proposals_proposals(md5(title::text))'
+    execute 'CREATE INDEX decidim_proposals_proposal_body_search ON decidim_proposals_proposals(md5(body::text))'
   end
 end

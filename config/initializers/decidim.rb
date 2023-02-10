@@ -48,7 +48,6 @@ Decidim.configure do |config|
   #
   # Enable machine translations
   config.enable_machine_translations = false
-
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

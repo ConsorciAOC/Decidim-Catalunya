@@ -906,6 +906,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection
   puma (>= 5.0.0)
   rspec-rails
+  rubocop-rails
   sidekiq
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)

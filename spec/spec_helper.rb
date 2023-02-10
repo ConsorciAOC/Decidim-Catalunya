@@ -6,14 +6,14 @@ ENV["RAILS_ENV"] ||= "test"
 ENV["LANG"] ||= "en"
 
 require File.expand_path("../config/environment", __dir__)
-I18n.available_locales= [:ca, :en, :es]
+I18n.available_locales = [:ca, :en, :es]
 
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
-Decidim.default_locale= "en"
-Decidim.available_locales= [:ca, :en, :es]
+Decidim.default_locale = "en"
+Decidim.available_locales = [:ca, :en, :es]
 
 require "decidim/dev"
 Decidim::Dev.dummy_app_path = File.expand_path(File.join(__dir__, ".."))

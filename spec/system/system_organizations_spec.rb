@@ -69,11 +69,11 @@ describe "Organizations", type: :system do
 
         visit decidim_system.edit_organization_path(organization)
         click_button "Show advanced settings"
-        expect(page.find("[id=organization_nif]")['value']).to eq "00000000T"
-        expect(page.find("[id=organization_ine]")['value']).to eq "01234"
-        expect(page.find("[id=organization_municipal_code]")['value']).to eq "17666"
-        expect(page.find("[id=organization_province_code]")['value']).to eq "171717"
-        expect(page.find("[id=organization_entity_name]")['value']).to eq "Aj. de Vilagent"
+        expect(page.find("[id=organization_nif]")["value"]).to eq "00000000T"
+        expect(page.find("[id=organization_ine]")["value"]).to eq "01234"
+        expect(page.find("[id=organization_municipal_code]")["value"]).to eq "17666"
+        expect(page.find("[id=organization_province_code]")["value"]).to eq "171717"
+        expect(page.find("[id=organization_entity_name]")["value"]).to eq "Aj. de Vilagent"
       end
     end
   end

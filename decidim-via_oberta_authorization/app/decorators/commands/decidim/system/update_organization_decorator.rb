@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Decidim::System::UpdateOrganization.class_eval do
-
   private
 
   def save_organization

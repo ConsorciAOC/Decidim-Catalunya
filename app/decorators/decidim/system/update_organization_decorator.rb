@@ -5,8 +5,6 @@ module Decidim
     class UpdateOrganizationDecorator
       def self.decorate!
         Decidim::System::UpdateOrganization.class_eval do
-
-
           private
 
           alias_method :original_save_organization, :save_organization
