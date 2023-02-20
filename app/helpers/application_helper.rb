@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require "decidim/sanitize_helper"
+
 module ApplicationHelper
+  include Decidim::SanitizeHelper
+
   def google_tag_manager_code
     case Rails.env
     when "production" then "GTM-M4GV4QQ"
