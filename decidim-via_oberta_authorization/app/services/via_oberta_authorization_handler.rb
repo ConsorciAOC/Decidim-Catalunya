@@ -29,9 +29,7 @@ class ViaObertaAuthorizationHandler < Decidim::AuthorizationHandler
 
   # Checks if the id_document belongs to the census
   def censed
-    if census_for_user.nil?
-      errors.add(:id_document, I18n.t("decidim.census.errors.messages.not_censed"))
-    end
+    errors.add(:id_document, I18n.t("decidim.census.errors.messages.not_censed")) if census_for_user.nil?
   end
 
   def unique_id

@@ -3,6 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 require "decidim/via_oberta_authorization/version"
+VIA_OBERTA_DECIDIM_VERSION = "~> #{Decidim::ViaObertaAuthorization::VERSION}"
 
 Gem::Specification.new do |s|
   s.version = Decidim::ViaObertaAuthorization::VERSION
@@ -18,12 +19,10 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
-  DECIDIM_VERSION = "~> " + Decidim::ViaObertaAuthorization::VERSION
-
-  s.add_dependency "decidim", DECIDIM_VERSION
+  s.add_dependency "decidim", VIA_OBERTA_DECIDIM_VERSION
   s.add_dependency "savon", "~> 2.11.2"
   s.add_dependency "virtus-multiparams", "~> 0.1.1"
 
-  s.add_development_dependency "decidim-dev", DECIDIM_VERSION
+  s.add_development_dependency "decidim-dev", VIA_OBERTA_DECIDIM_VERSION
   s.add_development_dependency "faker"
 end

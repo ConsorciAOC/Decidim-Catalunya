@@ -16,10 +16,10 @@ class ViaObertaAuthorizationRq
 
   def initialize(organization)
     @organization = organization
-    @nif = organization.via_oberta_settings['nif']
-    @ine = organization.via_oberta_settings['ine']
-    @municipal_code = organization.via_oberta_settings['municipal_code']
-    @province_code = organization.via_oberta_settings['province_code']
+    @nif = organization.via_oberta_settings["nif"]
+    @ine = organization.via_oberta_settings["ine"]
+    @municipal_code = organization.via_oberta_settings["municipal_code"]
+    @province_code = organization.via_oberta_settings["province_code"]
   end
 
   def send_rq(document_type:, id_document:)
@@ -39,7 +39,7 @@ class ViaObertaAuthorizationRq
   end
 
   def request_body(request)
-    timestamp = Time.now.strftime("%Y-%m-%dT%H:%M:%S.%L")
+    timestamp = Time.zone.now.strftime("%Y-%m-%dT%H:%M:%S.%L")
     req_id = "#{@ine}-#{Time.now.to_i}"
     <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
@@ -86,7 +86,7 @@ class ViaObertaAuthorizationRq
                     <ns1:Transmision>
                       <ns1:CodigoCertificado>RESIDENT_MUNICIPI</ns1:CodigoCertificado>
                       <ns1:IdSolicitud>#{req_id}</ns1:IdSolicitud>
-					            <ns1:FechaGeneracion>#{Time.now.strftime("%Y-%m-%d")}</ns1:FechaGeneracion>
+					            <ns1:FechaGeneracion>#{Time.zone.now.strftime("%Y-%m-%d")}</ns1:FechaGeneracion>
                     </ns1:Transmision>
                   </ns1:DatosGenericos>
                   <ns1:DatosEspecificos>

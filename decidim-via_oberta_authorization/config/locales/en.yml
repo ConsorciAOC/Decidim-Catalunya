@@ -1,0 +1,31 @@
+en:
+  activemodel:
+    attributes:
+      via_oberta_authorization_handler:
+        document_type: Document type
+        id_document: Document number
+      organization:
+        ine: INE
+        nif: NIF
+        municipal_code: Municipality code
+        province_code: Province code
+  decidim:
+    authorization_handlers:
+      via_oberta_authorization_handler:
+        name: Via Oberta
+        explanation: Authorize your account against Via Oberta
+        document_types:
+          nif: NIF
+          nie: NIE
+          residence_card: Residence card
+          passport: Passport
+    census:
+      errors:
+        messages:
+          invalid_credentials: Invalid credentials
+          not_censed: We could not find your document in Via Oberta. If your data is correct and the problem persists, please, contact a system administrator.
+    system:
+      models:
+        organization:
+          fields:
+            via_oberta_settings: Via Oberta configuration

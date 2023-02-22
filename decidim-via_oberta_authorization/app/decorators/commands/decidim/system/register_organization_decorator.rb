@@ -3,8 +3,8 @@
 Decidim::System::RegisterOrganization.class_eval do
   private
 
-  def create_organization
-    Decidim::Organization.create!(
+  def organization_decidim_catalunya_extended_attrs
+    {
       name: form.name,
       host: form.host,
       secondary_hosts: form.clean_secondary_hosts,
@@ -23,6 +23,6 @@ Decidim::System::RegisterOrganization.class_eval do
       file_upload_settings: form.file_upload_settings.final,
       # Customization for Via Oberta
       via_oberta_settings: form.via_oberta_settings
-    )
+    }
   end
 end

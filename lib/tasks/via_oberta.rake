@@ -17,15 +17,14 @@ namespace :via_oberta do
     EOMSG
 
     puts "\nRESPONSE:"
-    service= ViaObertaAuthorizationRq.new(organization)
-    rs= service.send_rq(
+    service = ViaObertaAuthorizationRq.new(organization)
+    rs = service.send_rq(
       document_type: ::ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type],
       id_document: id_document
     )
     puts "RS: #{rs.body}"
     puts "Extracted RS: #{parse_response(rs)}"
   end
-
 
   def parse_response(response)
     # The *real* response data is encoded as a xml string inside a xml node.
@@ -40,7 +39,7 @@ namespace :via_oberta do
 
   desc "Is there a Decidim::Authorization for the given document"
   task :find_authorization_by_doc, [:document] => :environment do |_task, args|
-    authorization= Decidim::Authorization.find_by(unique_id: to_unique_id(args.document))
+    authorization = Decidim::Authorization.find_by(unique_id: to_unique_id(args.document))
     puts authorization
   end
 

@@ -4,6 +4,11 @@ es:
       via_oberta_authorization_handler:
         document_type: Tipo de documento
         id_document: Número de documento
+      organization:
+        ine: INE
+        nif: NIF
+        municipal_code: Código de municipio
+        province_code: Código de provincia
   decidim:
     authorization_handlers:
       via_oberta_authorization_handler:
@@ -23,8 +28,4 @@ es:
       models:
         organization:
           fields:
-            ine: INE
-            nif: NIF
-            municipal_code: Código de municipio
-            province_code: Código de provincia
             via_oberta_settings: Configuración de Via Oberta
