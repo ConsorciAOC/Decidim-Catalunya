@@ -30,6 +30,26 @@ describe "Organizations", type: :system do
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Ajuntament de Vilaexemple")
       end
+
+      it "creates a new organization with basic data and editing it" do
+        fill_in "Name", with: "Ajuntament de Vilaexemple dos"
+        fill_in "Host", with: "www.ajuntamentdevilaexempledos.example.net"
+        fill_in "Reference prefix", with: "CCORP"
+        fill_in "Organization admin name", with: "City Mayor"
+        fill_in "Organization admin email", with: "mayor@example.net"
+        check "organization_available_locales_en"
+        choose "organization_default_locale_en"
+        choose "Allow participants to register and login"
+        click_button "Show advanced settings"
+
+        click_button "Create organization & invite admin"
+
+        expect(page).to have_css("div.flash.success")
+        expect(page).to have_content("Ajuntament de Vilaexemple dos")
+
+        visit decidim_system.edit_organization_path(Decidim::Organization.first)
+        expect(page).to have_content("Show advanced settings")
+      end
     end
 
     describe "editing an organization" do
