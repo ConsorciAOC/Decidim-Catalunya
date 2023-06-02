@@ -31,3 +31,23 @@ bin/rails db:create db:schema:load
 bin/rails db:seed
 bin/rails s
 ```
+
+## Overrides, decorators and more.
+
+### Add Google Tag Manager to admin backoffice
+
+Deface has a strange fail due to nokogiri gem and the overrides with Deface don't work when applied inside the HEAD tag. 
+
+Nokogiri required version >= 1.6.0
+
+See:
+https://github.com/spree/deface/issues/84
+https://github.com/spree/spree/issues/2633
+
+- **app/views/layouts/decidim/admin/_application.html.erb**
+
+    Add GTM in `<body>`
+
+- **app/views/layouts/decidim/admin/_header.html.erb**
+
+    Add GTM in `<head>`
