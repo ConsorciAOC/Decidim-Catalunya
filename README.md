@@ -36,8 +36,11 @@ bin/rails s
 
 ### Add Google Tag Manager to admin backoffice
 
-Deface has a strange fail with nokogiri gem and the overrides with Deface not works with this changes.
+Deface has a strange fail due to nokogiri gem and the overrides with Deface don't work when applied inside the HEAD tag. 
 
+Nokogiri required version >= 1.6.0
+
+See:
 https://github.com/spree/deface/issues/84
 https://github.com/spree/spree/issues/2633
 
