@@ -48,7 +48,7 @@ group :development, :staging do
 end
 
 group :production, :staging do
-  gem "sidekiq"
+  gem "sidekiq", "~>6.3.1"
 end
 
 group :test do
