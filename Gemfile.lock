@@ -379,10 +379,10 @@ GEM
       decidim-admin (>= 0.25.0, < 0.27)
       decidim-core (>= 0.25.0, < 0.27)
       sassc (~> 2.3)
-    decidim-idcat_mobil (0.2.1)
+    decidim-idcat_mobil (0.3.0)
       decidim (>= 0.25.2)
       decidim-core (>= 0.25.2)
-      omniauth-idcat_mobil (~> 0.4.0)
+      omniauth-idcat_mobil (~> 0.5.0)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -465,7 +465,7 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
-    ffi (1.15.5)
+    ffi (1.16.2)
     file_validators (2.3.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -623,7 +623,7 @@ GEM
       oauth2 (~> 2.0.6)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8.0)
-    omniauth-idcat_mobil (0.4.0)
+    omniauth-idcat_mobil (0.5.0)
       omniauth (~> 2.0.4)
       omniauth-oauth2 (>= 1.7.2, < 2.0)
     omniauth-oauth (1.2.0)
@@ -911,7 +911,7 @@ GEM
     wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   x86_64-linux
@@ -926,7 +926,7 @@ DEPENDENCIES
   decidim-decidim_awesome (~> 0.8)
   decidim-dev!
   decidim-file_authorization_handler!
-  decidim-idcat_mobil (~> 0.2.1)
+  decidim-idcat_mobil (~> 0.3.0)
   decidim-initiatives!
   decidim-templates!
   decidim-via_oberta_authorization!
