@@ -3,21 +3,18 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.25-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.26-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", tag: "v0.25.2.4"
+gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", tag: "v0.26.8.8"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-gem "decidim-decidim_awesome", "~> 0.8"
+gem "decidim-decidim_awesome", "~> 0.10.0"
 gem "decidim-via_oberta_authorization", path: "decidim-via_oberta_authorization"
 
 gem "decidim-idcat_mobil", "~> 0.3.0"
-# Although `omniauth-rails_csrf_protection` is already a Decidim dependency, it is not working unless declared here.
-# In meta.decidim.org, which is at Decidim v0.26, this declaration is not required. Try to remove it after upgrading to Decidim v0.26
-gem "omniauth-rails_csrf_protection"
 
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.1"

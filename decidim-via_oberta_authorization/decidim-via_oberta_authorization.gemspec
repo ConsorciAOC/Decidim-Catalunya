@@ -3,7 +3,7 @@
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 require "decidim/via_oberta_authorization/version"
-VIA_OBERTA_DECIDIM_VERSION = "~> #{Decidim::ViaObertaAuthorization::VERSION}"
+VIA_OBERTA_DECIDIM_VERSION = ">= #{Decidim::ViaObertaAuthorization::VERSION}"
 
 Gem::Specification.new do |s|
   s.version = Decidim::ViaObertaAuthorization::VERSION
