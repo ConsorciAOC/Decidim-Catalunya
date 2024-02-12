@@ -81,6 +81,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - run: npm install
+      - run: NODE_ENV=test bundle exec rails webpacker:compile
       - run: bundle exec rake db:test:prepare
         name: Setup database
       - run: bundle exec rspec

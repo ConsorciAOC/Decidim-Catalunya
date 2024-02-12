@@ -4,9 +4,11 @@ require "spec_helper"
 
 RSpec.describe ViaObertaAuthorization do
   subject do
+    # rubocop:disable Style/OpenStructUse
     allow(Rails.application.secrets).to receive(:via_oberta).and_return(JSON.parse({
       url: "https://example.net/siri-proxy/services/Sincron"
-    }.to_json, object_class: Struct))
+    }.to_json, object_class: OpenStruct))
+    # rubocop:enable Style/OpenStructUse
 
     api = ViaObertaAuthorization.new(organization)
     rs = api.call(document_type: document_type, id_document: id_document)
