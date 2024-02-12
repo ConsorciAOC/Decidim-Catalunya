@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "decidim-dev", VIA_OBERTA_DECIDIM_VERSION
   s.add_development_dependency "faker"
+  s.metadata["rubygems_mfa_required"] = "true"
 end

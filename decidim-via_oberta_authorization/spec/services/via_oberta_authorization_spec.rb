@@ -3,17 +3,17 @@
 require "spec_helper"
 
 RSpec.describe ViaObertaAuthorization do
-  let(:organization) { create(:organization, name: "Decidim Test", via_oberta_settings: { nif: 12_345_678, ine: 123, municipal_code: 345, province_code: 678 }) }
-  let(:subject) do
+  subject do
     allow(Rails.application.secrets).to receive(:via_oberta).and_return(JSON.parse({
       url: "https://example.net/siri-proxy/services/Sincron"
-    }.to_json, object_class: OpenStruct))
+    }.to_json, object_class: Struct))
 
     api = ViaObertaAuthorization.new(organization)
     rs = api.call(document_type: document_type, id_document: id_document)
     rs
   end
 
+  let(:organization) { create(:organization, name: "Decidim Test", via_oberta_settings: { nif: 12_345_678, ine: 123, municipal_code: 345, province_code: 678 }) }
   let(:id_document) { "58958982T" }
   let(:document_type) { 1 }
   let(:date) { Date.parse("20000101101010") }

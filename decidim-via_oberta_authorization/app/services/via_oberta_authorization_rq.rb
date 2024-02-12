@@ -94,7 +94,7 @@ class ViaObertaAuthorizationRq
                       <ns2:numExpediente>#{req_id}</ns2:numExpediente>
                       <ns2:tipoDocumentacion>#{request.document_type}</ns2:tipoDocumentacion>
                       <ns2:documentacion>#{request.id_document}</ns2:documentacion>
-                      <ns2:codigoMunicipio>#{@municipal_code}</ns2:codigoMunicipio> 
+                      <ns2:codigoMunicipio>#{@municipal_code}</ns2:codigoMunicipio>
                       <ns2:codigoProvincia>#{@province_code}</ns2:codigoProvincia>
                       <ns2:idescat>0</ns2:idescat>
                     </ns2:peticionResidenteMunicipio>
@@ -126,6 +126,6 @@ class ViaObertaAuthorizationRq
     # https://stackoverflow.com/questions/16546038/a-long-bigger-than-long-max-value
     # In fact is between [-2**63..2**63] but I experienced some errors when random number
     # was close to the limits.
-    rand(2**24..2**48 - 1)
+    rand((2**24)..(2**48) - 1)
   end
 end
