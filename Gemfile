@@ -16,6 +16,8 @@ gem "decidim-via_oberta_authorization", path: "decidim-via_oberta_authorization"
 
 gem "decidim-idcat_mobil", "~> 0.3.0"
 
+gem "decidim-cdtb"
+
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.1"
 
