@@ -6,10 +6,10 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-microsoft:
+azure:
   service: AzureStorage
-  storage_account_name: <%= Rails.application.secrets.azure_storage_account_name %>
-  storage_access_key: <%= Rails.application.secrets.azure_storage_access_key %>
-  container: <%= Rails.application.secrets.azure_container %>
-  storage_blob_host: <%= Rails.application.secrets.azure_storage_blob_host %>
+  storage_account_name: <%= Rails.application.secrets.dig(:storage, :azure, :storage_account_name) %>
+  storage_access_key: <%= Rails.application.secrets.dig(:storage, :azure, :storage_access_key) %>
+  container: <%= Rails.application.secrets.dig(:storage, :azure, :container) %>
+  storage_blob_host: <%= Rails.application.secrets.dig(:storage, :azure, :storage_blob_host) %>
 
