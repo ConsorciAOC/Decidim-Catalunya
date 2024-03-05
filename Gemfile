@@ -48,6 +48,7 @@ group :development, :staging do
 end
 
 group :production, :staging do
+  gem "daemons"
   gem "delayed_job_active_record"
 end
 
