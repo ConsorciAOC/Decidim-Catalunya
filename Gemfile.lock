@@ -362,6 +362,7 @@ GEM
     crass (1.0.6)
     css_parser (1.16.0)
       addressable
+    daemons (1.4.1)
     database_cleaner (2.0.2)
       database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.1.0)
@@ -392,6 +393,11 @@ GEM
       polyglot
       railties (>= 5.2)
       rainbow (>= 2.1.0)
+    delayed_job (4.1.11)
+      activesupport (>= 3.0, < 8.0)
+    delayed_job_active_record (4.1.8)
+      activerecord (>= 3.0, < 8.0)
+      delayed_job (>= 3.0, < 5)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.9.2)
@@ -811,10 +817,6 @@ GEM
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
     seven_zip_ruby (1.3.0)
-    sidekiq (6.3.1)
-      connection_pool (>= 2.2.2)
-      rack (~> 2.0)
-      redis (>= 4.2.0)
     simplecov (0.19.1)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -920,6 +922,7 @@ DEPENDENCIES
   azure-storage-blob
   bootsnap (~> 1.3)
   byebug (~> 11.0)
+  daemons
   database_cleaner
   decidim!
   decidim-conferences!
@@ -931,6 +934,7 @@ DEPENDENCIES
   decidim-templates!
   decidim-via_oberta_authorization!
   deface
+  delayed_job_active_record
   faker
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
@@ -938,7 +942,6 @@ DEPENDENCIES
   puma (>= 5.0.0)
   rspec-rails
   rubocop-rails
-  sidekiq (~> 6.3.1)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   web-console (~> 4.0)
@@ -948,4 +951,4 @@ RUBY VERSION
    ruby 2.7.5p203
 
 BUNDLED WITH
-   2.3.6
+   2.4.22
