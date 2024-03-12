@@ -47,7 +47,8 @@ group :development, :staging do
 end
 
 group :production, :staging do
-  gem "sidekiq", "~>6.3.1"
+  gem "daemons"
+  gem "delayed_job_active_record"
 end
 
 group :test do
