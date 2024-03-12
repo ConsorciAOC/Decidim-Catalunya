@@ -22,7 +22,7 @@ gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.1"
 
 # Blob storage in the cloud
-gem "azure-storage-blob", require: false
+gem "azure-storage-blob"
 
 gem "deface"
 
