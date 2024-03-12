@@ -12,14 +12,12 @@ Decidim.configure do |config|
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  # config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]
-  # Or block set it up manually and prevent ENV manipulation:
-  config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:ca, :es]
+  config.available_locales = %w(ca es)
 
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = Rails.application.secrets.decidim[:default_locale].presence || :en
+  config.default_locale = Rails.application.secrets.decidim[:default_locale].presence || :ca
 
   # Map and Geocoder configuration
   config.maps = {
