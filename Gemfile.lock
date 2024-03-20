@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
-  revision: 0ae39859af17106bc96dba393b7da9f5875c8c2a
-  tag: v0.27.1.6
+  revision: c9acceb41402f08188ae2a79d8c41bcaef7b8a50
+  tag: v0.27.1.7
   specs:
-    decidim-file_authorization_handler (0.27.1.6)
+    decidim-file_authorization_handler (0.27.1.7)
       decidim (~> 0.27.1)
       decidim-admin (~> 0.27.1)
       rails (>= 5.2)
