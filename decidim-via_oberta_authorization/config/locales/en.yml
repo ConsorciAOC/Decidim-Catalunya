@@ -29,3 +29,8 @@ en:
         organization:
           fields:
             via_oberta_settings: Via Oberta configuration
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            via_oberta_authorization_handler: Get verified with Via Oberta
