@@ -33,4 +33,4 @@ es:
       authorizations:
         first_login:
           actions:
-            via_oberta_authorization_handler: Verificate con Via Oberta
+            via_oberta_authorization_handler: Verifícate con Via Oberta
