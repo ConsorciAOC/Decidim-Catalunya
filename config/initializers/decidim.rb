@@ -19,9 +19,6 @@ Decidim.configure do |config|
   # this value for that specific organization.
   config.default_locale = Rails.env.test? ? :en : :ca
 
-  # Whether SSL should be enabled or not.
-  config.force_ssl = true
-
   # Map and Geocoder configuration
   config.maps = {
     provider: :here,
