@@ -29,3 +29,8 @@ es:
         organization:
           fields:
             via_oberta_settings: Configuración de Via Oberta
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            via_oberta_authorization_handler: Verifícate con Via Oberta
