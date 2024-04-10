@@ -3,18 +3,16 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { git: "https://github.com/CodiTramuntana/decidim.git", branch: "release/0.27-stable" }.freeze
+DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.27-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-file_authorization_handler", git: "https://github.com/CodiTramuntana/decidim-file_authorization_handler.git", tag: "v0.27.1.7"
+gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", tag: "v0.27.1.7"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", "~> 0.10.0"
-gem "decidim-via_oberta_authorization", path: "decidim-via_oberta_authorization"
-
-gem "decidim-idcat_mobil", "~> 0.3.0"
+gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "fix/multitenant"
 
 gem "decidim-cdtb"
 
