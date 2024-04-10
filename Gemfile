@@ -18,7 +18,7 @@ gem "decidim-idcat_mobil", "~> 0.3.0"
 
 gem "decidim-cdtb"
 
-gem "base64", "~> 0.1.0"
+gem "base64", "0.1.0"
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.1"
 
