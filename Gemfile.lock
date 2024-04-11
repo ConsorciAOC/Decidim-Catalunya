@@ -198,8 +198,8 @@ GIT
 
 GIT
   remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
-  revision: 063360edb4176195df111d492a424a6f61e6b467
-  branch: fix/multitenant
+  revision: 429da65f682afacf0712839e2904bcd6652d2813
+  branch: main
   specs:
     decidim-trusted_ids (0.6.0)
       decidim (>= 0.27.0, < 0.28)
@@ -607,7 +607,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.1)
-    nokogiri (1.16.3-x86_64-linux)
+    nokogiri (1.16.4-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)

@@ -23,18 +23,9 @@ describe "Homepage", type: :system do
   end
   let(:enabled) { false }
   let(:custom_login_screen) { true }
-  # let(:omniauth) do
-  #   {
-  #     enabled: enabled,
-  #     client_id: "test",
-  #     client
-  #     secret
-  #   }
-  # end
 
   before do
     allow(Decidim::TrustedIds).to receive(:custom_login_screen).and_return(custom_login_screen)
-    # allow(Decidim::TrustedIds).to receive(:omniauth).and_return(omniauth)
     switch_to_host(organization.host)
     visit decidim.new_user_session_path
   end
@@ -50,6 +41,15 @@ describe "Homepage", type: :system do
     it "shows the VALID button" do
       expect(page).not_to have_content("New to the platform?")
       expect(page).to have_content("Continue with verified ID")
+    end
+
+    context "and no custom screen is set" do
+      let(:custom_login_screen) { false }
+
+      it "shows the default screen" do
+        expect(page).to have_content("New to the platform?")
+        expect(page).not_to have_content("Continue with verified ID")
+      end
     end
   end
 end
