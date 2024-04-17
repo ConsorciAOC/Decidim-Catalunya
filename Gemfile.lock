@@ -914,7 +914,7 @@ GEM
     websocket-extensions (0.1.5)
     wicked (1.4.0)
       railties (>= 3.0.7)
-    wicked_pdf (2.8.0)
+    wicked_pdf (2.7.0)
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
@@ -953,7 +953,7 @@ DEPENDENCIES
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   web-console (~> 4.0)
-  wicked_pdf (~> 2.1)
+  wicked_pdf (~> 2.7.0)
 
 RUBY VERSION
    ruby 3.0.2p107
