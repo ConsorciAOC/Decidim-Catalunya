@@ -25,6 +25,10 @@ Decidim.configure do |config|
     api_key: Rails.application.secrets.maps[:api_key],
     static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
   }
+  config.geocoder = {
+    timeout: 5,
+    units: :km
+  }
 
   # Custom HTML Header snippets
   #
