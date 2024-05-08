@@ -16,10 +16,12 @@ gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids",
 
 gem "decidim-cdtb"
 
+gem "base64", "0.1.0"
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
 
 # Blob storage in the cloud
+
 gem "azure-storage-blob"
 
 gem "deface"
