@@ -11,7 +11,7 @@ gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_a
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-gem "decidim-decidim_awesome", "~> 0.10.0"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
 gem "decidim-cdtb"

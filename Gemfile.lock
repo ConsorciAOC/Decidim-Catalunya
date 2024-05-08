@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/CodiTramuntana/decidim.git
-  revision: 97bd4e227c45f5b43f63c964d582677e1c4ea6c4
+  revision: 927084cbeeaaea62ca2ba1a3bfd0ad5de1527e09
   branch: release/0.27-stable
   specs:
     decidim (0.27.5)
@@ -44,6 +44,7 @@ GIT
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0, >= 2.0.9)
     decidim-api (0.27.5)
+      decidim-core (= 0.27.5)
       graphql (~> 1.12, < 1.13)
       graphql-docs (~> 2.1.0)
       rack-cors (~> 1.0)
@@ -69,12 +70,11 @@ GIT
       acts_as_list (~> 0.9)
       batch-loader (~> 1.2)
       browser (~> 2.7)
-      carrierwave (~> 2.2.1)
+      carrierwave (~> 2.2.5, >= 2.2.5)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.1.3)
       charlock_holmes (~> 0.7)
       date_validator (~> 0.12.0)
-      decidim-api (= 0.27.5)
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       diffy (~> 3.3)
@@ -183,7 +183,6 @@ GIT
     decidim-surveys (0.27.5)
       decidim-core (= 0.27.5)
       decidim-forms (= 0.27.5)
-      decidim-templates (= 0.27.5)
     decidim-system (0.27.5)
       active_link_to (~> 1.0)
       decidim-core (= 0.27.5)
@@ -198,7 +197,7 @@ GIT
 
 GIT
   remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
-  revision: 429da65f682afacf0712839e2904bcd6652d2813
+  revision: dfc6727e6707ce6fcef5343eb0feddb0e9c957bf
   branch: main
   specs:
     decidim-trusted_ids (0.6.0)
@@ -206,6 +205,17 @@ GIT
       decidim-core (>= 0.27.0, < 0.28)
       decidim-verifications (>= 0.27.0, < 0.28)
       deface (>= 1.5)
+
+GIT
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
+  revision: 161e41933910cd7e14b60e3acb2f704305863d30
+  branch: main
+  specs:
+    decidim-decidim_awesome (0.10.2)
+      decidim-admin (>= 0.26.0, < 0.28)
+      decidim-core (>= 0.26.0, < 0.28)
+      deface (>= 1.5)
+      sassc (~> 2.3)
 
 GEM
   remote: https://rubygems.org/
@@ -277,7 +287,7 @@ GEM
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
-    axe-core-api (4.8.2)
+    axe-core-api (4.9.0)
       dumb_delegator
       virtus
     axe-core-rspec (4.1.0)
@@ -307,7 +317,7 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (3.1.7)
+    bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -365,6 +375,7 @@ GEM
     crass (1.0.6)
     css_parser (1.17.1)
       addressable
+    csv (3.3.0)
     daemons (1.4.1)
     database_cleaner (2.0.2)
       database_cleaner-active_record (>= 2, < 3)
@@ -379,15 +390,10 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-cdtb (0.1.4)
+    decidim-cdtb (0.1.8)
       decidim (>= 0.26.2)
       rails (>= 6)
       ruby-progressbar
-    decidim-decidim_awesome (0.10.2)
-      decidim-admin (>= 0.26.0, < 0.28)
-      decidim-core (>= 0.26.0, < 0.28)
-      deface (>= 1.5)
-      sassc (~> 2.3)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -421,7 +427,7 @@ GEM
       nokogiri (>= 1.13.2, < 1.17.0)
       rubyzip (~> 2.3.0)
     docile (1.4.0)
-    doorkeeper (5.6.9)
+    doorkeeper (5.7.0)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     dumb_delegator (1.0.0)
@@ -446,7 +452,7 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (3.2.3)
+    faker (3.3.1)
       i18n (>= 1.8.11, < 2)
     faraday (1.10.3)
       faraday-em_http (~> 1.0)
@@ -491,7 +497,9 @@ GEM
       activesupport (>= 4.1, < 7.1)
       railties (>= 4.1, < 7.1)
     gemoji (3.0.1)
-    geocoder (1.8.2)
+    geocoder (1.8.3)
+      base64 (>= 0.1.0)
+      csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     graphql (1.12.24)
@@ -512,7 +520,7 @@ GEM
       nokogiri (>= 1.4)
     html_tokenizer (0.0.8)
     htmlentities (4.3.4)
-    i18n (1.14.4)
+    i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.37)
       activesupport (>= 4.0.2)
@@ -533,7 +541,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
-    json (2.7.1)
+    json (2.7.2)
     jwt (2.8.1)
       base64
     kaminari (1.2.2)
@@ -554,8 +562,8 @@ GEM
       kramdown (~> 2.0)
     launchy (2.5.2)
       addressable (~> 2.8)
-    letter_opener (1.9.0)
-      launchy (>= 2.2, < 3)
+    letter_opener (1.10.0)
+      launchy (>= 2.2, < 4)
     letter_opener_web (1.4.1)
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
@@ -579,10 +587,10 @@ GEM
       mixlib-cli (~> 2.1, >= 2.1.1)
       mixlib-config (>= 2.2.1, < 4)
       mixlib-shellout
-    method_source (1.0.0)
+    method_source (1.1.0)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.0305)
+    mime-types-data (3.2024.0507)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.22.3)
@@ -593,7 +601,7 @@ GEM
       chef-utils
     msgpack (1.7.2)
     multi_xml (0.6.0)
-    multipart-post (2.4.0)
+    multipart-post (2.4.1)
     mustache (1.1.1)
     net-http-persistent (4.0.2)
       connection_pool (~> 2.2)
@@ -606,7 +614,7 @@ GEM
       timeout
     net-smtp (0.5.0)
       net-protocol
-    nio4r (2.7.1)
+    nio4r (2.7.3)
     nokogiri (1.16.4-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -654,7 +662,7 @@ GEM
     parallel (1.24.0)
     parallel_tests (3.13.0)
       parallel
-    parser (3.3.0.5)
+    parser (3.3.1.0)
       ast (~> 2.4.1)
       racc
     pg (1.1.4)
@@ -753,7 +761,7 @@ GEM
     rspec-html-matchers (0.9.4)
       nokogiri (~> 1)
       rspec (>= 3.0.0.a, < 4)
-    rspec-mocks (3.13.0)
+    rspec-mocks (3.13.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-rails (4.1.2)
@@ -778,8 +786,8 @@ GEM
       rubocop-ast (>= 1.17.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.31.2)
-      parser (>= 3.3.0.4)
+    rubocop-ast (1.31.3)
+      parser (>= 3.3.1.0)
     rubocop-rails (2.15.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -790,7 +798,7 @@ GEM
     ruby-vips (2.2.1)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
-    rubyXL (3.4.26)
+    rubyXL (3.4.27)
       nokogiri (>= 1.10.8)
       rubyzip (>= 1.3.0)
     rubyzip (2.3.2)
@@ -907,7 +915,7 @@ DEPENDENCIES
   decidim!
   decidim-cdtb
   decidim-conferences!
-  decidim-decidim_awesome (~> 0.10.0)
+  decidim-decidim_awesome!
   decidim-dev!
   decidim-file_authorization_handler!
   decidim-initiatives!
