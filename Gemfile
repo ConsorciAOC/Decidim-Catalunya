@@ -17,8 +17,8 @@ gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids",
 gem "decidim-cdtb"
 
 gem "base64", "0.1.0"
-gem "strscan", "3.0.0"
 gem "net-smtp", "~> 0.4.0"
+gem "strscan", "3.0.0"
 
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
