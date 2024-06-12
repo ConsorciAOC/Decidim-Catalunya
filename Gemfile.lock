@@ -394,6 +394,13 @@ GEM
       decidim (>= 0.26.2)
       rails (>= 6)
       ruby-progressbar
+    decidim-reporting_proposals (0.5.2)
+      decidim-admin (>= 0.27.0, < 0.28)
+      decidim-core (>= 0.27.0, < 0.28)
+      decidim-participatory_processes (>= 0.27.0, < 0.28)
+      decidim-proposals (>= 0.27.0, < 0.28)
+      decidim-templates (>= 0.27.0, < 0.28)
+      deface (>= 1.9)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -921,6 +928,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-file_authorization_handler!
   decidim-initiatives!
+  decidim-reporting_proposals (~> 0.5.0)
   decidim-templates!
   decidim-trusted_ids!
   deface
