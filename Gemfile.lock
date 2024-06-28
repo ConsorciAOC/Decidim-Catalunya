@@ -197,7 +197,7 @@ GIT
 
 GIT
   remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
-  revision: c2bc8e1498784a5fdcf423a5cd5ef724b67e8029
+  revision: 92cd019c501092f7498042387fd2e042a19d9ea5
   branch: main
   specs:
     decidim-trusted_ids (0.6.0)
