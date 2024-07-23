@@ -916,6 +916,7 @@ PLATFORMS
 
 DEPENDENCIES
   azure-storage-blob
+  base64 (= 0.1.0)
   bootsnap (~> 1.3)
   byebug (~> 11.0)
   daemons
