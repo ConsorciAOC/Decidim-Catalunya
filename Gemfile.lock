@@ -9,6 +9,19 @@ GIT
       rails (>= 5.2)
 
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-reporting-proposals.git
+  revision: 0a6b647289674a70561d8201c9ee8265466c4ffb
+  branch: fix/missing_translations
+  specs:
+    decidim-reporting_proposals (0.5.2)
+      decidim-admin (>= 0.27.0, < 0.28)
+      decidim-core (>= 0.27.0, < 0.28)
+      decidim-participatory_processes (>= 0.27.0, < 0.28)
+      decidim-proposals (>= 0.27.0, < 0.28)
+      decidim-templates (>= 0.27.0, < 0.28)
+      deface (>= 1.9)
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: 927084cbeeaaea62ca2ba1a3bfd0ad5de1527e09
   branch: release/0.27-stable
@@ -216,19 +229,6 @@ GIT
       decidim-core (>= 0.26.0, < 0.28)
       deface (>= 1.5)
       sassc (~> 2.3)
-
-GIT
-  remote: https://github.com/openpoke/decidim-module-reporting-proposals.git
-  revision: b7bef93ddf7218da109d7d6b4e87fac533f2d7e6
-  branch: release/0.27-stable
-  specs:
-    decidim-reporting_proposals (0.5.2)
-      decidim-admin (>= 0.27.0, < 0.28)
-      decidim-core (>= 0.27.0, < 0.28)
-      decidim-participatory_processes (>= 0.27.0, < 0.28)
-      decidim-proposals (>= 0.27.0, < 0.28)
-      decidim-templates (>= 0.27.0, < 0.28)
-      deface (>= 1.9)
 
 GEM
   remote: https://rubygems.org/
