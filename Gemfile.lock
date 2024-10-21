@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/CodiTramuntana/decidim-module-reporting-proposals.git
-  revision: 0a6b647289674a70561d8201c9ee8265466c4ffb
+  revision: d1a7dd108d9ca5180864082c995ce203d95f43e3
   branch: fix/missing_translations
   specs:
     decidim-reporting_proposals (0.5.2)
