@@ -13,8 +13,7 @@ gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
-# gem "decidim-reporting_proposals", "~> 0.5.0"
-gem "decidim-reporting_proposals", github: "CodiTramuntana/decidim-module-reporting-proposals", branch: "backport/0.27/add-missing-translations-91"
+gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "release/0.27-stable"
 # VALiD & ViaOberta integration
 gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
