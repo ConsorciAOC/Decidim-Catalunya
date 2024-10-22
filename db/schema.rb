@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_12_091743) do
+ActiveRecord::Schema.define(version: 2024_02_29_145420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1568,17 +1568,6 @@ ActiveRecord::Schema.define(version: 2024_06_12_091743) do
     t.index ["decidim_user_id"], name: "index_decidim_reminders_on_decidim_user_id"
   end
 
-  create_table "decidim_reporting_proposals_category_valuators", force: :cascade do |t|
-    t.bigint "decidim_category_id", null: false
-    t.string "valuator_role_type", null: false
-    t.bigint "valuator_role_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["decidim_category_id", "valuator_role_id", "valuator_role_type"], name: "decidim_reporting_proposals_category_valuator_unique", unique: true
-    t.index ["decidim_category_id"], name: "decidim_reporting_proposals_category_category_id"
-    t.index ["valuator_role_type", "valuator_role_id"], name: "decidim_reporting_proposals_category_valuator_role"
-  end
-
   create_table "decidim_reports", id: :serial, force: :cascade do |t|
     t.integer "decidim_moderation_id", null: false
     t.integer "decidim_user_id", null: false
@@ -1770,8 +1759,6 @@ ActiveRecord::Schema.define(version: 2024_06_12_091743) do
     t.jsonb "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "field_values", default: {}
-    t.string "target"
     t.index ["decidim_organization_id"], name: "index_decidim_templates_organization"
     t.index ["templatable_type", "templatable_id"], name: "index_decidim_templates_templatable"
   end
@@ -1976,17 +1963,6 @@ ActiveRecord::Schema.define(version: 2024_06_12_091743) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
-  create_table "organization_trusted_ids_configs", force: :cascade do |t|
-    t.integer "decidim_organization_id", null: false
-    t.string "handler"
-    t.jsonb "settings", default: {}, null: false
-    t.integer "expiration_days"
-    t.jsonb "tos", default: {}, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["decidim_organization_id"], name: "index_decidim_trusted_ids_organization"
-  end
-
   create_table "versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
@@ -2030,7 +2006,6 @@ ActiveRecord::Schema.define(version: 2024_06_12_091743) do
   add_foreign_key "decidim_reminder_records", "decidim_reminders"
   add_foreign_key "decidim_reminders", "decidim_components"
   add_foreign_key "decidim_reminders", "decidim_users"
-  add_foreign_key "decidim_reporting_proposals_category_valuators", "decidim_categories"
   add_foreign_key "decidim_scope_types", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
