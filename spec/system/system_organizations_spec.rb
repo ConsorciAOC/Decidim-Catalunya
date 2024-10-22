@@ -74,10 +74,10 @@ describe "Organizations", type: :system do
         fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
 
         # Via Oberta
-        fill_in "organization_trusted_ids_census_settings_nif", with: "00000000T"
-        fill_in "organization_trusted_ids_census_settings_ine", with: "01234"
-        fill_in "organization_trusted_ids_census_settings_municipal_code", with: "17666"
-        fill_in "organization_trusted_ids_census_settings_province_code", with: "171717"
+        fill_in "organization_nif", with: "00000000T"
+        fill_in "organization_ine", with: "01234"
+        fill_in "organization_municipal_code", with: "17666"
+        fill_in "organization_province_code", with: "171717"
 
         # Google Tag Manager dataLayer
         fill_in "organization_entity_name", with: "Aj. de Vilagent"
@@ -89,10 +89,10 @@ describe "Organizations", type: :system do
 
         visit decidim_system.edit_organization_path(organization)
         click_button "Show advanced settings"
-        expect(page.find("[id=organization_trusted_ids_census_settings_nif]")["value"]).to eq "00000000T"
-        expect(page.find("[id=organization_trusted_ids_census_settings_ine]")["value"]).to eq "01234"
-        expect(page.find("[id=organization_trusted_ids_census_settings_municipal_code]")["value"]).to eq "17666"
-        expect(page.find("[id=organization_trusted_ids_census_settings_province_code]")["value"]).to eq "171717"
+        expect(page.find("[id=organization_nif]")["value"]).to eq "00000000T"
+        expect(page.find("[id=organization_ine]")["value"]).to eq "01234"
+        expect(page.find("[id=organization_municipal_code]")["value"]).to eq "17666"
+        expect(page.find("[id=organization_province_code]")["value"]).to eq "171717"
         expect(page.find("[id=organization_entity_name]")["value"]).to eq "Aj. de Vilagent"
       end
     end
