@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def google_tag_manager_data_layer(organization)
     layer = <<-EOLAYER
-    { "CODIENS" : "#{organization.via_oberta_settings&.fetch("ine") || ""}",
+    { "CODIENS" : "#{organization.trusted_ids_census_config&.settings&.fetch("ine") || ""}",
       "nomEns" : "#{organization.google_tag_manager_settings&.fetch("entity_name") || ""}",
       "nomTenant" : "#{organization.name}" }
     EOLAYER
