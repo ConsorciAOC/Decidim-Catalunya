@@ -230,6 +230,19 @@ GIT
       deface (>= 1.5)
       sassc (~> 2.3)
 
+GIT
+  remote: https://github.com/openpoke/decidim-module-reporting-proposals.git
+  revision: 03c063b3e5d9ff6e241b9afc9db8c2c5efc9c301
+  branch: release/0.27-stable
+  specs:
+    decidim-reporting_proposals (0.5.2)
+      decidim-admin (>= 0.27.0, < 0.28)
+      decidim-core (>= 0.27.0, < 0.28)
+      decidim-participatory_processes (>= 0.27.0, < 0.28)
+      decidim-proposals (>= 0.27.0, < 0.28)
+      decidim-templates (>= 0.27.0, < 0.28)
+      deface (>= 1.9)
+
 GEM
   remote: https://rubygems.org/
   specs:

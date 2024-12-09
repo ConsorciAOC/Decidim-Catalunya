@@ -14,7 +14,7 @@ gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
 # gem "decidim-reporting_proposals", "~> 0.5.0"
-gem "decidim-reporting_proposals", github: "CodiTramuntana/decidim-module-reporting-proposals", branch: "fix/missing_translations"
+gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "release/0.27-stable"
 # VALiD & ViaOberta integration
 gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
@@ -24,6 +24,9 @@ gem "net-smtp", "~> 0.4.0"
 gem "strscan", "3.0.0"
 
 gem "base64", "0.1.0"
+gem "net-smtp", "~> 0.4.0"
+gem "strscan", "3.0.0"
+
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
 
