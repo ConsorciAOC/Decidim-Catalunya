@@ -344,6 +344,12 @@ GEM
       decidim-core (>= 0.28.0, < 0.29)
       deface (>= 1.5)
       sassc (~> 2.3)
+    decidim-reporting_proposals (0.6.1)
+      decidim-admin (>= 0.28.1, < 0.29)
+      decidim-core (>= 0.28.1, < 0.29)
+      decidim-participatory_processes (>= 0.28.1, < 0.29)
+      decidim-proposals (>= 0.28.1, < 0.29)
+      deface (>= 1.9)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -881,6 +887,7 @@ DEPENDENCIES
   decidim-decidim_awesome (~> 0.11.0)
   decidim-dev!
   decidim-initiatives!
+  decidim-reporting_proposals (~> 0.6.0)
   decidim-templates!
   deface
   delayed_job_active_record
