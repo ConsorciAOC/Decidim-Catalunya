@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_02_05_115521) do
+ActiveRecord::Schema.define(version: 2025_02_05_130344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -347,7 +347,10 @@ ActiveRecord::Schema.define(version: 2025_02_05_115521) do
     t.integer "weight_total", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["decidim_proposal_id"], name: "decidim_awesome_extra_fields_on_proposal"
+    t.string "private_body"
+    t.string "decidim_proposal_type", null: false
+    t.datetime "private_body_updated_at"
+    t.index ["decidim_proposal_id", "decidim_proposal_type"], name: "index_decidim_awesome_proposal_extra_fields_on_decidim_proposal"
   end
 
   create_table "decidim_awesome_vote_weights", force: :cascade do |t|
@@ -578,6 +581,7 @@ ActiveRecord::Schema.define(version: 2025_02_05_115521) do
     t.date "sign_date"
     t.datetime "diploma_sent_at"
     t.integer "follows_count", default: 0, null: false
+    t.integer "weight", default: 0, null: false
     t.index ["decidim_organization_id", "slug"], name: "index_unique_conference_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_conferences_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_conferences_on_decidim_scope_id"
@@ -1492,7 +1496,7 @@ ActiveRecord::Schema.define(version: 2025_02_05_115521) do
     t.string "omnipresent_banner_url"
     t.boolean "highlighted_content_banner_enabled", default: false, null: false
     t.jsonb "highlighted_content_banner_title"
-    t.jsonb "hçd_content_banner_short_description"
+    t.jsonb "highlighted_content_banner_short_description"
     t.jsonb "highlighted_content_banner_action_title"
     t.jsonb "highlighted_content_banner_action_subtitle"
     t.string "highlighted_content_banner_action_url"
