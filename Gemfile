@@ -6,11 +6,11 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
-# gem "decidim-conferences", DECIDIM_VERSION
-# gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", tag: "v0.27.1.7"
-# gem "decidim-initiatives", DECIDIM_VERSION
-# gem "decidim-templates", DECIDIM_VERSION
+gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-templates", DECIDIM_VERSION
 
+# gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", tag: "v0.27.1.7"
 # gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
 # gem "decidim-reporting_proposals", "~> 0.5.0"

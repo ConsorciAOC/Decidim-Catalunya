@@ -1492,7 +1492,7 @@ ActiveRecord::Schema.define(version: 2025_02_05_115521) do
     t.string "omnipresent_banner_url"
     t.boolean "highlighted_content_banner_enabled", default: false, null: false
     t.jsonb "highlighted_content_banner_title"
-    t.jsonb "highlighted_content_banner_short_description"
+    t.jsonb "hçd_content_banner_short_description"
     t.jsonb "highlighted_content_banner_action_title"
     t.jsonb "highlighted_content_banner_action_subtitle"
     t.string "highlighted_content_banner_action_url"
