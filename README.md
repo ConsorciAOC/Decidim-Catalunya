@@ -25,7 +25,7 @@ You're good to go!
 
 ```bash
 bundle install
-nvm use 16.9.1
+nvm use 18.17.1
 npm install
 bin/rails db:create db:schema:load
 bin/rails db:seed
