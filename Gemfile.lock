@@ -1,4 +1,25 @@
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
+  revision: 0fd0d63c17a3ba718494ea24b12e685e8d56abf4
+  branch: upgrade/0.28
+  specs:
+    decidim-file_authorization_handler (0.28.2.0)
+      decidim (~> 0.28.2)
+      decidim-admin (~> 0.28.2)
+      rails (>= 5.2)
+
+GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-trusted-ids.git
+  revision: 452cbe134598418853ab9ccd5afa79090d19b193
+  branch: upgrade/release-0.28
+  specs:
+    decidim-trusted_ids (0.7.0)
+      decidim (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      decidim-verifications (>= 0.28.0, < 0.29)
+      deface (>= 1.5)
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: d961f2dc6233bea9b20939efc488fd87c9465378
   branch: release/0.28-stable
@@ -547,7 +568,7 @@ GEM
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.4)
-    msgpack (1.7.5)
+    msgpack (1.8.0)
     multi_xml (0.6.0)
     multipart-post (2.4.1)
     net-http-persistent (4.0.5)
@@ -852,7 +873,7 @@ GEM
     web-push (3.0.1)
       jwt (~> 2.0)
       openssl (~> 3.0)
-    webmock (3.24.0)
+    webmock (3.25.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -886,9 +907,11 @@ DEPENDENCIES
   decidim-conferences!
   decidim-decidim_awesome (~> 0.11.0)
   decidim-dev!
+  decidim-file_authorization_handler!
   decidim-initiatives!
   decidim-reporting_proposals (~> 0.6.0)
   decidim-templates!
+  decidim-trusted_ids!
   deface
   delayed_job_active_record
   faker
