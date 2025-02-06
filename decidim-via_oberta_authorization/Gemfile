@@ -7,6 +7,7 @@ gemspec
 group :development, :test do
   gem "bootsnap"
   gem "decidim"
+  gem "faker"
   gem "letter_opener_web"
   gem "listen"
   gem "pry-rails"
