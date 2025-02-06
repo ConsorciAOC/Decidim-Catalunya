@@ -37,6 +37,10 @@ group :development, :test do
 
   gem "decidim-dev", DECIDIM_VERSION
   gem "faker"
+  # Set versions because Property AutoCorrect errors.
+  gem "rspec-rails", "~> 6.0.4"
+  gem "rubocop-factory_bot", "2.25.1"
+  gem "rubocop-rspec", "2.26.1"
 end
 
 group :development do
@@ -59,5 +63,4 @@ end
 
 group :test do
   gem "database_cleaner"
-  gem "rspec-rails"
 end
