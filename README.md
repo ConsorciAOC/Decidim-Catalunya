@@ -25,7 +25,7 @@ You're good to go!
 
 ```bash
 bundle install
-nvm use 16.9.1
+nvm use 18.17.1
 npm install
 bin/rails db:create db:schema:load
 bin/rails db:seed
@@ -38,7 +38,7 @@ bin/rails s
 
 Deface has a strange fail due to nokogiri gem and the overrides with Deface don't work when applied inside the HEAD tag. 
 
-Nokogiri required version >= 1.6.0
+Nokogiri required version >= 1.6.0 (but with 1.14 not works)
 
 See:
 https://github.com/spree/deface/issues/84

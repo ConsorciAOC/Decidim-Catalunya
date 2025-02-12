@@ -9,8 +9,8 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.0.1
-  NODE_VERSION: 16.9.1
+  RUBY_VERSION: 3.1.1
+  NODE_VERSION: 18.17.1
 
 jobs:
   test:
@@ -81,8 +81,10 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - run: npm install
-      - run: NODE_ENV=test bundle exec rails webpacker:compile
-      - run: bundle exec rake db:test:prepare
-        name: Setup database
+      - run: NODE_ENV=test bundle exec rails shakapacker:compile
+      - name: Setup database
+        run: |
+          RAILS_ENV=test bundle exec rake db:create
+          RAILS_ENV=test bundle exec rake db:migrate
       - run: bundle exec rspec
         name: Run specs

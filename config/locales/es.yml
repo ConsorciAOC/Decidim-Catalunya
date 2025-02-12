@@ -1,10 +1,2 @@
 ---
 es:
-  # Remove when create the translations in Decidim
-  decidim:
-    surveys:
-      survey_confirmation_mailer:
-        confirmation:
-          body: Has contestado correctamente al cuestionario %{questionnaire_title} dentro de %{participatory_space}
-          subject: Confirmación de respuesta al cuestionario %{questionnaire_title}
-        export_name: Respuestas del cuestionario

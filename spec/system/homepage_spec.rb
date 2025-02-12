@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage", type: :system do
+describe "Homepage" do
   include Decidim::SanitizeHelper
 
   let!(:organization) do
@@ -14,12 +14,12 @@ describe "Homepage", type: :system do
     )
   end
   let!(:hero) do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero, settings: {
-      "welcome_text_ca" => "Benvinguda a Decidim Application"
-    }
+    create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :hero, settings: {
+             "welcome_text_ca" => "Benvinguda a Decidim Application"
+           })
   end
   let!(:sub_hero) do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero
+    create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero)
   end
 
   before do
