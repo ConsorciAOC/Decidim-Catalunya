@@ -82,7 +82,9 @@ jobs:
           cache: 'npm'
       - run: npm install
       - run: NODE_ENV=test bundle exec rails shakapacker:compile
-      - run: bundle exec rake db:test:prepare
-        name: Setup database
+      - name: Setup database
+        run: |
+          RAILS_ENV=test bundle exec rake db:create
+          RAILS_ENV=test bundle exec rake db:migrate
       - run: bundle exec rspec
         name: Run specs
