@@ -929,6 +929,7 @@ DEPENDENCIES
   rubocop-rspec (= 2.26.1)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
+  stringio (= 3.1.4)
   strscan (= 3.0.0)
   web-console (~> 4.0)
   wicked_pdf (~> 2.7.0)

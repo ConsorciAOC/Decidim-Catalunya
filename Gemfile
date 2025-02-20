@@ -22,6 +22,7 @@ gem "decidim-cdtb"
 gem "base64", "0.1.1"
 gem "net-smtp"
 gem "strscan", "3.0.0"
+gem "stringio", "3.1.4"
 
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
