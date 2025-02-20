@@ -922,6 +922,7 @@ DEPENDENCIES
   listen (~> 3.1)
   net-smtp
   puma (>= 5.0.0)
+  rexml
   rspec-rails (~> 6.0.4)
   rubocop-factory_bot (= 2.25.1)
   rubocop-rails
