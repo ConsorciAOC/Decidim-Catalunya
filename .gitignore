@@ -60,5 +60,7 @@ yarn-debug.log*
 decidim-via_oberta_authorization/spec/decidim_dummy_app/
 spec/decidim_dummy_app/
 
-public/sw.js
-public/sw.js.map
+/public/sw.js
+/public/sw.js.*
+
+tailwind.config.js
