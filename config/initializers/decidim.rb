@@ -30,6 +30,13 @@ Decidim.configure do |config|
     units: :km
   }
 
+  # Configure CSP for Azure Storage and Google Tag Manager
+  config.content_security_policies_extra = {
+    "connect-src" => %w(https://*.blob.core.windows.net),
+    "img-src" =>  %w(https://*.blob.core.windows.net),
+    "script-src" => %w(https://www.googletagmanager.com)
+  }
+
   # Custom HTML Header snippets
   #
   # The most common use is to integrate third-party services that require some
