@@ -59,6 +59,9 @@ end
 group :production, :staging do
   gem "daemons"
   gem "delayed_job_active_record"
+
+  # LoadError - cannot load such file -- rexml/document
+  gem "rexml"
 end
 
 group :test do
