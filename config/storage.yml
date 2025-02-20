@@ -12,4 +12,4 @@ azure:
   storage_access_key: <%= Rails.application.secrets.dig(:storage, :azure, :storage_access_key) %>
   container: <%= Rails.application.secrets.dig(:storage, :azure, :container) %>
   storage_blob_host: <%= Rails.application.secrets.dig(:storage, :azure, :storage_blob_host) %>
-
+  storage_url: <%= Rails.application.secrets.dig(:storage, :azure, :storage_url) %>
