@@ -30,6 +30,12 @@ Decidim.configure do |config|
     units: :km
   }
 
+  # Configure CSP for Azure Storage
+  config.content_security_policies_extra = {
+    "connect-src" =>  %W("#{ENV["AZURE_STORAGE_URL"]} https://www.googletagmanager.com"),
+    "img-src" => %W("#{ENV["AZURE_STORAGE_URL"]} https://www.googletagmanager.com")
+  }
+
   # Custom HTML Header snippets
   #
   # The most common use is to integrate third-party services that require some
