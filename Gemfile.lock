@@ -841,7 +841,7 @@ GEM
       sprockets (>= 3.0.0)
     ssrf_filter (1.2.0)
     stringio (3.0.1)
-    strscan (3.0.0)
+    strscan (3.0.1)
     temple (0.10.3)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
@@ -930,7 +930,7 @@ DEPENDENCIES
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   stringio (= 3.0.1)
-  strscan (= 3.0.0)
+  strscan (= 3.0.1)
   web-console (~> 4.0)
   wicked_pdf (~> 2.7.0)
 
