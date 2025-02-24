@@ -30,10 +30,11 @@ Decidim.configure do |config|
     units: :km
   }
 
-  # Configure CSP for Azure Storage
+  # Configure CSP for Azure Storage and Google Tag Manager
   config.content_security_policies_extra = {
-    "connect-src" => [ENV.fetch("AZURE_STORAGE_URL", nil), "https://www.googletagmanager.com"],
-    "img-src" =>  [ENV.fetch("AZURE_STORAGE_URL", nil), "https://www.googletagmanager.com"]
+    "connect-src" => %w(https://*.blob.core.windows.net),
+    "img-src" =>  %w(https://*.blob.core.windows.net),
+    "script-src" => %w(https://www.googletagmanager.com)
   }
 
   # Custom HTML Header snippets
