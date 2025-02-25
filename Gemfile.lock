@@ -192,6 +192,17 @@ GIT
     decidim-verifications (0.28.4)
       decidim-core (= 0.28.4)
 
+GIT
+  remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
+  revision: 6a28c047564f3c4bbcd7b3cd3128f0de3ce161ea
+  branch: upgrade/release-0.28
+  specs:
+    decidim-trusted_ids (0.7.0)
+      decidim (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      decidim-verifications (>= 0.28.0, < 0.29)
+      deface (>= 1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -429,8 +440,6 @@ GEM
     faraday_middleware (1.2.1)
       faraday (~> 1.0)
     ffi (1.17.1)
-    ffi (1.17.1-arm64-darwin)
-    ffi (1.17.1-x86_64-darwin)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -560,10 +569,6 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.16.8-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.8-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.16.8-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -864,8 +869,6 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
-  arm64-darwin
-  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES

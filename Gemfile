@@ -3,8 +3,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-# DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
-DECIDIM_VERSION = { path: "/home/laurajv/decidim_fork" }.freeze
+DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
