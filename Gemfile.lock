@@ -372,11 +372,6 @@ GEM
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
-    decidim-decidim_awesome (0.11.3)
-      decidim-admin (>= 0.28.0, < 0.29)
-      decidim-core (>= 0.28.0, < 0.29)
-      deface (>= 1.5)
-      sassc (~> 2.3)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -422,7 +417,7 @@ GEM
       temple
     erubi (1.13.1)
     escape_utils (1.2.2)
-    excon (1.2.3)
+    excon (1.2.4)
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
     factory_bot (6.5.1)
@@ -542,7 +537,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    launchy (3.1.0)
+    launchy (3.1.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
       logger (~> 1.6)
@@ -803,8 +798,6 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     selenium-webdriver (4.16.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -857,7 +850,7 @@ GEM
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
-    version_gem (1.1.4)
+    version_gem (1.1.6)
     w3c_rspec_validators (0.3.0)
       rails
       rspec
@@ -909,7 +902,6 @@ DEPENDENCIES
   decidim!
   decidim-cdtb
   decidim-conferences!
-  decidim-decidim_awesome (~> 0.11.0)
   decidim-dev!
   decidim-file_authorization_handler!
   decidim-initiatives!
