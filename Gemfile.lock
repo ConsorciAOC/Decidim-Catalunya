@@ -9,18 +9,9 @@ GIT
       rails (>= 5.2)
 
 GIT
-  remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
-  revision: 6a28c047564f3c4bbcd7b3cd3128f0de3ce161ea
-  branch: upgrade/release-0.28
-  specs:
-    decidim-trusted_ids (0.7.0)
-      decidim (>= 0.28.0, < 0.29)
-      decidim-core (>= 0.28.0, < 0.29)
-      decidim-verifications (>= 0.28.0, < 0.29)
-      deface (>= 1.5)
-
-PATH
-  remote: /home/laurajv/decidim_fork
+  remote: https://github.com/CodiTramuntana/decidim.git
+  revision: d961f2dc6233bea9b20939efc488fd87c9465378
+  branch: release/0.28-stable
   specs:
     decidim (0.28.4)
       decidim-accountability (= 0.28.4)
