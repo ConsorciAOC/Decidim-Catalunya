@@ -66,7 +66,7 @@ describe "Organizations" do
         fill_in "Name", with: "Visca Vilagent!"
         fill_in "Host", with: "vilagent.example.org"
         fill_in "Secondary hosts", with: "foobar.vilagent.net\n\rbar.vilagent.corp"
-        choose "Don't allow participants to register, but allow existing participants to login"
+        choose "Do not allow participants to register, but allow existing participants to login"
 
         click_on "Show advanced settings"
         check "organization_omniauth_settings_facebook_enabled"
