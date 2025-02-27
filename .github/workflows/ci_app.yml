@@ -82,6 +82,8 @@ jobs:
           cache: 'npm'
       - run: npm install
       - run: NODE_ENV=test bundle exec rails shakapacker:compile
+      - run: sudo apt install imagemagick
+        name: Install Imagemagick      
       - name: Setup database
         run: bundle exec rake db:test:prepare
       - run: bundle exec rspec
