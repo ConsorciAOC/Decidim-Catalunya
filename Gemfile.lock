@@ -372,7 +372,7 @@ GEM
       decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
-    decidim-decidim_awesome (0.11.3)
+    decidim-decidim_awesome (0.11.4)
       decidim-admin (>= 0.28.0, < 0.29)
       decidim-core (>= 0.28.0, < 0.29)
       deface (>= 1.5)
@@ -903,7 +903,7 @@ DEPENDENCIES
   decidim!
   decidim-cdtb
   decidim-conferences!
-  decidim-decidim_awesome (~> 0.11.0)
+  decidim-decidim_awesome (~> 0.11.4)
   decidim-dev!
   decidim-file_authorization_handler!
   decidim-initiatives!

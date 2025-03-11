@@ -10,6 +10,7 @@
     "formBuilder": "^3.19.13",
     "inline-attacher": "^0.0.8",
     "jsrender": "^1.0.15",
+    "leaflet-tilelayer-here": "^2.0.1",
     "leaflet.featuregroup.subgroup": "^1.0.2"
   },
   "version": "0.1.0",
