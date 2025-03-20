@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
-  revision: a3dca90857be51f783678387b33e06a24376ce41
-  branch: master
-  specs:
-    decidim-file_authorization_handler (0.28.2.0)
-      decidim (~> 0.28.2)
-      decidim-admin (~> 0.28.2)
-      rails (>= 5.2)
-
-GIT
   remote: https://github.com/CodiTramuntana/decidim-module-reporting-proposals.git
   revision: c95b6e9875f93db7580b291d2f60ce3c95c32105
   branch: fix/error_with_form_builder_override
@@ -377,6 +367,10 @@ GEM
       decidim-core (>= 0.28.0, < 0.29)
       deface (>= 1.5)
       sassc (~> 2.3)
+    decidim-file_authorization_handler (0.28.2.0)
+      decidim (~> 0.28.2)
+      decidim-admin (~> 0.28.2)
+      rails (>= 5.2)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -905,7 +899,7 @@ DEPENDENCIES
   decidim-conferences!
   decidim-decidim_awesome (~> 0.11.4)
   decidim-dev!
-  decidim-file_authorization_handler!
+  decidim-file_authorization_handler
   decidim-initiatives!
   decidim-reporting_proposals!
   decidim-templates!
