@@ -403,8 +403,8 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-cdtb (0.1.9)
-      decidim (>= 0.26.2)
+    decidim-cdtb (0.4.2)
+      decidim (>= 0.27.0)
       rails (>= 6)
       ruby-progressbar
     declarative-builder (0.1.0)
@@ -928,7 +928,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb
+  decidim-cdtb (~> 0.4.2)
   decidim-conferences!
   decidim-decidim_awesome!
   decidim-dev!
@@ -953,7 +953,7 @@ DEPENDENCIES
   wicked_pdf (~> 2.7.0)
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.0.7p220
 
 BUNDLED WITH
    2.4.12
