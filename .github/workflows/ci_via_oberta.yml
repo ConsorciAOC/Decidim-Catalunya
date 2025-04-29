@@ -35,6 +35,9 @@ jobs:
       DATABASE_HOST: localhost
 
     steps:
+      - name: Install ImageMagick
+        run: sudo apt install imagemagick
+
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
@@ -55,14 +58,14 @@ jobs:
         run: cd decidim-via_oberta_authorization && bundle config set --local path 'vendor/bundle'
 
       - name: Install Ruby deps
-        uses: nick-invision/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           max_attempts: 3
           retry_on: error
           command: cd decidim-via_oberta_authorization && bundle install --jobs 4 --retry 3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
