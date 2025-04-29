@@ -358,8 +358,8 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-cdtb (0.4.1)
-      decidim (>= 0.27.0)
+    decidim-cdtb (0.5.0)
+      decidim (>= 0.28.0)
       rails (>= 6)
       ruby-progressbar
     decidim-decidim_awesome (0.11.4)
@@ -452,7 +452,7 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.2.1)
       faraday (~> 1.0)
-    ffi (1.17.1)
+    ffi (1.17.1-x86_64-linux-gnu)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -567,7 +567,6 @@ GEM
     mime-types-data (3.2025.0408)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.8)
     minitest (5.25.5)
     msgpack (1.8.0)
     multi_xml (0.6.0)
@@ -584,8 +583,7 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.18.7)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.18.7-x86_64-linux-gnu)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -897,7 +895,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb
+  decidim-cdtb (~> 0.5.0)
   decidim-conferences!
   decidim-decidim_awesome (~> 0.11.4)
   decidim-dev!
@@ -927,7 +925,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 3.1.7p261
 
 BUNDLED WITH
    2.5.14
