@@ -3,29 +3,30 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.27-stable" }.freeze
+DECIDIM_VERSION = { github: "CodiTramuntana/decidim", branch: "release/0.28-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", tag: "v0.27.1.7"
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-decidim_awesome", "~> 0.11.4"
+gem "decidim-file_authorization_handler"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
-# gem "decidim-reporting_proposals", "~> 0.5.0"
-gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "release/0.27-stable"
+gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "main"
 # VALiD & ViaOberta integration
 gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
-gem "decidim-cdtb"
+gem "decidim-cdtb", "~> 0.5.0"
 
-gem "base64", "0.1.0"
-gem "net-smtp", "~> 0.4.0"
-gem "strscan", "3.0.0"
+gem "base64", "0.1.1"
+gem "net-smtp"
+gem "stringio", "3.0.1"
+gem "strscan", "3.0.1"
 
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
+gem "wkhtmltopdf-binary"
 
 # Blob storage in the cloud
 
@@ -38,6 +39,10 @@ group :development, :test do
 
   gem "decidim-dev", DECIDIM_VERSION
   gem "faker"
+  # Set versions because Property AutoCorrect errors.
+  gem "rspec-rails", "~> 6.0.4"
+  gem "rubocop-factory_bot", "2.25.1"
+  gem "rubocop-rspec", "2.26.1"
 end
 
 group :development do
@@ -56,9 +61,11 @@ end
 group :production, :staging do
   gem "daemons"
   gem "delayed_job_active_record"
+
+  # LoadError - cannot load such file -- rexml/document
+  gem "rexml"
 end
 
 group :test do
   gem "database_cleaner"
-  gem "rspec-rails"
 end

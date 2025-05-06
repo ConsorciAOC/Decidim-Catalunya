@@ -9,8 +9,8 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.0.1
-  NODE_VERSION: 16.9.1
+  RUBY_VERSION: 3.1.7
+  NODE_VERSION: 18.17.1
 
 jobs:
   test:
@@ -57,7 +57,7 @@ jobs:
         with:
           chrome-version: 119.0.6045.105
       - name: Recover Ruby dependency cache
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-app-rubydeps-${{ hashFiles('Gemfile.lock') }}
@@ -81,8 +81,10 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - run: npm install
-      - run: NODE_ENV=test bundle exec rails webpacker:compile
-      - run: bundle exec rake db:test:prepare
-        name: Setup database
+      - run: NODE_ENV=test bundle exec rails shakapacker:compile
+      - run: sudo apt install imagemagick
+        name: Install Imagemagick      
+      - name: Setup database
+        run: bundle exec rake db:test:prepare
       - run: bundle exec rspec
         name: Run specs
