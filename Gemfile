@@ -17,7 +17,7 @@ gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-pr
 # VALiD & ViaOberta integration
 gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
-gem "decidim-cdtb"
+gem "decidim-cdtb", "~> 0.5.0"
 
 gem "base64", "0.1.1"
 gem "net-smtp"

@@ -346,7 +346,7 @@ GEM
     crass (1.0.6)
     css_parser (1.21.1)
       addressable
-    csv (3.3.2)
+    csv (3.3.3)
     daemons (1.4.1)
     database_cleaner (2.1.0)
       database_cleaner-active_record (>= 2, < 3)
@@ -358,8 +358,8 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-cdtb (0.4.0)
-      decidim (>= 0.27.0)
+    decidim-cdtb (0.5.0)
+      decidim (>= 0.28.0)
       rails (>= 6)
       ruby-progressbar
     decidim-decidim_awesome (0.11.4)
@@ -393,16 +393,16 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
-    devise_invitable (2.0.9)
+    devise_invitable (2.0.10)
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.6.0)
     diffy (3.4.3)
-    doc2text (0.4.7)
-      nokogiri (>= 1.13.2, < 1.17.0)
+    doc2text (0.4.8)
+      nokogiri (>= 1.18.2)
       rubyzip (~> 2.3.0)
     docile (1.4.1)
-    doorkeeper (5.8.1)
+    doorkeeper (5.8.2)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     erb_lint (0.4.0)
@@ -452,7 +452,7 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.2.1)
       faraday (~> 1.0)
-    ffi (1.17.1)
+    ffi (1.17.1-x86_64-linux-gnu)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -461,7 +461,7 @@ GEM
       excon (~> 1.0)
       formatador (>= 0.2, < 2.0)
       mime-types
-    fog-local (0.8.0)
+    fog-local (0.9.0)
       fog-core (>= 1.27, < 3.0)
     formatador (1.1.0)
     foundation_rails_helper (4.0.1)
@@ -476,7 +476,7 @@ GEM
     geom2d (0.4.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    graphql (2.0.31)
+    graphql (2.0.32)
       base64
     graphql-docs (3.0.1)
       commonmarker (~> 0.16)
@@ -549,7 +549,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.6)
+    logger (1.7.0)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -561,13 +561,13 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.1.0)
-    mime-types (3.6.0)
+    mime-types (3.6.2)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0304)
+    mime-types-data (3.2025.0408)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    minitest (5.25.4)
+    minitest (5.25.5)
     msgpack (1.8.0)
     multi_xml (0.6.0)
     multipart-post (2.4.1)
@@ -583,7 +583,7 @@ GEM
     net-smtp (0.3.4)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.16.8-x86_64-linux)
+    nokogiri (1.18.7-x86_64-linux-gnu)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -653,7 +653,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.11)
+    rack (2.2.13)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)
@@ -895,7 +895,7 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb
+  decidim-cdtb (~> 0.5.0)
   decidim-conferences!
   decidim-decidim_awesome (~> 0.11.4)
   decidim-dev!
@@ -925,7 +925,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-   ruby 3.1.1p18
+   ruby 3.1.7p261
 
 BUNDLED WITH
    2.5.14
