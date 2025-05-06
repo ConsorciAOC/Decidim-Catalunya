@@ -1,16 +1,4 @@
 GIT
-  remote: https://github.com/CodiTramuntana/decidim-module-reporting-proposals.git
-  revision: c95b6e9875f93db7580b291d2f60ce3c95c32105
-  branch: fix/error_with_form_builder_override
-  specs:
-    decidim-reporting_proposals (0.6.2)
-      decidim-admin (>= 0.28.1, < 0.29)
-      decidim-core (>= 0.28.1, < 0.29)
-      decidim-participatory_processes (>= 0.28.1, < 0.29)
-      decidim-proposals (>= 0.28.1, < 0.29)
-      deface (>= 1.9)
-
-GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: f5eea9575d34c7b9a864f2dfc24d7f456f3ca7cb
   branch: release/0.28-stable
@@ -205,6 +193,18 @@ GIT
       decidim-core (>= 0.28.0, < 0.29)
       decidim-verifications (>= 0.28.0, < 0.29)
       deface (>= 1.5)
+
+GIT
+  remote: https://github.com/openpoke/decidim-module-reporting-proposals.git
+  revision: c1b06959930dd63f8d6bdfc9c3b6956d5dd838b5
+  branch: main
+  specs:
+    decidim-reporting_proposals (0.6.2)
+      decidim-admin (>= 0.28.1, < 0.29)
+      decidim-core (>= 0.28.1, < 0.29)
+      decidim-participatory_processes (>= 0.28.1, < 0.29)
+      decidim-proposals (>= 0.28.1, < 0.29)
+      deface (>= 1.9)
 
 GEM
   remote: https://rubygems.org/
