@@ -21,7 +21,7 @@ gem "decidim-cdtb", "~> 0.5.0"
 
 gem "base64", "0.1.1"
 gem "net-smtp"
-gem "stringio", "3.0.1"
+gem "stringio", "3.0.1.2"
 gem "strscan", "3.0.1"
 
 gem "bootsnap", "~> 1.3"
