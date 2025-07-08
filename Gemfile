@@ -13,7 +13,7 @@ gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-decidim_awesome", "~> 0.11.4"
 gem "decidim-file_authorization_handler"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
-gem "decidim-reporting_proposals", github: "CodiTramuntana/decidim-module-reporting-proposals", branch: "fix/error_with_form_builder_override"
+gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "release/0.28-stable"
 # VALiD & ViaOberta integration
 gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
@@ -26,7 +26,6 @@ gem "strscan", "3.0.1"
 
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
-gem "wkhtmltopdf-binary"
 
 # Blob storage in the cloud
 
