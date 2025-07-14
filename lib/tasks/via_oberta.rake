@@ -12,14 +12,14 @@ namespace :via_oberta do
 
     puts <<~EOMSG
       Performing request with parameters:
-      document_type: #{::ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type]}
+      document_type: #{ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type]}
       id_document: #{id_document}
     EOMSG
 
     puts "\nRESPONSE:"
     service = ViaObertaAuthorizationRq.new(organization)
     rs = service.send_rq(
-      document_type: ::ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type],
+      document_type: ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type],
       id_document: id_document
     )
     puts "RS: #{rs.body}"

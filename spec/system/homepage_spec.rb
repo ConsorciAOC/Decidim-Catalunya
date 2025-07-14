@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage", type: :system do
+describe "Homepage" do
   include Decidim::SanitizeHelper
 
   let!(:organization) do
@@ -14,12 +14,12 @@ describe "Homepage", type: :system do
     )
   end
   let!(:hero) do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :hero, settings: {
-      "welcome_text_ca" => "Benvinguda a Decidim Application"
-    }
+    create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :hero, settings: {
+             "welcome_text_ca" => "Benvinguda a Decidim Application"
+           })
   end
   let!(:sub_hero) do
-    create :content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero
+    create(:content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero)
   end
 
   before do
@@ -31,10 +31,10 @@ describe "Homepage", type: :system do
     visit decidim.root_path
 
     expect(page).to have_content("Decidim Application")
-    within "section.hero .hero__container" do
+    within "section.hero__container .hero__title" do
       expect(page).to have_content("Benvinguda a Decidim Application")
     end
-    within "section.subhero" do
+    within "section.home__section" do
       subhero_msg = translated(organization.description).gsub(%r{</p>\s+<p>}, "<br><br>").gsub(%r{<p>(((?!</p>).)*)</p>}mi, '\\1').gsub(%r{<script>(((?!</script>).)*)</script>}mi, '\\1')
       expect(page).to have_content(subhero_msg)
     end

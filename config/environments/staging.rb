@@ -73,11 +73,14 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
+  # Raises error for missing translations.
+  config.action_view.raise_on_missing_translations = false
+
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
   ## config.action_mailer.smtp_settings = {
   ##   :address        => Rails.application.secrets.smtp_address,
   ##   :port           => Rails.application.secrets.smtp_port,

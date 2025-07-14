@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage", type: :system do
+describe "Homepage" do
   include Decidim::SanitizeHelper
 
   let!(:organization) do
@@ -32,14 +32,14 @@ describe "Homepage", type: :system do
 
   it "loads and shows organization name and main blocks" do
     expect(page).to have_content("New to the platform?")
-    expect(page).not_to have_content("Continue with verified ID")
+    expect(page).to have_no_content("Continue with verified ID")
   end
 
   context "when VALID oauth is enabled" do
     let(:enabled) { true }
 
     it "shows the VALID button" do
-      expect(page).not_to have_content("New to the platform?")
+      expect(page).to have_no_content("New to the platform?")
       expect(page).to have_content("Continue with verified ID")
     end
 
@@ -48,7 +48,7 @@ describe "Homepage", type: :system do
 
       it "shows the default screen" do
         expect(page).to have_content("New to the platform?")
-        expect(page).not_to have_content("Continue with verified ID")
+        expect(page).to have_no_content("Continue with verified ID")
       end
     end
   end

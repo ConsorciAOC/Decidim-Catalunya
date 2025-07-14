@@ -23,11 +23,18 @@ Decidim.configure do |config|
   config.maps = {
     provider: :here,
     api_key: Rails.application.secrets.maps[:api_key],
-    static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+    static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
   }
   config.geocoder = {
     timeout: 5,
     units: :km
+  }
+
+  # Configure CSP for Azure Storage and Google Tag Manager
+  config.content_security_policies_extra = {
+    "connect-src" => %w(https://*.blob.core.windows.net),
+    "img-src" => %w(https://*.blob.core.windows.net),
+    "script-src" => %w(https://www.googletagmanager.com)
   }
 
   # Custom HTML Header snippets

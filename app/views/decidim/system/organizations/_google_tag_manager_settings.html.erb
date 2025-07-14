@@ -1,5 +1,5 @@
-<div class="fieldset">
-  <h4><%= t("decidim.system.models.organization.fields.google_tag_manager_settings") %></h4>
+<div class="border-2 rounded border-background p-4 form__wrapper mt-8 first:mt-0 last:pb-4">
+  <h3 class="h4"><%= t("decidim.system.models.organization.fields.google_tag_manager_settings") %></h3>
   <%= f.fields_for :google_tag_manager_settings do %>
     <div class="field">
       <%= f.text_field :entity_code, disabled: true %>

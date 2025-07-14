@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Organizations", type: :system do
+describe "Organizations" do
   let(:system_admin) { create(:admin) }
 
   context "when an admin authenticated" do
@@ -22,10 +22,10 @@ describe "Organizations", type: :system do
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
         choose "Allow participants to register and login"
-        click_button "Show advanced settings"
+        click_on "Show advanced settings"
         fill_in "Entity name", with: "Aj. de Vilaexemple"
 
-        click_button "Create organization & invite admin"
+        click_on "Create organization & invite admin"
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Ajuntament de Vilaexemple")
@@ -40,9 +40,9 @@ describe "Organizations", type: :system do
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
         choose "Allow participants to register and login"
-        click_button "Show advanced settings"
+        click_on "Show advanced settings"
 
-        click_button "Create organization & invite admin"
+        click_on "Create organization & invite admin"
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Ajuntament de Vilaexemple dos")
@@ -56,9 +56,9 @@ describe "Organizations", type: :system do
       let!(:organization) { create(:organization, name: "Vilagent") }
 
       before do
-        click_link "Organizations"
+        click_on "Organizations"
         within "table tbody" do
-          first("tr").click_link "Edit"
+          first("tr").click_on "Edit"
         end
       end
 
@@ -66,9 +66,9 @@ describe "Organizations", type: :system do
         fill_in "Name", with: "Visca Vilagent!"
         fill_in "Host", with: "vilagent.example.org"
         fill_in "Secondary hosts", with: "foobar.vilagent.net\n\rbar.vilagent.corp"
-        choose "Don't allow participants to register, but allow existing participants to login"
+        choose "Do not allow participants to register, but allow existing participants to login"
 
-        click_button "Show advanced settings"
+        click_on "Show advanced settings"
         check "organization_omniauth_settings_facebook_enabled"
         fill_in "organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
         fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
@@ -82,18 +82,18 @@ describe "Organizations", type: :system do
         # Google Tag Manager dataLayer
         fill_in "organization_entity_name", with: "Aj. de Vilagent"
 
-        click_button "Save"
+        click_on "Save"
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Visca Vilagent!")
 
         visit decidim_system.edit_organization_path(organization)
-        click_button "Show advanced settings"
-        expect(page.find("[id=organization_trusted_ids_census_settings_nif]")["value"]).to eq "00000000T"
-        expect(page.find("[id=organization_trusted_ids_census_settings_ine]")["value"]).to eq "01234"
-        expect(page.find("[id=organization_trusted_ids_census_settings_municipal_code]")["value"]).to eq "17666"
-        expect(page.find("[id=organization_trusted_ids_census_settings_province_code]")["value"]).to eq "171717"
-        expect(page.find("[id=organization_entity_name]")["value"]).to eq "Aj. de Vilagent"
+        click_on "Show advanced settings"
+        expect(page.find_by_id("organization_trusted_ids_census_settings_nif")["value"]).to eq "00000000T"
+        expect(page.find_by_id("organization_trusted_ids_census_settings_ine")["value"]).to eq "01234"
+        expect(page.find_by_id("organization_trusted_ids_census_settings_municipal_code")["value"]).to eq "17666"
+        expect(page.find_by_id("organization_trusted_ids_census_settings_province_code")["value"]).to eq "171717"
+        expect(page.find_by_id("organization_entity_name")["value"]).to eq "Aj. de Vilagent"
       end
     end
   end
