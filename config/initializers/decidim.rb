@@ -34,6 +34,7 @@ Decidim.configure do |config|
   config.content_security_policies_extra = {
     "connect-src" => %w(https://*.blob.core.windows.net),
     "img-src" => %w(https://*.blob.core.windows.net),
+    "frame-src" => %w(https://*.blob.core.windows.net),
     "script-src" => %w(https://www.googletagmanager.com)
   }
 
