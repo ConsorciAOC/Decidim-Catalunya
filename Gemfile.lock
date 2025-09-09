@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-decidim_awesome.git
+  revision: 9f6d1aa1d969a2035c40be26d687e8bb0b8ffa4d
+  branch: dep/update_checksums_for_release_0_28
+  specs:
+    decidim-decidim_awesome (0.11.5)
+      decidim-admin (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      deface (>= 1.5)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: b033090746db23530f2f41fc89efb1993fc2f7ea
   branch: release/0.28-stable
@@ -358,15 +369,10 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-cdtb (0.5.2)
+    decidim-cdtb (0.5.4)
       decidim (>= 0.28.0)
       rails (>= 6)
       ruby-progressbar
-    decidim-decidim_awesome (0.11.4)
-      decidim-admin (>= 0.28.0, < 0.29)
-      decidim-core (>= 0.28.0, < 0.29)
-      deface (>= 1.5)
-      sassc (~> 2.3)
     decidim-file_authorization_handler (0.28.2.0)
       decidim (~> 0.28.2)
       decidim-admin (~> 0.28.2)
@@ -929,9 +935,9 @@ DEPENDENCIES
   daemons
   database_cleaner
   decidim!
-  decidim-cdtb (~> 0.5.0)
+  decidim-cdtb (~> 0.5.4)
   decidim-conferences!
-  decidim-decidim_awesome (~> 0.11.4)
+  decidim-decidim_awesome!
   decidim-dev!
   decidim-file_authorization_handler
   decidim-initiatives!
