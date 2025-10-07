@@ -10,14 +10,14 @@ gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-gem "decidim-decidim_awesome", "~> 0.11.4"
+gem "decidim-decidim_awesome", github: "CodiTramuntana/decidim-module-decidim_awesome", branch: "dep/update_checksums_for_release_0_28"
 gem "decidim-file_authorization_handler"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
 gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "release/0.28-stable"
 # VALiD & ViaOberta integration
 gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
-gem "decidim-cdtb", "~> 0.5.0"
+gem "decidim-cdtb", "~> 0.5.4"
 
 gem "base64", "0.1.1"
 gem "net-smtp"
