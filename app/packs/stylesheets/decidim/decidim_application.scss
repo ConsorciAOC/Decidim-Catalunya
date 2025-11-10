@@ -25,7 +25,14 @@
 }
 
 .main-footer__language {
+  background-color: white;
+  border: 1px solid var(--secondary);
+  border-radius: 6px;
   z-index: 1000;
+}
+
+.main-footer__language-container {
+  display: none;
 }
 
 .main-header__language-container > #trigger-dropdown-language-chooser:hover {
