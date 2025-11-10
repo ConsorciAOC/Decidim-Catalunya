@@ -15,7 +15,7 @@ gem "decidim-file_authorization_handler"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
 gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "release/0.28-stable"
 # VALiD & ViaOberta integration
-gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
+gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", tag: "0.8.0"
 
 gem "decidim-cdtb", "~> 0.5.4"
 
