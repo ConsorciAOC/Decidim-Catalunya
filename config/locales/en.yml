@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  locale:
+    name: English
+    name_with_error: English (error!)

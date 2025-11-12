@@ -1,2 +1,5 @@
 ---
 ca:
+  locale:
+    name: Català
+    name_with_error: Català (¡error!)

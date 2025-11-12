@@ -1,2 +1,5 @@
 ---
 es:
+  locale:
+    name: Castellano
+    name_with_error: Castellano (¡error!)
