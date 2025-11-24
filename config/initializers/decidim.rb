@@ -37,7 +37,7 @@ Decidim.configure do |config|
     "frame-src" => %w(https://*.blob.core.windows.net),
     "script-src" => %w(https://www.googletagmanager.com),
     "style-src" => %w(self unsafe-inline https://fonts.googleapis.com),
-    "font-src" => %w(self https://fonts.gstatic.com),
+    "font-src" => %w(self https://fonts.gstatic.com)
   }
 
   # Custom HTML Header snippets
