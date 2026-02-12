@@ -196,7 +196,7 @@ GIT
 
 GIT
   remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
-  revision: 58aad35ef7493cc44dfa3b0f075ad1c4769bfcc9
+  revision: e5c25341d7c69f2bb28455b4c68058d9a3781f3e
   branch: fix/omniauth_override
   specs:
     decidim-trusted_ids (0.8.0)
