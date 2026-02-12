@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim-module-decidim_awesome.git
-  revision: 9f6d1aa1d969a2035c40be26d687e8bb0b8ffa4d
+  revision: e05fef272fcd81a8e948cd1a756cfac5a85e8e20
   branch: dep/update_checksums_for_release_0_28
   specs:
     decidim-decidim_awesome (0.11.5)
@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/CodiTramuntana/decidim.git
-  revision: b033090746db23530f2f41fc89efb1993fc2f7ea
+  revision: ad24c3e59a842dc58dfba99d1598511053d8015d
   branch: release/0.28-stable
   specs:
     decidim (0.28.6)
@@ -196,8 +196,8 @@ GIT
 
 GIT
   remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
-  revision: ed132e04f56f98ed8047f627a2eb272e5b9f1d56
-  tag: 0.8.0
+  revision: 58aad35ef7493cc44dfa3b0f075ad1c4769bfcc9
+  branch: fix/omniauth_override
   specs:
     decidim-trusted_ids (0.8.0)
       decidim (>= 0.28.0, < 0.29)
