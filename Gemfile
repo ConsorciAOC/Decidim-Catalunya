@@ -27,6 +27,8 @@ gem "strscan", "3.0.1"
 gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
 
+gem "figjam", "~> 3.0.1"
+
 # Blob storage in the cloud
 
 gem "azure-storage-blob"
