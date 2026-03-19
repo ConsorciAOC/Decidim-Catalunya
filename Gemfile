@@ -28,10 +28,12 @@ gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
 
 # Blob storage in the cloud
-
 gem "azure-storage-blob"
 
 gem "deface"
+
+gem "delayed_job", "~> 4.1"
+gem "delayed_job_active_record", "~> 4.1"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
@@ -59,7 +61,6 @@ end
 
 group :production, :staging do
   gem "daemons"
-  gem "delayed_job_active_record"
 
   # LoadError - cannot load such file -- rexml/document
   gem "rexml"
