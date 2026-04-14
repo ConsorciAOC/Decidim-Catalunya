@@ -20,6 +20,18 @@ GIT
       sassc (~> 2.3)
 
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-reporting-proposals.git
+  revision: 6d24b81aea2bf4a1feff7b5ad66fc277ed86cc46
+  branch: backport/0.28/fix/metrics
+  specs:
+    decidim-reporting_proposals (0.6.2)
+      decidim-admin (>= 0.28.1, < 0.29)
+      decidim-core (>= 0.28.1, < 0.29)
+      decidim-participatory_processes (>= 0.28.1, < 0.29)
+      decidim-proposals (>= 0.28.1, < 0.29)
+      deface (>= 1.9)
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: ad24c3e59a842dc58dfba99d1598511053d8015d
   branch: release/0.28-stable
@@ -214,18 +226,6 @@ GIT
       decidim-core (>= 0.28.0, < 0.29)
       decidim-verifications (>= 0.28.0, < 0.29)
       deface (>= 1.5)
-
-GIT
-  remote: https://github.com/openpoke/decidim-module-reporting-proposals.git
-  revision: c1b06959930dd63f8d6bdfc9c3b6956d5dd838b5
-  branch: release/0.28-stable
-  specs:
-    decidim-reporting_proposals (0.6.2)
-      decidim-admin (>= 0.28.1, < 0.29)
-      decidim-core (>= 0.28.1, < 0.29)
-      decidim-participatory_processes (>= 0.28.1, < 0.29)
-      decidim-proposals (>= 0.28.1, < 0.29)
-      deface (>= 1.9)
 
 GEM
   remote: https://rubygems.org/
