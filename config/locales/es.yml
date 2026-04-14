@@ -3,3 +3,7 @@ es:
   locale:
     name: Castellano
     name_with_error: Castellano (¡error!)
+  # Remove in Decidim 0.29 
+  decidim:
+    endorsement_buttons_cell:
+      endorse: Me gusta
