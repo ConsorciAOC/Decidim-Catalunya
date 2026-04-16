@@ -11,11 +11,11 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", github: "CodiTramuntana/decidim-module-decidim_awesome", branch: "dep/update_checksums_for_release_0_28"
-gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", tag: "v0.28.2.1"
+gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", branch: "backport/0.28/add/csv_validation_in_upload"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
-gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "release/0.28-stable"
+gem "decidim-reporting_proposals", github: "CodiTramuntana/decidim-module-reporting-proposals", branch: "fix_missing_translations"
 # VALiD & ViaOberta integration
-gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
+gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", tag: "0.8.3"
 
 gem "decidim-cdtb", "~> 0.5.4"
 
