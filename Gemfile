@@ -15,7 +15,7 @@ gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_a
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
 gem "decidim-reporting_proposals", github: "CodiTramuntana/decidim-module-reporting-proposals", branch: "fix_missing_translations"
 # VALiD & ViaOberta integration
-gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", tag: "0.8.3"
+gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "system/validate_icon_path"
 
 gem "decidim-cdtb", "~> 0.5.4"
 
