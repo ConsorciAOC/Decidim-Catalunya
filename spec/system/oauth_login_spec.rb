@@ -40,7 +40,7 @@ describe "Homepage" do
 
     it "shows the VALID button" do
       expect(page).to have_no_content("New to the platform?")
-      expect(page).to have_content("Continue with verified ID")
+      expect(page).to have_content("Digital identity verified with VÀLid")
     end
 
     context "and no custom screen is set" do

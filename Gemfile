@@ -11,11 +11,13 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", github: "CodiTramuntana/decidim-module-decidim_awesome", branch: "dep/update_checksums_for_release_0_28"
-gem "decidim-file_authorization_handler"
+gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", tag: "v0.28.2.2"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
-gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "release/0.28-stable"
+# TODO: change when PR is merged: https://github.com/openpoke/decidim-module-reporting-proposals/pull/124
+gem "decidim-reporting_proposals", github: "CodiTramuntana/decidim-module-reporting-proposals", branch: "fix_missing_translations"
 # VALiD & ViaOberta integration
-gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", tag: "0.8.0"
+# TODO: change when PR is merged: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids/pull/41
+gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "system/validate_icon_path"
 
 gem "decidim-cdtb", "~> 0.5.4"
 
@@ -28,10 +30,12 @@ gem "bootsnap", "~> 1.3"
 gem "wicked_pdf", "~> 2.7.0"
 
 # Blob storage in the cloud
-
 gem "azure-storage-blob"
 
 gem "deface"
+
+gem "delayed_job", "~> 4.1"
+gem "delayed_job_active_record", "~> 4.1"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
@@ -59,7 +63,6 @@ end
 
 group :production, :staging do
   gem "daemons"
-  gem "delayed_job_active_record"
 
   # LoadError - cannot load such file -- rexml/document
   gem "rexml"
