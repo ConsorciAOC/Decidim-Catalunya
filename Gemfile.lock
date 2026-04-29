@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
-  revision: aafe99be9deb5cb308a229f853381473427e2cef
-  branch: backport/0.28/add/csv_validation_in_upload
+  revision: c49edfe203e47ff87edcaf4ae607c9a7ca639b02
+  tag: v0.28.2.2
   specs:
     decidim-file_authorization_handler (0.28.2.2)
       decidim (~> 0.28.2)
