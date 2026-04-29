@@ -16,8 +16,7 @@ gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_a
 # TODO: change when PR is merged: https://github.com/openpoke/decidim-module-reporting-proposals/pull/124
 gem "decidim-reporting_proposals", github: "CodiTramuntana/decidim-module-reporting-proposals", branch: "fix_missing_translations"
 # VALiD & ViaOberta integration
-# TODO: change when PR is merged: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids/pull/41
-gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "system/validate_icon_path"
+gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
 gem "decidim-cdtb", "~> 0.5.4"
 
