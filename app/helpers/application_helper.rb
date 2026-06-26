@@ -14,7 +14,7 @@ module ApplicationHelper
     layer = <<-EOLAYER
     { "CODIENS" : "#{census_code || ""}",
       "nomEns" : "#{organization.google_tag_manager_settings&.fetch("entity_name") || ""}",
-      "nomTenant" : "#{organization.name}" }
+      "nomTenant" : "#{translated_attribute(organization.name)}" }
     EOLAYER
     layer.html_safe
   end

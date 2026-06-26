@@ -53,11 +53,6 @@
   padding: 0.5rem;
 }
 
-.mobile_menu__language-container {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-
 @media (min-width: 768px) {
   .main-header__language-container > #trigger-dropdown-language-chooser {
     display: flex !important;

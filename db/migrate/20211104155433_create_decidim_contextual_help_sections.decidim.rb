@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20181113101935)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-06-26 11:58:36 UTC
 class CreateDecidimContextualHelpSections < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_contextual_help_sections do |t|

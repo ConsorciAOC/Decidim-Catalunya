@@ -1,137 +1,43 @@
 <div class="content"><h1>
-<a id="reportingproposals" class="anchor" href="#reportingproposals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ReportingProposals</h1>
-<p>A reporting proposals component of a participatory space.</p>
-<h2>
-<a id="implements" class="anchor" href="#implements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implements</h2>
-<ul>
-   <li><code><a href="/api/docs/interface/componentinterface">ComponentInterface</a></code></li>
-</ul>
-<h2>
-<a id="connections" class="anchor" href="#connections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Connections</h2>
-<div class="field-entry ">
-  <span id="proposals" class="field-name connection-name anchored">proposals (<code><a href="/api/docs/object/proposalconnection">ProposalConnection</a></code>)</span>
-  <div class="description-wrapper">
-   <p>List all proposals</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">after</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>Returns the elements in the list that come after the specified cursor.</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">before</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>Returns the elements in the list that come before the specified cursor.</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">first</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/int">Int</a></code>
-  </td>
-  <td>
-    <p>Returns the first <em>n</em> elements from the list.</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">last</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/int">Int</a></code>
-  </td>
-  <td>
-    <p>Returns the last <em>n</em> elements from the list.</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">order</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/proposalsort">ProposalSort</a></code>
-  </td>
-  <td>
-    <p>Provides several methods to order the results</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">filter</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/proposalfilter">ProposalFilter</a></code>
-  </td>
-  <td>
-    <p>Provides several methods to filter the results</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
+<a id="taxonomy" class="anchor" href="#taxonomy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Taxonomy</h1>
+<p>A taxonomy that can be applied to other resources.</p>
 <h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
 <div class="field-entry ">
-  <span id="proposal" class="field-name anchored">proposal (<code><a href="/api/docs/object/proposal">Proposal</a></code>)</span>
+  <span id="children" class="field-name anchored">children (<code><a href="/api/docs/object/taxonomy">[Taxonomy!]!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Finds one proposal</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/id">ID!</a></code>
-  </td>
-  <td>
-    <p>The ID of the proposal</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
+   <p>The children of this taxonomy.</p>
   </div>
 </div>
 <div class="field-entry ">
   <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The Component's unique ID</p>
+   <p>The id of this taxonomy.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="isroot" class="field-name anchored">isRoot (<code><a href="/api/docs/scalar/boolean">Boolean!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>Whether this taxonomy is a root taxonomy (root taxonomies have no parents).</p>
   </div>
 </div>
 <div class="field-entry ">
   <span id="name" class="field-name anchored">name (<code><a href="/api/docs/object/translatedfield">TranslatedField!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The name of this component.</p>
+   <p>The name of this taxonomy.</p>
   </div>
 </div>
 <div class="field-entry ">
-  <span id="weight" class="field-name anchored">weight (<code><a href="/api/docs/scalar/int">Int!</a></code>)</span>
+  <span id="parent" class="field-name anchored">parent (<code><a href="/api/docs/object/taxonomy">Taxonomy</a></code>)</span>
   <div class="description-wrapper">
-   <p>The weight of the component</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="participatoryspace" class="field-name anchored">participatorySpace (<code><a href="/api/docs/object/participatoryspace">ParticipatorySpace!</a></code>)</span>
-  <div class="description-wrapper">
-   <p>The participatory space in which this component belongs to.</p>
+   <p>The parent of this taxonomy.</p>
   </div>
 </div></div>
-<div id="sidebar"><ul class="categories">
+<div id="sidebar"><div id="search">
+  <img src="/api/docs/assets/images/search.svg">
+  <input autocomplete="off" placeholder="Search" />
+</div>
+<ul class="categories">
   <li>
     <ul class="menu-root">
       <li>
@@ -140,7 +46,7 @@
   </li>
 
   <li>
-    <p>Queries</p>
+    <p>Operations</p>
     <ul class="menu-root">
       <li>
         <a href="/api/docs/operation/query/" class="sidebar-link">
@@ -152,6 +58,209 @@
           Mutation
         </a>
       </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/query">Queries</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/query/assemblies/" class="sidebar-link">
+          assemblies
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembliestype/" class="sidebar-link">
+          assembliesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembliestypes/" class="sidebar-link">
+          assembliesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/assembly/" class="sidebar-link">
+          assembly
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/component/" class="sidebar-link">
+          component
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/conference/" class="sidebar-link">
+          conference
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/conferences/" class="sidebar-link">
+          conferences
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/decidim/" class="sidebar-link">
+          decidim
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/hashtags/" class="sidebar-link">
+          hashtags
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiative/" class="sidebar-link">
+          initiative
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiatives/" class="sidebar-link">
+          initiatives
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestype/" class="sidebar-link">
+          initiativesType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/initiativestypes/" class="sidebar-link">
+          initiativesTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/metrics/" class="sidebar-link">
+          metrics
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/organization/" class="sidebar-link">
+          organization
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocess/" class="sidebar-link">
+          participatoryProcess
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroup/" class="sidebar-link">
+          participatoryProcessGroup
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocessgroups/" class="sidebar-link">
+          participatoryProcessGroups
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstype/" class="sidebar-link">
+          participatoryProcessType
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesstypes/" class="sidebar-link">
+          participatoryProcessTypes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/participatoryprocesses/" class="sidebar-link">
+          participatoryProcesses
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/session/" class="sidebar-link">
+          session
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/user/" class="sidebar-link">
+          user
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/query/users/" class="sidebar-link">
+          users
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/mutation/comment/" class="sidebar-link">
+          comment
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
+          commentable
+        </a>
+      </li>
+      
     </ul>
   </li>
 
@@ -205,13 +314,6 @@
       <li>
         <a href="/api/docs/object/assembly/" class="sidebar-link">
           Assembly
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/assemblymember/" class="sidebar-link">
-          AssemblyMember
         </a>
       </li>
       
@@ -359,6 +461,13 @@
       <li>
         <a href="/api/docs/object/decidim/" class="sidebar-link">
           Decidim
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/dummyresource/" class="sidebar-link">
+          DummyResource
         </a>
       </li>
       
@@ -644,13 +753,6 @@
       
         
       <li>
-        <a href="/api/docs/object/reportingproposals/" class="sidebar-link">
-          ReportingProposals
-        </a>
-      </li>
-      
-        
-      <li>
         <a href="/api/docs/object/result/" class="sidebar-link">
           Result
         </a>
@@ -756,6 +858,13 @@
       
         
       <li>
+        <a href="/api/docs/object/taxonomy/" class="sidebar-link">
+          Taxonomy
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/timelineentry/" class="sidebar-link">
           TimelineEntry
         </a>
@@ -842,27 +951,6 @@
   </li>
 
   <li>
-    <p><a href="/api/docs/operation/mutation">Mutations</a></p>
-    <ul class="menu-root">
-      
-      
-      <li>
-        <a href="/api/docs/mutation/comment/" class="sidebar-link">
-          comment
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/mutation/commentable/" class="sidebar-link">
-          commentable
-        </a>
-      </li>
-      
-    </ul>
-  </li>
-
-  <li>
     <p><a href="/api/docs/interface">Interfaces</a></p>
     <ul class="menu-root">
       
@@ -905,13 +993,6 @@
         <li>
           <a href="/api/docs/interface/categoriescontainerinterface/" class="sidebar-link">
             CategoriesContainerInterface
-          </a>
-        </li>
-      
-        
-        <li>
-          <a href="/api/docs/interface/categorizableinterface/" class="sidebar-link">
-            CategorizableInterface
           </a>
         </li>
       
@@ -996,6 +1077,13 @@
         <li>
           <a href="/api/docs/interface/servicesinterface/" class="sidebar-link">
             ServicesInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="/api/docs/interface/taxonomizableinterface/" class="sidebar-link">
+            TaxonomizableInterface
           </a>
         </li>
       
