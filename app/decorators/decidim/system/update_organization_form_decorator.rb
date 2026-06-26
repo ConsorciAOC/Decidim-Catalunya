@@ -12,7 +12,9 @@ module Decidim
 
           def self.from_model(organization)
             form = super
-            form.google_tag_manager_settings["entity_code"] = organization.via_oberta_settings["ine"] if form.google_tag_manager_settings && organization.via_oberta_settings
+            if form.google_tag_manager_settings && organization.respond_to?(:via_oberta_settings) && organization.via_oberta_settings
+              form.google_tag_manager_settings["entity_code"] = organization.via_oberta_settings["ine"]
+            end
             form
           end
         end
