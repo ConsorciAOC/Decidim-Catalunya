@@ -44,6 +44,6 @@ namespace :via_oberta do
   end
 
   def to_unique_id(document)
-    Digest::SHA256.hexdigest("#{document}-#{Rails.application.secrets.secret_key_base}")
+    Digest::SHA256.hexdigest("#{document}-#{Rails.application.secret_key_base}")
   end
 end

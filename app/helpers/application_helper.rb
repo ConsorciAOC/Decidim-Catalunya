@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require "decidim/sanitize_helper"
-
 module ApplicationHelper
   include Decidim::SanitizeHelper
 
   def google_tag_manager_code
-    Rails.application.secrets.google_tag_manager_code
+    Decidim::Env.new("GOOGLE_TAG_MANAGER_CODE").to_s
   end
 
   def google_tag_manager_data_layer(organization)

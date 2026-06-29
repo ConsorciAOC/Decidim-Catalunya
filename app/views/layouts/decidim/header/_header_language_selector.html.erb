@@ -1,11 +1,11 @@
 <% if available_locales.length > 1 %>
   <div class="main-header__language-container">
-    <button id="trigger-dropdown-language-chooser" data-component="dropdown" data-target="dropdown-menu-language-chooser" class="main-footer__language-trigger">
+    <button id="trigger-dropdown-language-chooser" data-controller="dropdown" data-target="dropdown-menu-language-chooser" class="main-footer__language-trigger">
       <%= icon "global-line" %>
       <div class="flex flex-row">
         <span><%= t("name", scope: "locale") %></span>
         <%= icon "arrow-down-s-line" %>
-      <div>
+      </div>
       <span class="sr-only">
         <% available_locales.each do |locale| %>
           <span lang="<%= locale %>">
