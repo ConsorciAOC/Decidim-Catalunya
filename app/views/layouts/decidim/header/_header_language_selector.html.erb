@@ -1,11 +1,14 @@
 <% if available_locales.length > 1 %>
-  <div class="main-header__language-container">
-    <button id="trigger-dropdown-language-chooser" data-controller="dropdown" data-target="dropdown-menu-language-chooser" class="main-footer__language-trigger">
+  <div class="main-bar__dropdown-container">
+    <button id="trigger-dropdown-language-chooser-header"
+            type="button"
+            class="main-bar__dropdown-trigger"
+            data-controller="dropdown"
+            data-target="dropdown-menu-language-chooser-header"
+            aria-label="<%= t("layouts.decidim.language_chooser.choose_language") %>">
       <%= icon "global-line" %>
-      <div class="flex flex-row">
-        <span><%= t("name", scope: "locale") %></span>
-        <%= icon "arrow-down-s-line" %>
-      </div>
+      <span><%= t("name", scope: "locale") %></span>
+      <%= icon "arrow-down-s-line" %>
       <span class="sr-only">
         <% available_locales.each do |locale| %>
           <span lang="<%= locale %>">
@@ -15,11 +18,13 @@
       </span>
     </button>
 
-    <div id="dropdown-menu-language-chooser" aria-hidden="false" role="menu" aria-labelledby="trigger-dropdown-language-chooser" tabindex="-1">
-      <ul class="main-footer__language absolute" role="menu">
+    <div id="dropdown-menu-language-chooser-header" aria-hidden="true">
+      <ul class="dropdown dropdown__bottom" role="menu">
         <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-          <li class="text-secondary text-md hover:bg-secondary hover:text-white transition" role="presentation">
-            <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "w-full block" %>
+          <li class="dropdown__item" role="presentation">
+            <%= link_to decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "dropdown__button" do %>
+              <span><%= locale_name(locale) %></span>
+            <% end %>
           </li>
         <% end %>
       </ul>
