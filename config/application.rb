@@ -26,11 +26,12 @@ module DecidimCatalunya
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # Make decorators available
     config.to_prepare do
-      Rails.root.glob("app/decorators/**/*_decorator*.rb").each do |c|
-        require_dependency(c)
-      end
+      # Customization for GoogleTagManager
+      Decidim::System::RegisterOrganizationForm.include(Decidim::System::GoogleTagManagerOrganizationFormOverride)
+      Decidim::System::UpdateOrganizationForm.include(Decidim::System::GoogleTagManagerOrganizationFormOverride)
+      Decidim::System::CreateOrganization.include(Decidim::System::GoogleTagManagerCreateOrganizationOverride)
+      Decidim::System::UpdateOrganization.include(Decidim::System::GoogleTagManagerUpdateOrganizationOverride)
     end
   end
 end

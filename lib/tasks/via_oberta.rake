@@ -7,29 +7,27 @@ namespace :via_oberta do
   desc "Checks the given credentials against Via Oberta (document_type nif/passport/residence_card/nie)"
   task :check, [:org_id, :document_type, :id_document] => :environment do |_task, args|
     organization = Decidim::Organization.find(args.org_id)
-    document_type = args.document_type
+    document_type = args.document_type.to_sym
     id_document = args.id_document
 
     puts <<~EOMSG
       Performing request with parameters:
-      document_type: #{ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type]}
+      document_type: #{document_type} (#{Decidim::ViaOberta::Api::DOCUMENT_TYPE[document_type]})
       id_document: #{id_document}
     EOMSG
 
     puts "\nRESPONSE:"
-    service = ViaObertaAuthorizationRq.new(organization)
-    rs = service.send_rq(
-      document_type: ViaObertaAuthorizationConfig::DOCUMENT_TYPE[document_type],
-      id_document: id_document
-    )
-    puts "RS: #{rs.body}"
-    puts "Extracted RS: #{parse_response(rs)}"
-  end
+    response = Decidim::ViaOberta::Api::Request.new(
+      document_id: id_document,
+      document_type: document_type,
+      organization: organization
+    ).response
 
-  def parse_response(response)
-    # The *real* response data is encoded as a xml string inside a xml node.
-    parsed = Nokogiri::XML(response.body).remove_namespaces!
-    Nokogiri::XML(parsed.xpath("//procesaResponse")[0])
+    puts "RS: #{response.raw_body}"
+    puts "Code: #{response.code}"
+    puts "Found in census: #{response.found?}"
+    puts "Result: #{response.result_code_string}"
+    puts "Error/status: #{response.error}"
   end
 
   desc "Returns the ViaObertaAuthorizationHandler encoded version of the document argument"

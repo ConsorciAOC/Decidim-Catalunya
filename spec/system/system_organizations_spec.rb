@@ -14,6 +14,7 @@ describe "Organizations" do
     describe "creating an organization" do
       it "creates a new organization" do
         fill_in "Name", with: "Ajuntament de Vilaexemple"
+        fill_in "Short name", with: "Vilaexemple"
         fill_in "Host", with: "www.ajuntamentdevilaexemple.example.net"
         fill_in "Secondary hosts", with: "foo.citizen.corp\n\rbar.example.net"
         fill_in "Reference prefix", with: "CCORP"
@@ -21,7 +22,7 @@ describe "Organizations" do
         fill_in "Organization admin email", with: "mayor@example.net"
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
-        choose "Allow participants to register and login"
+        choose "Allow participants to create an account and log in"
         click_on "Show advanced settings"
         fill_in "Entity name", with: "Aj. de Vilaexemple"
 
@@ -33,13 +34,14 @@ describe "Organizations" do
 
       it "creates a new organization with basic data and editing it" do
         fill_in "Name", with: "Ajuntament de Vilaexemple dos"
+        fill_in "Short name", with: "Vila dos"
         fill_in "Host", with: "www.ajuntamentdevilaexempledos.example.net"
         fill_in "Reference prefix", with: "CCORP"
         fill_in "Organization admin name", with: "City Mayor"
         fill_in "Organization admin email", with: "mayor@example.net"
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
-        choose "Allow participants to register and login"
+        choose "Allow participants to create an account and log in"
         click_on "Show advanced settings"
 
         click_on "Create organization & invite admin"
@@ -53,7 +55,7 @@ describe "Organizations" do
     end
 
     describe "editing an organization" do
-      let!(:organization) { create(:organization, name: "Vilagent") }
+      let!(:organization) { create(:organization, name: { en: "Vilagent", ca: "Vilagent", es: "Vilagent" }) }
 
       before do
         click_on "Organizations"
@@ -63,24 +65,24 @@ describe "Organizations" do
       end
 
       it "edits the data" do
-        fill_in "Name", with: "Visca Vilagent!"
+        fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Visca Vilagent!", ca: "Visca Vilagent!", es: "Visca Vilagent!"
         fill_in "Host", with: "vilagent.example.org"
         fill_in "Secondary hosts", with: "foobar.vilagent.net\n\rbar.vilagent.corp"
-        choose "Do not allow participants to register, but allow existing participants to login"
+        choose "Do not allow participants to create an account, but allow existing participants to log in"
 
         click_on "Show advanced settings"
-        check "organization_omniauth_settings_facebook_enabled"
-        fill_in "organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
-        fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
+        check "update_organization_omniauth_settings_facebook_enabled"
+        fill_in "update_organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
+        fill_in "update_organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
 
         # Via Oberta
-        fill_in "organization_trusted_ids_census_settings_nif", with: "00000000T"
-        fill_in "organization_trusted_ids_census_settings_ine", with: "01234"
-        fill_in "organization_trusted_ids_census_settings_municipal_code", with: "17666"
-        fill_in "organization_trusted_ids_census_settings_province_code", with: "171717"
+        fill_in "update_organization_trusted_ids_census_settings_nif", with: "00000000T"
+        fill_in "update_organization_trusted_ids_census_settings_ine", with: "01234"
+        fill_in "update_organization_trusted_ids_census_settings_municipal_code", with: "17666"
+        fill_in "update_organization_trusted_ids_census_settings_province_code", with: "171717"
 
         # Google Tag Manager dataLayer
-        fill_in "organization_entity_name", with: "Aj. de Vilagent"
+        fill_in "update_organization_entity_name", with: "Aj. de Vilagent"
 
         click_on "Save"
 
@@ -89,11 +91,11 @@ describe "Organizations" do
 
         visit decidim_system.edit_organization_path(organization)
         click_on "Show advanced settings"
-        expect(page.find_by_id("organization_trusted_ids_census_settings_nif")["value"]).to eq "00000000T"
-        expect(page.find_by_id("organization_trusted_ids_census_settings_ine")["value"]).to eq "01234"
-        expect(page.find_by_id("organization_trusted_ids_census_settings_municipal_code")["value"]).to eq "17666"
-        expect(page.find_by_id("organization_trusted_ids_census_settings_province_code")["value"]).to eq "171717"
-        expect(page.find_by_id("organization_entity_name")["value"]).to eq "Aj. de Vilagent"
+        expect(page.find_by_id("update_organization_trusted_ids_census_settings_nif")["value"]).to eq "00000000T"
+        expect(page.find_by_id("update_organization_trusted_ids_census_settings_ine")["value"]).to eq "01234"
+        expect(page.find_by_id("update_organization_trusted_ids_census_settings_municipal_code")["value"]).to eq "17666"
+        expect(page.find_by_id("update_organization_trusted_ids_census_settings_province_code")["value"]).to eq "171717"
+        expect(page.find_by_id("update_organization_entity_name")["value"]).to eq "Aj. de Vilagent"
       end
     end
   end
