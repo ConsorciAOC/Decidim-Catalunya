@@ -14,3 +14,7 @@ development:
 test:
   <<: *default
   database: decidim_catalunya_test
+
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>

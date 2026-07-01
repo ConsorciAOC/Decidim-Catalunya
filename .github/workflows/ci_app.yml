@@ -1,23 +1,52 @@
-name: "[CI] app"
-
 on:
-  push:
-    branches:
-      - main
-      - release/*
-      - "*-stable"
   pull_request:
+  push:
+    branches: [ main ]
 
 env:
-  RUBY_VERSION: 3.3.4
-  NODE_VERSION: 22.14.0
+  RAILS_ENV: test
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: postgres
+  DATABASE_HOST: localhost
+  DISABLE_SPRING: 1
 
 jobs:
+  scan_ruby:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Scan for common Rails security vulnerabilities using static analysis
+        run: bin/brakeman --no-pager
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Lint code for consistent style
+        run: bin/rubocop -f github
+
   test:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11
+        image: postgres:18-alpine
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -27,67 +56,31 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
       redis:
-        image: redis:3.2-alpine
-        ports: ["6379:6379"]
-    env:
-      DATABASE_USERNAME: postgres
-      DATABASE_PASSWORD: postgres
-      DATABASE_HOST: localhost
+        image: redis:8-alpine
+        ports:
+          - 6379:6379
+        options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - name: Install ImageMagick
-        run: sudo apt install imagemagick
+      - name: Install packages
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips sqlite3
 
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          fetch-depth: 1
-      - uses: ruby/setup-ruby@master
-        with:
-          ruby-version: ${{ env.RUBY_VERSION }}
+          ruby-version: .ruby-version
           bundler-cache: true
-      # Workaround: https://github.com/decidim/decidim/issues/12369
-      - uses: nanasess/setup-chromedriver@v2
+
+      - name: Run tests
+        run: bin/rails db:test:prepare test test:system
+
+      - name: Keep screenshots from failed system tests
+        uses: actions/upload-artifact@v4
+        if: failure()
         with:
-          chromedriver-version: 119.0.6045.105
-
-      - name: List Chrome
-        run: apt list --installed | grep chrome
-
-      - name: Remove Chrome
-        run: sudo apt remove google-chrome-stable
-
-      - uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 119.0.6045.105
-      - name: Recover Ruby dependency cache
-        uses: actions/cache@v4
-        with:
-          path: ./vendor/bundle
-          key: ${{ runner.OS }}-app-rubydeps-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-app-rubydeps-${{ env.cache-name }}-
-            ${{ runner.OS }}-app-rubydeps-
-
-      - name: Set bundle local config vendor/bundle path
-        run: bundle config set --local path 'vendor/bundle'
-
-      - name: Install Ruby deps
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 10
-          max_attempts: 3
-          retry_on: error
-          command: bundle install --jobs 4 --retry 3
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-      - run: npm install
-      - run: NODE_ENV=test bundle exec rails shakapacker:compile
-      - run: sudo apt install imagemagick
-        name: Install Imagemagick      
-      - name: Setup database
-        run: bundle exec rake db:test:prepare
-      - run: bundle exec rspec
-        name: Run specs
+          name: screenshots
+          path: ${{ github.workspace }}/tmp/screenshots
+          if-no-files-found: ignore

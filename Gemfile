@@ -30,6 +30,7 @@ gem "deface"
 
 gem "delayed_job", "~> 4.1"
 gem "delayed_job_active_record", "~> 4.1"
+gem "health_check"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri

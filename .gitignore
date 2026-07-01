@@ -53,6 +53,7 @@ public/uploads
 /public/packs
 /public/packs-test
 /node_modules
+/packages/*/node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
@@ -64,4 +65,3 @@ spec/decidim_dummy_app/
 /public/sw.js.*
 
 tailwind.config.js
-/public/sw.js*
