@@ -40,6 +40,9 @@ jobs:
       - name: Set bundle local config vendor/bundle path
         run: bundle config set --local path 'vendor/bundle'
 
+      - name: Create empty application.yml
+        run: touch config/application.yml
+
       - name: Install Ruby deps
         uses: nick-fields/retry@v3
         with:

@@ -83,6 +83,9 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
+      - name: Create empty application.yml
+        run: touch config/application.yml
+
       - run: npm install
       - run: NODE_ENV=test bundle exec rails shakapacker:compile
       - run: sudo apt install imagemagick
