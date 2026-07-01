@@ -39,8 +39,6 @@ jobs:
       - run: sudo apt-get update && sudo apt-get -f install imagemagick
 
       - uses: browser-actions/setup-chrome@v2
-        with:
-          install-chromedriver: true
 
       - uses: ruby/setup-ruby@v1
         with:
