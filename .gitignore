@@ -64,4 +64,7 @@ spec/decidim_dummy_app/
 /public/sw.js
 /public/sw.js.*
 
+# Generated Decidim API docs (regenerated at build via decidim_api:generate_docs)
+/app/views/static/api
+
 tailwind.config.js

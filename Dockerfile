@@ -71,6 +71,11 @@ RUN RAILS_ENV=production \
     DB_ADAPTER=nulldb \
     bin/rails assets:precompile
 
+RUN RAILS_ENV=production \
+    SECRET_KEY_BASE=dummy \
+    DB_ADAPTER=nulldb \
+    bin/rails decidim_api:generate_docs
+
 RUN mv config/credentials.yml.enc.bak config/credentials.yml.enc 2>/dev/null || true
 RUN mv config/credentials.bak config/credentials 2>/dev/null || true
 
