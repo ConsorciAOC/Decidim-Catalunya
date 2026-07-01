@@ -1,0 +1,36 @@
+## Decidim VARS
+DECIDIM_APPLICATION_NAME: Decidim Catalunya
+DECIDIM_MAILER_SENDER: no-reply@example.org
+DECIDIM_AVAILABLE_LOCALES: ca,es
+DECIDIM_DEFAULT_LOCALE: ca
+DECIDIM_CORS_ENABLED: true
+DECIDIM_TRACK_NEWSLETTER_LINKS: auto
+DECIDIM_THROTTLING_MAX_REQUESTS: 100000
+DECIDIM_THROTTLING_PERIOD: 1
+DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST: true
+DECIDIM_ENABLE_HTML_HEADER_SNIPPETS: true
+
+## Rails
+RAILS_MAX_THREADS: 5
+RACK_ENV: development
+RAILS_ENV: development
+# Use both options for full compatibility
+SECRET_KEY_BASE: mysecretkey
+## Redis
+REDIS_URL: redis_url
+
+## SMTP
+SMTP_ADDRESS: smtp.example.org
+SMTP_DOMAIN: example.org
+SMTP_PORT: 25
+
+# TrustedIDs
+OMNIAUTH_PROVIDER: valid
+VALID_CLIENT_ID: example.domain.cat
+VALID_CLIENT_SECRET: secretsupersecret
+VALID_SITE: https://valid-site.example.org
+CENSUS_AUTHORIZATION_ENV: development
+
+# Via Oberta
+VIA_OBERTA_URL: https://via_oberta_url.example.org
+VIA_OBERTA_PURPOSE: ABCD

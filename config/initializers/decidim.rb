@@ -30,12 +30,14 @@ Decidim.configure do |config|
     units: :km
   }
 
-  # Configure CSP for Azure Storage and Google Tag Manager
+  # Configure CSP for Azure Storage, Google Tag Manager, here api, google fonts and jsdelivr
   config.content_security_policies_extra = {
-    "connect-src" => %w(https://*.blob.core.windows.net),
-    "img-src" => %w(https://*.blob.core.windows.net),
+    "connect-src" => %w(self *.hereapi.com *.jsdelivr.net data: https://*.blob.core.windows.net https://region1.google-analytics.com),
+    "img-src" => %w(self *.hereapi.com https://*.blob.core.windows.net blob:),
     "frame-src" => %w(https://*.blob.core.windows.net),
-    "script-src" => %w(https://www.googletagmanager.com)
+    "script-src" => %w(https://www.googletagmanager.com),
+    "style-src" => %w(self unsafe-inline https://fonts.googleapis.com),
+    "font-src" => %w(self https://fonts.gstatic.com)
   }
 
   # Custom HTML Header snippets

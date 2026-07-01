@@ -11,11 +11,12 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", github: "CodiTramuntana/decidim-module-decidim_awesome", branch: "dep/update_checksums_for_release_0_28"
-gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", branch: "backport/0.28/add/csv_validation_in_upload"
+gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler", tag: "v0.28.2.2"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
+# TODO: change when PR is merged: https://github.com/openpoke/decidim-module-reporting-proposals/pull/124
 gem "decidim-reporting_proposals", github: "CodiTramuntana/decidim-module-reporting-proposals", branch: "fix_missing_translations"
 # VALiD & ViaOberta integration
-gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "system/validate_icon_path"
+gem "decidim-trusted_ids", github: "ConsorciAOC-PRJ/decidim-module-trusted-ids", branch: "main"
 
 gem "decidim-cdtb", "~> 0.5.4"
 
@@ -34,6 +35,8 @@ gem "deface"
 
 gem "delayed_job", "~> 4.1"
 gem "delayed_job_active_record", "~> 4.1"
+
+gem "figjam", "~> 3.0.1"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
