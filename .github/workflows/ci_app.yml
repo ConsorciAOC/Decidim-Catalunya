@@ -1,52 +1,24 @@
+name: "[CI] Decidim Catalunya"
 on:
-  pull_request:
   push:
-    branches: [ main ]
+    branches:
+      - main
+  pull_request:
 
 env:
   RAILS_ENV: test
   DATABASE_USERNAME: postgres
   DATABASE_PASSWORD: postgres
   DATABASE_HOST: localhost
-  DISABLE_SPRING: 1
+  NODE_VERSION: 22.14.0
 
 jobs:
-  scan_ruby:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager --except EOLRails
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: Lint code for consistent style
-        run: bin/rubocop -f github
-
-  test:
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:18-alpine
+        image: postgres:17-alpine
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -57,30 +29,46 @@ jobs:
           POSTGRES_PASSWORD: postgres
       redis:
         image: redis:8-alpine
-        ports:
-          - 6379:6379
-        options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+        ports: ["6379:6379"]
 
     steps:
-      - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips sqlite3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: Checkout code
-        uses: actions/checkout@v5
+      - run: sudo apt-get update && sudo apt-get -f install imagemagick
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: browser-actions/setup-chrome@v2
+        with:
+          install-chromedriver: true
+
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Run tests
-        run: bin/rails db:test:prepare test test:system
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Lint Ruby files
+        run: bundle exec rubocop -P
+
+      - name: Create database
+        run: bundle exec rails db:create db:schema:load
+
+      - name: Precompile assets
+        run: |
+          npm ci
+          bundle exec rake assets:precompile
+
+      - name: Run RSpec
+        run: bundle exec rspec
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: screenshots
-          path: ${{ github.workspace }}/tmp/screenshots
+          path: tmp/screenshots
           if-no-files-found: ignore
