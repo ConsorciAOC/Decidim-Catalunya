@@ -2,7 +2,6 @@
 
 module Decidim
   module System
-    # Customization for GoogleTagManager
     module GoogleTagManagerCreateOrganizationOverride
       extend ActiveSupport::Concern
 
