@@ -35,6 +35,8 @@ gem "deface"
 gem "delayed_job", "~> 4.1"
 gem "delayed_job_active_record", "~> 4.1"
 
+gem "figjam", "~> 3.0.1"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
