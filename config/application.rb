@@ -4,6 +4,18 @@ require_relative "boot"
 
 require "decidim/rails"
 
+# Figjam normally loads config/application.yml into ENV via a `before_configuration`
+# hook, which only fires once `Rails::Application` is defined below. Bundler.require
+# runs before that point, so gems that read ENV at require time (e.g.
+# decidim-trusted_ids' `config_accessor` blocks, which capture their value once and
+# cache it) would otherwise see ENV before application.yml has been loaded into it.
+# Load it here, first, so ENV is populated before any gem is required.
+require "figjam"
+Figjam::Application.new(
+  path: File.expand_path("application.yml", __dir__),
+  environment: ENV.fetch("RAILS_ENV", nil) || "development"
+).load
+
 # Add the frameworks used by your app that are not loaded by Decidim.
 # require "action_mailbox/engine"
 # require "action_text/engine"
