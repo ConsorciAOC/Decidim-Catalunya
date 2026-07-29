@@ -27,6 +27,7 @@ gem "bootsnap", "~> 1.3"
 gem "azure-storage-blob"
 
 gem "deface"
+gem "figjam"
 
 gem "delayed_job", "~> 4.1"
 gem "delayed_job_active_record", "~> 4.1"
