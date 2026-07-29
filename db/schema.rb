@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_06_26_133643) do
+ActiveRecord::Schema[7.2].define(version: 2026_07_29_082936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -339,6 +339,24 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_26_133643) do
     t.index ["decidim_user_id", "name"], name: "index_decidim_authorizations_on_decidim_user_id_and_name", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_authorizations_on_decidim_user_id"
     t.index ["unique_id"], name: "index_decidim_authorizations_on_unique_id"
+  end
+
+  create_table "decidim_awesome_authorization_groups", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.jsonb "name", default: {}, null: false
+    t.jsonb "purpose", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "decidim_awesome_authorization_groups_organization_id"
+  end
+
+  create_table "decidim_awesome_authorization_members", force: :cascade do |t|
+    t.string "email", null: false
+    t.bigint "authorization_group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authorization_group_id", "email"], name: "index_auth_members_group_email", unique: true
+    t.index ["authorization_group_id"], name: "decidim_awesome_authorization_members_authorization_group_id"
   end
 
   create_table "decidim_awesome_config", force: :cascade do |t|
@@ -1675,6 +1693,16 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_26_133643) do
     t.index ["decidim_user_id"], name: "index_decidim_reminders_on_decidim_user_id"
   end
 
+  create_table "decidim_reporting_proposals_taxonomy_evaluators", force: :cascade do |t|
+    t.bigint "decidim_taxonomy_id", null: false
+    t.string "evaluator_role_type", null: false
+    t.bigint "evaluator_role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_taxonomy_id", "evaluator_role_id", "evaluator_role_type"], name: "decidim_reporting_proposals_taxonomy_evaluator_unique", unique: true
+    t.index ["evaluator_role_type", "evaluator_role_id"], name: "decidim_reporting_proposals_taxonomy_evaluator_role"
+  end
+
   create_table "decidim_reports", id: :serial, force: :cascade do |t|
     t.integer "decidim_moderation_id", null: false
     t.integer "decidim_user_id", null: false
@@ -2177,6 +2205,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_26_133643) do
   add_foreign_key "decidim_authorization_transfers", "decidim_users", column: "source_user_id"
   add_foreign_key "decidim_authorization_transfers", "decidim_users", column: "user_id"
   add_foreign_key "decidim_authorizations", "decidim_users"
+  add_foreign_key "decidim_awesome_authorization_groups", "decidim_organizations"
+  add_foreign_key "decidim_awesome_authorization_members", "decidim_awesome_authorization_groups", column: "authorization_group_id"
   add_foreign_key "decidim_awesome_config_constraints", "decidim_awesome_config"
   add_foreign_key "decidim_awesome_editor_images", "decidim_organizations"
   add_foreign_key "decidim_awesome_editor_images", "decidim_users", column: "decidim_author_id"
@@ -2200,6 +2230,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_26_133643) do
   add_foreign_key "decidim_reminder_records", "decidim_reminders"
   add_foreign_key "decidim_reminders", "decidim_components"
   add_foreign_key "decidim_reminders", "decidim_users"
+  add_foreign_key "decidim_reporting_proposals_taxonomy_evaluators", "decidim_taxonomies", on_delete: :cascade
   add_foreign_key "decidim_scope_types", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"

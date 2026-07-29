@@ -1,4 +1,4 @@
-FROM ruby:3.3.4 AS builder
+FROM ruby:3.3.11 AS builder
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl gnupg && \
     mkdir -p /etc/apt/keyrings && \
@@ -82,7 +82,7 @@ RUN mv config/credentials.bak config/credentials 2>/dev/null || true
 RUN rm -rf node_modules tmp/cache vendor/bundle test spec app/packs .git
 
 # This image is for production env only
-FROM ruby:3.3.4-slim AS final
+FROM ruby:3.3.11-slim AS final
 
 RUN apt-get update && \
     apt-get install -y postgresql-client \
@@ -113,7 +113,7 @@ COPY --from=builder --chown=app:app /app /app
 
 USER app
 HEALTHCHECK --interval=1m --timeout=5s --start-period=30s \
-    CMD (curl -sS http://localhost:3000/health_check | grep success) || exit 1
+  CMD curl -fsS http://localhost:3000/up || exit 1
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["/usr/bin/supervisord"]
