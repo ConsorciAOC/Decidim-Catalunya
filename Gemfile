@@ -27,7 +27,6 @@ gem "bootsnap", "~> 1.3"
 gem "azure-blob"
 
 gem "deface"
-gem "figjam"
 
 gem "delayed_job", "~> 4.1"
 gem "delayed_job_active_record", "~> 4.1"
@@ -49,6 +48,7 @@ end
 
 group :production, :staging do
   gem "daemons"
+  gem "figjam"
 
   # LoadError - cannot load such file -- rexml/document
   gem "rexml"
