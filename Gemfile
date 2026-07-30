@@ -24,7 +24,7 @@ gem "net-smtp"
 gem "bootsnap", "~> 1.3"
 
 # Blob storage in the cloud
-gem "azure-storage-blob"
+gem "azure-blob"
 
 gem "deface"
 gem "figjam"

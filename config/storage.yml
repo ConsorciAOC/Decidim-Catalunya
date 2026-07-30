@@ -18,12 +18,13 @@ s3:
 # Rails core team removed support for Azure Storage, as the official Azure Ruby gems are not maintained since 2024.
 # See https://github.com/rails/rails/issues/49983
 # You can use an unofficial gem: https://github.com/testdouble/azure-blob
-#azure:
-#  service: AzureBlob
-#  public: <%= Decidim::Env.new("AZURE_PUBLIC", "true").to_boolean_string %>
-#  storage_account_name: <%= Decidim::Env.new("AZURE_STORAGE_ACCOUNT_NAME").to_s %>
-#  storage_access_key: <%= Decidim::Env.new("AZURE_STORAGE_ACCESS_KEY").to_s %>
-#  container: <%= Decidim::Env.new("AZURE_CONTAINER").to_s %>
+azure:
+  service: AzureBlob
+  public: <%= Decidim::Env.new("AZURE_PUBLIC", "true").to_boolean_string %>
+  storage_account_name: <%= Decidim::Env.new("AZURE_STORAGE_ACCOUNT_NAME").to_s %>
+  storage_access_key: <%= Decidim::Env.new("AZURE_STORAGE_ACCESS_KEY").to_s %>
+  container: <%= Decidim::Env.new("AZURE_CONTAINER").to_s %>
+  storage_blob_host: <%= Decidim::Env.new("AZURE_STORAGE_BLOB_HOST", "https://#{Decidim::Env.new("AZURE_STORAGE_ACCOUNT_NAME").to_s}.blob.core.windows.net").to_s %>
 
 gcs:
   service: GCS
