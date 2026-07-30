@@ -74,7 +74,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Raises error for missing translations.
-  config.action_view.raise_on_missing_translations = false
+  config.i18n.raise_on_missing_translations = false
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
