@@ -57,7 +57,7 @@ jobs:
 
       - name: Precompile assets
         run: |
-          rm -f package-lock.json && npm install --no-audit --no-fund
+          npm ci
           bundle exec rake assets:precompile
 
       - name: Run RSpec

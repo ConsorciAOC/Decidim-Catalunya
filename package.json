@@ -1,6 +1,15 @@
 {
   "name": "app",
   "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint -c .eslintrc.json --ext .js app/packs/",
+    "lint-fix": "eslint -c .eslintrc.json --ext .js app/packs/ --fix",
+    "stylelint": "stylelint **/*.scss",
+    "stylelint-fix": "stylelint **/*.scss --fix",
+    "prettier": "prettier --check '**/*.scss'",
+    "prettify": "prettier --write '**/*.scss'"
+  },
   "dependencies": {
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",
@@ -14,9 +23,6 @@
     "leaflet.featuregroup.subgroup": "^1.0.2"
   },
   "version": "0.1.0",
-  "browserslist": [
-    "extends @decidim/browserslist-config"
-  ],
   "devDependencies": {
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
@@ -26,8 +32,7 @@
     "sass-embedded": "~1.57.1",
     "shakapacker": "^8.3.0"
   },
-  "engines": {
-    "node": "22.14.0",
-    "npm": ">=9.6.7"
-  }
+  "browserslist": [
+    "extends @decidim/browserslist-config"
+  ]
 }
