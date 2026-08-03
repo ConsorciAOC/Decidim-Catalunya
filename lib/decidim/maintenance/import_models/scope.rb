@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This file is a backport of this PR: https://github.com/decidim/decidim/pull/17358 while waiting for approval and backport to version 0.31 (delete afterwards)
 module Decidim
   module Maintenance
     module ImportModels
@@ -116,6 +117,7 @@ module Decidim
           }
         end
 
+        # rubocop:disable Metrics/CyclomaticComplexity
         def self.filter_item_for_component(component, space)
           return unless component.settings.respond_to?(:taxonomy_filters)
 
@@ -134,6 +136,7 @@ module Decidim
             components: [component.to_global_id.to_s]
           }
         end
+        # rubocop:enable Metrics/CyclomaticComplexity
 
         def self.all_filters
           manifests = []
