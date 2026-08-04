@@ -6,6 +6,13 @@ AllCops:
     - 'db/**/*.rb'
     - 'vendor/**/*'
 
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - test
+    - production
+    - staging
+
 RSpec/DescribeClass:
   Exclude:
     - 'spec/system/**/*'
