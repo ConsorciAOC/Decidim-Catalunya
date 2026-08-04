@@ -1,0 +1,3 @@
+<!-- insert_top ".main-bar__links-desktop" -->
+
+<%= render partial: "layouts/decidim/header/header_language_selector" %>
