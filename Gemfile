@@ -11,7 +11,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
-gem "decidim-file_authorization_handler", github: "openpoke/decidim-file_authorization_handler"
+gem "decidim-file_authorization_handler", github: "CodiTramuntana/decidim-file_authorization_handler"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
 gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "upgrade-0.31"
 # VALiD & ViaOberta integration

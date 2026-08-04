@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
+  revision: ee48517730ec19fe945eb74ad8633d5b1b376bf4
+  specs:
+    decidim-file_authorization_handler (0.31.6.1)
+      decidim (~> 0.31.6)
+      decidim-admin (~> 0.31.6)
+
+GIT
   remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
   revision: 78f114c8fe870d444fef534cd8cc6fe0fd4ef36e
   specs:
@@ -21,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: cde0f448ff308113635d1f8e06700245dbba340a
+  revision: 6ee7bdbf795a59bb9e857eeb303b676c4e35b9f9
   branch: release/0.31-stable
   specs:
     decidim (0.31.7)
@@ -216,14 +224,6 @@ GIT
       decidim-forms (= 0.31.7)
     decidim-verifications (0.31.7)
       decidim-core (= 0.31.7)
-
-GIT
-  remote: https://github.com/openpoke/decidim-file_authorization_handler.git
-  revision: b3da3322b7ff96abe15a584521398ab7fba5cf12
-  specs:
-    decidim-file_authorization_handler (0.31.0)
-      decidim (~> 0.31)
-      decidim-admin (~> 0.31)
 
 GIT
   remote: https://github.com/openpoke/decidim-module-reporting-proposals.git
