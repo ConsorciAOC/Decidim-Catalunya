@@ -1,8 +1,9 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
-  revision: ee48517730ec19fe945eb74ad8633d5b1b376bf4
+  revision: afc8a86a9e046e070cfaf8c574e93a8c8c241abf
+  branch: main
   specs:
-    decidim-file_authorization_handler (0.31.6.1)
+    decidim-file_authorization_handler (0.31.6.2)
       decidim (~> 0.31.6)
       decidim-admin (~> 0.31.6)
 
@@ -461,7 +462,7 @@ GEM
       concurrent-ruby (~> 1.0)
       logger
       zeitwerk (~> 2.6)
-    erb (6.0.6)
+    erb (6.0.7)
     erb_lint (0.8.0)
       activesupport
       better_html (>= 2.0.1)
