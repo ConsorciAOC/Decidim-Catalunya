@@ -7,13 +7,14 @@
 // By default this is empty.
 
 // Language selector
+// Upper menu
 .main-bar__links-desktop {
   @media (min-width: 768px) {
     [data-target*="dropdown"] {
       @apply block;
 
       div {
-        @apply block text-secondary text-sm text-center;
+        @apply block text-secondary text-sm text-center min-w-12;
 
         svg {
           @apply inline-block;
@@ -34,6 +35,24 @@
         > a {
           @apply p-2 w-full block;
         }
+      }
+    }
+  }
+}
+
+.main-bar__menu-mobile {
+  ul.menu-bar__language-chooser {
+    @apply flex static justify-center bg-white mb-4 gap-4;
+
+    > li {
+      @apply rounded text-secondary text-md hover:underline hover:bg-secondary hover:text-white transition;
+
+      &.is-active {
+        @apply bg-secondary text-white;
+      }
+
+      > a {
+        @apply p-2 w-full block;
       }
     }
   }

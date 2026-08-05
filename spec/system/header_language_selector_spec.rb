@@ -21,10 +21,46 @@ describe "Header language selector" do
     end
 
     it "lists a link for each non-current locale by its name" do
-      within("#trigger-dropdown-language-top", visible: :all) do
+      within("#dropdown-menu-language-top", visible: :all) do
         expect(page).to have_link("Català", visible: :all)
         expect(page).to have_link("Castellano", visible: :all)
         expect(page).to have_no_link("English", visible: :all)
+      end
+    end
+  end
+
+  context "when the mobile header has up to 3 locales" do
+    let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
+
+    it "shows the custom mobile language selector" do
+      within ".menu-bar__main-dropdown", visible: :all do
+        expect(page).to have_css("ul.menu-bar__language-chooser li.is-active", visible: :all)
+        expect(page).to have_no_css("#dropdown-trigger-language-chooser-mobile", visible: :all)
+        expect(page).to have_link("English", visible: :all)
+        expect(page).to have_link("Català", visible: :all)
+        expect(page).to have_link("Castellano", visible: :all)
+      end
+    end
+  end
+
+  context "when the mobile header has more than 3 locales" do
+    around do |example|
+      original_i18n_locales = I18n.available_locales
+      original_decidim_locales = Decidim.available_locales
+      I18n.available_locales = (original_i18n_locales | [:fr])
+      Decidim.available_locales = (original_decidim_locales | [:fr])
+      example.run
+    ensure
+      I18n.available_locales = original_i18n_locales
+      Decidim.available_locales = original_decidim_locales
+    end
+
+    let(:organization) { create(:organization, available_locales: [:en, :ca, :es, :fr], default_locale: :en) }
+
+    it "shows the original mobile language dropdown selector" do
+      within ".menu-bar__main-dropdown", visible: :all do
+        expect(page).to have_css("#dropdown-trigger-language-chooser-mobile", visible: :all)
+        expect(page).to have_no_css("#dropdown-menu-language-chooser-mobile ul.menu-bar__language-chooser li.is-active", visible: :all)
       end
     end
   end
