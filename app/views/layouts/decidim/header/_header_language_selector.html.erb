@@ -1,14 +1,8 @@
 <% if available_locales.length > 1 %>
-  <div class="main-bar__dropdown-container">
-    <button id="trigger-dropdown-language-chooser-header"
-            type="button"
-            class="main-bar__dropdown-trigger"
-            data-controller="dropdown"
-            data-target="dropdown-menu-language-chooser-header"
-            aria-label="<%= t("layouts.decidim.language_chooser.choose_language") %>">
-      <%= icon "global-line" %>
-      <span><%= t("name", scope: "locale") %></span>
-      <%= icon "arrow-down-s-line" %>
+  <div class="main-header__language-container">
+    <button id="trigger-dropdown-language-top" data-controller="dropdown" data-target="dropdown-menu-language-top" class="main-header__language-trigger">
+      <div><%= icon "global-line" %> <%= icon "arrow-down-s-line" %></div>
+      <div><%= t("name", scope: "locale" ) %></div>
       <span class="sr-only">
         <% available_locales.each do |locale| %>
           <span lang="<%= locale %>">
@@ -18,13 +12,11 @@
       </span>
     </button>
 
-    <div id="dropdown-menu-language-chooser-header" aria-hidden="true">
-      <ul class="dropdown dropdown__bottom" role="menu">
+    <div id="dropdown-menu-language-top" class="main-header__language-chooser" aria-hidden="true">
+      <ul class="main-header__language" role="menu">
         <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-          <li class="dropdown__item" role="presentation">
-            <%= link_to decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "dropdown__button" do %>
-              <span><%= locale_name(locale) %></span>
-            <% end %>
+          <li role="presentation">
+            <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale %>
           </li>
         <% end %>
       </ul>

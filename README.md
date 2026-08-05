@@ -27,6 +27,7 @@ You're good to go!
 bundle install
 nvm use 22.14.0
 npm install
+bin/rails assets:precompile
 bin/rails db:create db:schema:load
 bin/rails db:seed
 bin/rails s

@@ -65,4 +65,3 @@ spec/decidim_dummy_app/
 /public/sw.js.*
 
 tailwind.config.js
-*.sql
