@@ -15,13 +15,13 @@ describe "Header language selector" do
     let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
 
     it "shows the current locale in the trigger" do
-      within "#trigger-dropdown-language-chooser-header" do
+      within "#trigger-dropdown-language-top" do
         expect(page).to have_content("English")
       end
     end
 
     it "lists a link for each non-current locale by its name" do
-      within("#dropdown-menu-language-chooser-header", visible: :all) do
+      within("#trigger-dropdown-language-top", visible: :all) do
         expect(page).to have_link("Català", visible: :all)
         expect(page).to have_link("Castellano", visible: :all)
         expect(page).to have_no_link("English", visible: :all)
@@ -33,7 +33,7 @@ describe "Header language selector" do
     let(:organization) { create(:organization, available_locales: [:en], default_locale: :en) }
 
     it "does not render the language selector" do
-      expect(page).to have_no_css("#trigger-dropdown-language-chooser-header")
+      expect(page).to have_no_css("#trigger-dropdown-language-top")
     end
   end
 end

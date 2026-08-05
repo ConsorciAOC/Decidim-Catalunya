@@ -1,3 +1,0 @@
-<!-- insert_before ".layout-container" -->
-
-<%= render partial: "layouts/decidim/google_tag_manager" %>
