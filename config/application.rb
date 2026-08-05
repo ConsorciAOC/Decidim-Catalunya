@@ -21,7 +21,8 @@ module DecidimCatalunya
 
     config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.{rb,yml}").to_s]
     # we force to ignore the app/overrides folder, since we load it manually in the config.to_prepare block below
-    # This is needed to avoid a crash when running DelayJob (does not affect Puma or Sidekiq) because the autoloader tries to load the overrides folder and fails because it is not a valid Ruby module.
+    # This is needed to avoid a crash when running DelayJob (does not affect Puma or Sidekiq)
+    # because the autoloader tries to load the overrides folder and fails because it is not a valid Ruby module.
     Rails.autoloaders.main.ignore(Rails.root.join("app/overrides"))
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -30,7 +31,7 @@ module DecidimCatalunya
     # the framework and any gems in your application.
 
     config.to_prepare do
-      Dir.glob(Rails.root.join("app/overrides/**/*.rb")).sort.each do |override|
+      Rails.root.glob("app/overrides/**/*.rb").each do |override|
         load override
       end
 
