@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/CodiTramuntana/decidim-file_authorization_handler.git
-  revision: afc8a86a9e046e070cfaf8c574e93a8c8c241abf
-  branch: main
-  specs:
-    decidim-file_authorization_handler (0.31.6.2)
-      decidim (~> 0.31.6)
-      decidim-admin (~> 0.31.6)
-
-GIT
   remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
   revision: 78f114c8fe870d444fef534cd8cc6fe0fd4ef36e
   specs:
@@ -411,6 +402,9 @@ GEM
       decidim (>= 0.28.0)
       rails (>= 6)
       ruby-progressbar
+    decidim-file_authorization_handler (0.31.6.2)
+      decidim (~> 0.31.6)
+      decidim-admin (~> 0.31.6)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -1072,7 +1066,7 @@ DEPENDENCIES
   decidim-conferences!
   decidim-decidim_awesome!
   decidim-dev!
-  decidim-file_authorization_handler!
+  decidim-file_authorization_handler (~> 0.31.6.2)
   decidim-initiatives!
   decidim-reporting_proposals!
   decidim-templates!
