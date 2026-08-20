@@ -25,8 +25,9 @@ You're good to go!
 
 ```bash
 bundle install
-nvm use 18.17.1
+nvm use 22.14.0
 npm install
+bin/rails assets:precompile
 bin/rails db:create db:schema:load
 bin/rails db:seed
 bin/rails s
@@ -34,20 +35,18 @@ bin/rails s
 
 ## Overrides, decorators and more.
 
-### Add Google Tag Manager to admin backoffice
+### Add Google Tag Manager
 
-Deface has a strange fail due to nokogiri gem and the overrides with Deface don't work when applied inside the HEAD tag. 
+GTM is configured per-organization from the System admin panel. View overrides live in `app/overrides/` (Deface), class overrides in `app/**/concerns/` and are wired in `config/application.rb`.
 
-Nokogiri required version >= 1.6.0
-
-See:
-https://github.com/spree/deface/issues/84
-https://github.com/spree/spree/issues/2633
-
-- **app/views/layouts/decidim/admin/_application.html.erb**
+- **app/overrides/layouts/decidim/_wrapper/add_google_tag_manager_to_body.html.erb.deface**
 
     Add GTM in `<body>`
 
-- **app/views/layouts/decidim/admin/_header.html.erb**
+- **app/overrides/layouts/decidim/admin/_header/add_google_tag_manager_to_admin.html.erb.deface**
 
-    Add GTM in `<head>`
+    Add GTM in admin `<head>`
+
+- **app/overrides/decidim/system/organizations/_advanced_settings/add_google_tag_manager_settings.html.erb.deface**
+
+    Add the GTM field to the System organization form

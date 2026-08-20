@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20170206142116)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-06-26 11:58:36 UTC
 class AddPublishedAtToDecidimFeatures < ActiveRecord::Migration[5.0]
   def change
     add_column :decidim_features, :published_at, :datetime

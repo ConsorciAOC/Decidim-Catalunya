@@ -8,7 +8,7 @@ describe "Homepage" do
   let!(:organization) do
     create(
       :organization,
-      name: "Decidim Application",
+      name: { en: "Decidim Application", ca: "Decidim Application", es: "Decidim Application" },
       default_locale: :en,
       available_locales: [:ca, :en, :es],
       omniauth_settings: omniauth_settings
@@ -31,7 +31,7 @@ describe "Homepage" do
   end
 
   it "loads and shows organization name and main blocks" do
-    expect(page).to have_content("New to the platform?")
+    expect(page).to have_content("Not registered yet?")
     expect(page).to have_no_content("Continue with verified ID")
   end
 
@@ -39,7 +39,7 @@ describe "Homepage" do
     let(:enabled) { true }
 
     it "shows the VALID button" do
-      expect(page).to have_no_content("New to the platform?")
+      expect(page).to have_no_content("Not registered yet?")
       expect(page).to have_content("Digital identity verified with VÀLid")
     end
 
@@ -47,7 +47,7 @@ describe "Homepage" do
       let(:custom_login_screen) { false }
 
       it "shows the default screen" do
-        expect(page).to have_content("New to the platform?")
+        expect(page).to have_content("Not registered yet?")
         expect(page).to have_no_content("Continue with verified ID")
       end
     end
