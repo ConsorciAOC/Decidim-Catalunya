@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_debates (originally 20200708072042)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-06-26 11:58:37 UTC
 class FixDebatesI18nFields < ActiveRecord::Migration[5.2]
   class User < ApplicationRecord
     self.table_name = :decidim_users
@@ -38,7 +38,7 @@ class FixDebatesI18nFields < ActiveRecord::Migration[5.2]
 
   def debates
     Debate
-      .where.not(decidim_author_type: 'Decidim::Organization')
+      .where.not(decidim_author_type: "Decidim::Organization")
       .select(:id, :decidim_author_id, :title, :description)
   end
 

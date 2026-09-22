@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_initiatives (originally 20191002082220)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-06-26 11:58:37 UTC
 class MoveSignatureTypeToInitativeType < ActiveRecord::Migration[5.2]
   class InitiativesType < ApplicationRecord
     self.table_name = :decidim_initiatives_types
   end
 
   def change
-    if !ActiveRecord::Base.connection.table_exists?('decidim_initiatives_types')
-      Rails.logger.info "Skipping migration since there's no InitiativesType table"
+    if !ActiveRecord::Base.connection.table_exists?("decidim_initiatives_types")
+      Rails.logger.info "Skipping migration since there is no InitiativesType table"
       return
     elsif InitiativesType.count.positive?
-      raise 'You need to edit this migration to continue'
+      raise "You need to edit this migration to continue"
     end
 
     # This flag says when mixed and face-to-face voting methods
