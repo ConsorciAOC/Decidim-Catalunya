@@ -11,7 +11,7 @@ local:
 # You can use an unofficial gem: https://github.com/testdouble/azure-blob
 azure:
   service: AzureBlob
-  public: <%= Decidim::Env.new("AZURE_PUBLIC", "true").to_boolean_string %>
+  public: <%= Decidim::Env.new("AZURE_PUBLIC", "false").to_boolean_string %>
   storage_account_name: <%= Decidim::Env.new("AZURE_STORAGE_ACCOUNT_NAME").to_s %>
   storage_access_key: <%= Decidim::Env.new("AZURE_STORAGE_ACCESS_KEY").to_s %>
   container: <%= Decidim::Env.new("AZURE_CONTAINER").to_s %>
