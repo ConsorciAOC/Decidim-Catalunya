@@ -3,6 +3,7 @@
 require_relative "boot"
 
 require "decidim/rails"
+require_relative "../app/mailers/application_mailer"
 
 # Add the frameworks used by your app that are not loaded by Decidim.
 # require "action_mailbox/engine"
