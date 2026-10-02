@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 7b778d73697b4f1c56e85b7ddc3a1bafaa62144e
+  revision: 970cf5a3f84968ab64812a89604accdc42441981
   branch: main
   specs:
     decidim-decidim_awesome (0.14.4)
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim.git
-  revision: e1d68dde80e3f497cd7b7d7de5e07072a559e11a
+  revision: ea5abb6e0fa51e5083f692ebde4a838ec00ae369
   branch: release/0.31-stable
   specs:
     decidim (0.31.7)
@@ -442,7 +442,7 @@ GEM
     devise-jwt (0.12.1)
       devise (~> 4.0)
       warden-jwt_auth (~> 0.10)
-    devise_invitable (2.0.13)
+    devise_invitable (2.0.14)
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.6.2)
@@ -631,7 +631,7 @@ GEM
       letter_opener (~> 1.0)
       railties (>= 3.2)
     lint_roller (1.1.0)
-    listen (3.10.0)
+    listen (3.10.1)
       logger
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
