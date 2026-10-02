@@ -74,7 +74,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Raises error for missing translations.
-  config.action_view.raise_on_missing_translations = false
+  config.i18n.raise_on_missing_translations = false
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
@@ -98,13 +98,13 @@ Rails.application.configure do
   else
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      address: Rails.application.secrets.smtp_address,
-      port: Rails.application.secrets.smtp_port,
-      authentication: Rails.application.secrets.smtp_authentication,
-      user_name: Rails.application.secrets.smtp_username,
-      password: Rails.application.secrets.smtp_password,
-      domain: Rails.application.secrets.smtp_domain,
-      enable_starttls_auto: Rails.application.secrets.smtp_starttls_auto,
+      address: ENV.fetch("SMTP_ADDRESS", nil),
+      port: ENV.fetch("SMTP_PORT", nil),
+      authentication: "plain",
+      user_name: ENV.fetch("SMTP_USERNAME", nil),
+      password: ENV.fetch("SMTP_PASSWORD", nil),
+      domain: ENV.fetch("SMTP_DOMAIN", nil),
+      enable_starttls_auto: true,
       openssl_verify_mode: "none"
     }
   end

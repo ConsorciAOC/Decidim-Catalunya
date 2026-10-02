@@ -1,0 +1,11 @@
+<% if available_locales.length < 4 %>
+    <div>
+      <ul class="menu-bar__language-chooser" role="menu">
+        <% available_locales.each do |locale| %>
+            <li class="<%= I18n.locale.to_s == locale ? "is-active" : "" %>" role="presentation">
+              <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
