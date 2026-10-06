@@ -1,29 +1,6 @@
 GIT
-  remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
-  revision: 43355b70c3a4f6f8bc911b780986886b5747d496
-  branch: main
-  specs:
-    decidim-trusted_ids (0.12.0)
-      decidim (>= 0.31, < 0.32)
-      decidim-core (>= 0.31, < 0.32)
-      decidim-verifications (>= 0.31, < 0.32)
-      deface (>= 1.9)
-
-GIT
-  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 970cf5a3f84968ab64812a89604accdc42441981
-  branch: main
-  specs:
-    decidim-decidim_awesome (0.14.4)
-      active_hashcash (~> 0.4.0)
-      decidim-admin (>= 0.31.0, < 0.32)
-      decidim-core (>= 0.31.0, < 0.32)
-      deface (>= 1.5)
-      sassc (~> 2.3)
-
-GIT
-  remote: https://github.com/decidim/decidim.git
-  revision: ea5abb6e0fa51e5083f692ebde4a838ec00ae369
+  remote: https://github.com/CodiTramuntana/decidim.git
+  revision: 59965d6a76f2af586598b275cde8347787ff8212
   branch: release/0.31-stable
   specs:
     decidim (0.31.7)
@@ -224,6 +201,29 @@ GIT
       decidim-forms (= 0.31.7)
     decidim-verifications (0.31.7)
       decidim-core (= 0.31.7)
+
+GIT
+  remote: https://github.com/ConsorciAOC-PRJ/decidim-module-trusted-ids.git
+  revision: 43355b70c3a4f6f8bc911b780986886b5747d496
+  branch: main
+  specs:
+    decidim-trusted_ids (0.12.0)
+      decidim (>= 0.31, < 0.32)
+      decidim-core (>= 0.31, < 0.32)
+      decidim-verifications (>= 0.31, < 0.32)
+      deface (>= 1.9)
+
+GIT
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
+  revision: 7a001de45c630ea8070cb3479522cf08117b3708
+  branch: main
+  specs:
+    decidim-decidim_awesome (0.14.5)
+      active_hashcash (~> 0.4.0)
+      decidim-admin (>= 0.31.0, < 0.32)
+      decidim-core (>= 0.31.0, < 0.32)
+      deface (>= 1.5)
+      sassc (~> 2.3)
 
 GIT
   remote: https://github.com/openpoke/decidim-module-reporting-proposals.git
