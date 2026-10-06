@@ -31,10 +31,6 @@ module DecidimCatalunya
     # the framework and any gems in your application.
 
     config.to_prepare do
-      Rails.root.glob("app/overrides/**/*.rb").each do |override|
-        load override
-      end
-
       # Customization for GoogleTagManager
       Decidim::System::RegisterOrganizationForm.include(Decidim::System::GoogleTagManagerOrganizationFormOverride)
       Decidim::System::UpdateOrganizationForm.include(Decidim::System::GoogleTagManagerOrganizationFormOverride)
