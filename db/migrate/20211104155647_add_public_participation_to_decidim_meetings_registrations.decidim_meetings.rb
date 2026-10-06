@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_meetings (originally 20210430123416)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-06-26 11:58:37 UTC
 class AddPublicParticipationToDecidimMeetingsRegistrations < ActiveRecord::Migration[6.0]
   def change
     add_column :decidim_meetings_registrations, :public_participation, :boolean, default: false

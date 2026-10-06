@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20180314085339)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-06-26 11:58:36 UTC
 class RenameMaximumVotesPerProposalToThresholdPerProposal < ActiveRecord::Migration[5.1]
   def up
     execute <<~SQL.squish

@@ -1,28 +1,16 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  # The name of the application
-  config.application_name = Rails.application.secrets.decidim[:application_name]
+  config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
+  config.mailer_sender = Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
 
-  # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = Rails.application.secrets.decidim[:mailer_sender]
+  config.available_locales = Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES", "ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro").to_array
+  config.default_locale = Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").to_s.to_sym
 
-  # Sets the list of available locales for the whole application.
-  #
-  # When an organization is created through the System area, system admins will
-  # be able to choose the available languages for that organization. That list
-  # of languages will be equal or a subset of the list in this file.
-  config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || %w(ca es)
-
-  # Sets the default locale for new organizations. When creating a new
-  # organization from the System area, system admins will be able to overwrite
-  # this value for that specific organization.
-  config.default_locale = Rails.application.secrets.decidim[:default_locale].presence || :ca
-
-  # Map and Geocoder configuration
+  # HERE maps
   config.maps = {
     provider: :here,
-    api_key: Rails.application.secrets.maps[:api_key],
+    api_key: Decidim::Env.new("GEOCODER_LOOKUP_API_KEY").to_s,
     static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
   }
   config.geocoder = {
@@ -30,7 +18,6 @@ Decidim.configure do |config|
     units: :km
   }
 
-  # Configure CSP for Azure Storage, Google Tag Manager, here api, google fonts and jsdelivr
   config.content_security_policies_extra = {
     "connect-src" => %w(self *.hereapi.com *.jsdelivr.net data: https://*.blob.core.windows.net https://region1.google-analytics.com),
     "img-src" => %w(self *.hereapi.com https://*.blob.core.windows.net blob:),
@@ -40,42 +27,22 @@ Decidim.configure do |config|
     "font-src" => %w(self https://fonts.gstatic.com)
   }
 
-  # Custom HTML Header snippets
-  #
-  # The most common use is to integrate third-party services that require some
-  # extra JavaScript or CSS. Also, you can use it to add extra meta tags to the
-  # HTML. Note that this will only be rendered in public pages, not in the admin
-  # section.
-  #
-  # Before enabling this you should ensure that any tracking that might be done
-  # is in accordance with the rules and regulations that apply to your
-  # environment and usage scenarios. This feature also comes with the risk
-  # that an organization's administrator injects malicious scripts to spy on or
-  # take over user accounts.
-  #
-  config.enable_html_header_snippets = Rails.application.secrets.decidim[:enable_html_header_snippets].present?
+  config.enable_html_header_snippets = Decidim::Env.new("DECIDIM_ENABLE_HTML_HEADER_SNIPPETS").present?
 
-  # Allow organizations admins to track newsletter links.
-  config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links].present? unless Rails.application.secrets.decidim[:track_newsletter_links] == "auto"
+  track_newsletter_links = Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto")
+  config.track_newsletter_links = track_newsletter_links.present? unless track_newsletter_links.to_s == "auto"
 
-  # Machine Translation Configuration
-  #
-  # Enable machine translations
   config.enable_machine_translations = false
 
-  # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config.throttling_max_requests = Rails.application.secrets.decidim[:throttling_max_requests].to_i
+  config.throttling_max_requests = Decidim::Env.new("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
+  config.throttling_period = Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
 
-  # Time window in which the throttling is applied.
-  config.throttling_period = Rails.application.secrets.decidim[:throttling_period].to_i.minutes
-
-  config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
+  config.follow_http_x_forwarded_host = Decidim::Env.new("DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST").present?
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 
-# Inform Decidim about the assets folder
 Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
 
 Decidim::Initiatives.default_components = []
