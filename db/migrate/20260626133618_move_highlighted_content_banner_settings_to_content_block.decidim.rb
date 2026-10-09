@@ -8,7 +8,7 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
 
   def up
     Organization.reset_column_information
-    # Note that we need to use the actual Decidim::ContentBlock clas, as we need access to the `images_container` method
+    # Note that we need to use the actual Decidim::ContentBlock class, as we need access to the `images_container` method
     Decidim::ContentBlock.reset_column_information
 
     Organization.find_each do |organization|
