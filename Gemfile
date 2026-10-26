@@ -12,7 +12,7 @@ gem "decidim-elections", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "release/0.31-stable"
 gem "decidim-file_authorization_handler", "~> 0.31.6.2"
 # Simplified & mobile-first proposals creation (ie: fixmystreets behavior)
 gem "decidim-reporting_proposals", github: "openpoke/decidim-module-reporting-proposals", branch: "main"
