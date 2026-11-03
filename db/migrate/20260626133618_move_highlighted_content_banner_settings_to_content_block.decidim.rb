@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20250527122040)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-10-26 17:51:44 UTC
 class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migration[7.0]
   class Organization < ApplicationRecord
     self.table_name = :decidim_organizations

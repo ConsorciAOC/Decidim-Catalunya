@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_forms (originally 20240402092039)
-# This file has been modified by `decidim upgrade:migrations` task on 2026-08-04 11:35:41 UTC
+# This file has been modified by `decidim upgrade:migrations` task on 2026-10-26 17:51:44 UTC
 class AddAnswerOptionsCounterCacheToQuestions < ActiveRecord::Migration[6.1]
   class Question < ActiveRecord::Base
     self.table_name = "decidim_forms_questions"
