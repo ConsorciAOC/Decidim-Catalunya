@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim (originally 20250527122040)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-10-26 17:51:44 UTC
 class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migration[7.0]
   class Organization < ApplicationRecord
     self.table_name = :decidim_organizations
@@ -8,7 +9,7 @@ class MoveHighlightedContentBannerSettingsToContentBlock < ActiveRecord::Migrati
 
   def up
     Organization.reset_column_information
-    # Note that we need to use the actual Decidim::ContentBlock class, as we need access to the `images_container` method
+    # Note that we need to use the actual Decidim::ContentBlock clas, as we need access to the `images_container` method
     Decidim::ContentBlock.reset_column_information
 
     Organization.find_each do |organization|

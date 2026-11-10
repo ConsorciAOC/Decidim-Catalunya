@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_06_093961) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_29_105017) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
-  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_hashcash_stamps", force: :cascade do |t|
@@ -431,6 +430,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_06_093961) do
     t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "settings", default: {}, null: false
     t.index ["active", "position"], name: "index_decidim_awesome_fuq_on_active_position"
     t.index ["decidim_component_id"], name: "index_decidim_awesome_fuq_on_component_id"
     t.index ["decidim_organization_id"], name: "index_decidim_awesome_fuq_on_organization_id"
@@ -698,6 +698,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_06_093961) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["decidim_conference_id", "decidim_user_id", "role"], name: "index_unique_user_and_conference_role", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_conference_user_role_on_decidim_user_id"
   end
 
   create_table "decidim_conferences", force: :cascade do |t|
