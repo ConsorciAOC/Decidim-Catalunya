@@ -38,7 +38,7 @@ module HeroContentBlockSettings
         restored = (saved || {}).merge(current || {})
         next if restored == (current || {})
 
-        block.update_columns(settings: restored, updated_at: Time.current)
+        block.update_columns(settings: restored, updated_at: Time.current) # rubocop:disable Rails/SkipsModelValidations
       end
     end
     records.size
@@ -54,7 +54,7 @@ module HeroContentBlockSettings
               record["id"].is_a?(Integer) && record["id"].positive? &&
               record["organization_id"].is_a?(Integer) && record["organization_id"].positive? &&
               record["scope_name"].is_a?(String) && !record["scope_name"].empty? &&
-              record.key?("settings") && (record["settings"].nil? || record["settings"].is_a?(Hash))
+              record.has_key?("settings") && (record["settings"].nil? || record["settings"].is_a?(Hash))
       raise ArgumentError, "Invalid hero settings backup record" unless valid
 
       ids << record.fetch("id")
