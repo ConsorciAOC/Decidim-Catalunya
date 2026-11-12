@@ -33,6 +33,29 @@ bin/rails db:seed
 bin/rails s
 ```
 
+## Backing up and restoring hero settings
+
+Before upgrading, export the raw settings of every hero content block to a new
+JSON file (the export will not overwrite an existing file):
+
+```bash
+bundle exec rake 'hero_content_block_settings:export[/secure/path/hero-settings.json]'
+```
+
+Keep the file securely outside the application repository. After upgrading, if
+the CTA migration discarded existing settings, restore the missing keys with:
+
+```bash
+bundle exec rake 'hero_content_block_settings:restore[/secure/path/hero-settings.json]'
+```
+
+The restore uses the original content block and organization IDs and scope, so
+run it against the same database. It preserves any current setting, including
+the migrated CTA values, and only adds keys absent from the current settings.
+All records are restored in one transaction; a missing or mismatched block or an
+invalid backup aborts the restore. A backup from before the affected migration
+is required to recover settings that were lost.
+
 ## Overrides, decorators and more.
 
 ### Add Google Tag Manager
